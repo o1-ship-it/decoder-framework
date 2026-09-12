@@ -1,0 +1,314 @@
+{
+  "schemaVersion": 1,
+  "protocol": {
+    "calibration": "每个序列族 12 个变体，其中 2 个留出后缀改变；图对使用 12 个固定结构配对",
+    "test": "与 calibration 使用不同 id；只在最终评估读取 outcome",
+    "stress": "序列中 8/12 个变体改变留出后缀，用于观察分布变化",
+    "warning": "这是合成小样本的条件成功率，不是自然世界概率"
+  },
+  "calibration": {
+    "schemaVersion": 1,
+    "method": "bucket_empirical_rate_with_Beta_1_1_smoothing",
+    "minCount": 5,
+    "calibrationIds": [
+      "sequence-calibration-arithmetic-0",
+      "sequence-calibration-arithmetic-1",
+      "sequence-calibration-arithmetic-2",
+      "sequence-calibration-arithmetic-3",
+      "sequence-calibration-arithmetic-4",
+      "sequence-calibration-arithmetic-5",
+      "sequence-calibration-arithmetic-6",
+      "sequence-calibration-arithmetic-7",
+      "sequence-calibration-arithmetic-8",
+      "sequence-calibration-arithmetic-9",
+      "sequence-calibration-arithmetic-10",
+      "sequence-calibration-arithmetic-11",
+      "sequence-calibration-periodic-0",
+      "sequence-calibration-periodic-1",
+      "sequence-calibration-periodic-2",
+      "sequence-calibration-periodic-3",
+      "sequence-calibration-periodic-4",
+      "sequence-calibration-periodic-5",
+      "sequence-calibration-periodic-6",
+      "sequence-calibration-periodic-7",
+      "sequence-calibration-periodic-8",
+      "sequence-calibration-periodic-9",
+      "sequence-calibration-periodic-10",
+      "sequence-calibration-periodic-11",
+      "sequence-calibration-differences-0",
+      "sequence-calibration-differences-1",
+      "sequence-calibration-differences-2",
+      "sequence-calibration-differences-3",
+      "sequence-calibration-differences-4",
+      "sequence-calibration-differences-5",
+      "sequence-calibration-differences-6",
+      "sequence-calibration-differences-7",
+      "sequence-calibration-differences-8",
+      "sequence-calibration-differences-9",
+      "sequence-calibration-differences-10",
+      "sequence-calibration-differences-11",
+      "sequence-calibration-recurrence-0",
+      "sequence-calibration-recurrence-1",
+      "sequence-calibration-recurrence-2",
+      "sequence-calibration-recurrence-3",
+      "sequence-calibration-recurrence-4",
+      "sequence-calibration-recurrence-5",
+      "sequence-calibration-recurrence-6",
+      "sequence-calibration-recurrence-7",
+      "sequence-calibration-recurrence-8",
+      "sequence-calibration-recurrence-9",
+      "sequence-calibration-recurrence-10",
+      "sequence-calibration-recurrence-11",
+      "sequence-calibration-differenceRecurrence-0",
+      "sequence-calibration-differenceRecurrence-1",
+      "sequence-calibration-differenceRecurrence-2",
+      "sequence-calibration-differenceRecurrence-3",
+      "sequence-calibration-differenceRecurrence-4",
+      "sequence-calibration-differenceRecurrence-5",
+      "sequence-calibration-differenceRecurrence-6",
+      "sequence-calibration-differenceRecurrence-7",
+      "sequence-calibration-differenceRecurrence-8",
+      "sequence-calibration-differenceRecurrence-9",
+      "sequence-calibration-differenceRecurrence-10",
+      "sequence-calibration-differenceRecurrence-11",
+      "graph-calibration-0",
+      "graph-calibration-1",
+      "graph-calibration-2",
+      "graph-calibration-3",
+      "graph-calibration-4",
+      "graph-calibration-5",
+      "graph-calibration-6",
+      "graph-calibration-7",
+      "graph-calibration-8",
+      "graph-calibration-9",
+      "graph-calibration-10",
+      "graph-calibration-11"
+    ],
+    "buckets": {
+      "[\"sequence\",\"exact_future_values\",\"arithmetic|arithmetic|protocol-v1\"]": {
+        "count": 12,
+        "successes": 10,
+        "probability": 0.7857142857142857
+      },
+      "[\"sequence\",\"exact_future_values\",\"periodic|periodic|protocol-v1\"]": {
+        "count": 12,
+        "successes": 10,
+        "probability": 0.7857142857142857
+      },
+      "[\"sequence\",\"exact_future_values\",\"differences|differences|protocol-v1\"]": {
+        "count": 12,
+        "successes": 10,
+        "probability": 0.7857142857142857
+      },
+      "[\"sequence\",\"exact_future_values\",\"recurrence|recurrence|protocol-v1\"]": {
+        "count": 12,
+        "successes": 10,
+        "probability": 0.7857142857142857
+      },
+      "[\"sequence\",\"exact_future_values\",\"differenceRecurrence|difference→recurrence|protocol-v1\"]": {
+        "count": 12,
+        "successes": 10,
+        "probability": 0.7857142857142857
+      },
+      "[\"graph\",\"graph_isomorphism\",\"wl1-v2|n=6|signature-match\"]": {
+        "count": 12,
+        "successes": 9,
+        "probability": 0.7142857142857143
+      }
+    },
+    "limitation": "概率只估计本实验样本混合下的命题成功率；未保证分布变化后的可靠性"
+  },
+  "test": [
+    {
+      "domain": "sequence",
+      "claim": "exact_future_values",
+      "total": 60,
+      "issued": 60,
+      "abstained": 0,
+      "successes": 50,
+      "coverage": 1,
+      "successRateAmongIssued": 0.8333333333333334,
+      "probabilityCount": 60,
+      "brierScore": 0.14115646258503417,
+      "certaintyBaselineBrier": 0.16666666666666666,
+      "reliability": [
+        {
+          "probability": 0.7857142857142857,
+          "count": 60,
+          "observedSuccessRate": 0.8333333333333334
+        }
+      ],
+      "riskCoverage": [
+        {
+          "threshold": 0,
+          "count": 60,
+          "coverage": 1,
+          "errorRate": 0.16666666666666666
+        },
+        {
+          "threshold": 0.6,
+          "count": 60,
+          "coverage": 1,
+          "errorRate": 0.16666666666666666
+        },
+        {
+          "threshold": 0.8,
+          "count": 0,
+          "coverage": 0,
+          "errorRate": null
+        },
+        {
+          "threshold": 0.9,
+          "count": 0,
+          "coverage": 0,
+          "errorRate": null
+        }
+      ]
+    },
+    {
+      "domain": "graph",
+      "claim": "graph_isomorphism",
+      "total": 12,
+      "issued": 12,
+      "abstained": 0,
+      "successes": 9,
+      "coverage": 1,
+      "successRateAmongIssued": 0.75,
+      "probabilityCount": 12,
+      "brierScore": 0.18877551020408165,
+      "certaintyBaselineBrier": 0.25,
+      "reliability": [
+        {
+          "probability": 0.7142857142857143,
+          "count": 12,
+          "observedSuccessRate": 0.75
+        }
+      ],
+      "riskCoverage": [
+        {
+          "threshold": 0,
+          "count": 12,
+          "coverage": 1,
+          "errorRate": 0.25
+        },
+        {
+          "threshold": 0.6,
+          "count": 12,
+          "coverage": 1,
+          "errorRate": 0.25
+        },
+        {
+          "threshold": 0.8,
+          "count": 0,
+          "coverage": 0,
+          "errorRate": null
+        },
+        {
+          "threshold": 0.9,
+          "count": 0,
+          "coverage": 0,
+          "errorRate": null
+        }
+      ]
+    }
+  ],
+  "stress": [
+    {
+      "domain": "sequence",
+      "claim": "exact_future_values",
+      "total": 60,
+      "issued": 60,
+      "abstained": 0,
+      "successes": 20,
+      "coverage": 1,
+      "successRateAmongIssued": 0.3333333333333333,
+      "probabilityCount": 60,
+      "brierScore": 0.42687074829932015,
+      "certaintyBaselineBrier": 0.6666666666666666,
+      "reliability": [
+        {
+          "probability": 0.7857142857142857,
+          "count": 60,
+          "observedSuccessRate": 0.3333333333333333
+        }
+      ],
+      "riskCoverage": [
+        {
+          "threshold": 0,
+          "count": 60,
+          "coverage": 1,
+          "errorRate": 0.6666666666666666
+        },
+        {
+          "threshold": 0.6,
+          "count": 60,
+          "coverage": 1,
+          "errorRate": 0.6666666666666666
+        },
+        {
+          "threshold": 0.8,
+          "count": 0,
+          "coverage": 0,
+          "errorRate": null
+        },
+        {
+          "threshold": 0.9,
+          "count": 0,
+          "coverage": 0,
+          "errorRate": null
+        }
+      ]
+    },
+    {
+      "domain": "graph",
+      "claim": "graph_isomorphism",
+      "total": 12,
+      "issued": 12,
+      "abstained": 0,
+      "successes": 9,
+      "coverage": 1,
+      "successRateAmongIssued": 0.75,
+      "probabilityCount": 12,
+      "brierScore": 0.18877551020408165,
+      "certaintyBaselineBrier": 0.25,
+      "reliability": [
+        {
+          "probability": 0.7142857142857143,
+          "count": 12,
+          "observedSuccessRate": 0.75
+        }
+      ],
+      "riskCoverage": [
+        {
+          "threshold": 0,
+          "count": 12,
+          "coverage": 1,
+          "errorRate": 0.25
+        },
+        {
+          "threshold": 0.6,
+          "count": 12,
+          "coverage": 1,
+          "errorRate": 0.25
+        },
+        {
+          "threshold": 0.8,
+          "count": 0,
+          "coverage": 0,
+          "errorRate": null
+        },
+        {
+          "threshold": 0.9,
+          "count": 0,
+          "coverage": 0,
+          "errorRate": null
+        }
+      ]
+    }
+  ],
+  "recordCounts": {
+    "calibration": 72,
+    "test": 72,
+    "stress": 72
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "arithmetic": {
+    "status": "candidate_frozen",
+    "best": {
+      "name": "identity→arithmetic",
+      "transformOrder": 0,
+      "exactRate": 1,
+      "averageError": 0
+    },
+    "top": [
+      {
+        "name": "identity→arithmetic",
+        "exactRate": 1,
+        "averageError": 0
+      },
+      {
+        "name": "identity→differences",
+        "exactRate": 1,
+        "averageError": 0
+      },
+      {
+        "name": "1阶差分→constant",
+        "exactRate": 1,
+        "averageError": 0
+      },
+      {
+        "name": "1阶差分→periodic",
+        "exactRate": 1,
+        "averageError": 0
+      },
+      {
+        "name": "1阶差分→differences",
+        "exactRate": 1,
+        "averageError": 0
+      }
+    ]
+  },
+  "quadratic": {
+    "status": "candidate_frozen",
+    "best": {
+      "name": "identity→differences",
+      "transformOrder": 0,
+      "exactRate": 1,
+      "averageError": 0
+    },
+    "top": [
+      {
+        "name": "identity→differences",
+        "exactRate": 1,
+        "averageError": 0
+      },
+      {
+        "name": "1阶差分→arithmetic",
+        "exactRate": 1,
+        "averageError": 0
+      },
+      {
+        "name": "1阶差分→differences",
+        "exactRate": 1,
+        "averageError": 0
+      },
+      {
+        "name": "2阶差分→constant",
+        "exactRate": 1,
+        "averageError": 0
+      },
+      {
+        "name": "2阶差分→periodic",
+        "exactRate": 1,
+        "averageError": 0
+      }
+    ]
+  },
+  "differenceRecurrence": {
+    "status": "candidate_frozen",
+    "best": {
+      "name": "1阶差分→recurrence",
+      "transformOrder": 1,
+      "exactRate": 1,
+      "averageError": 0
+    },
+    "top": [
+      {
+        "name": "1阶差分→recurrence",
+        "exactRate": 1,
+        "averageError": 0
+      },
+      {
+        "name": "2阶差分→recurrence",
+        "exactRate": 1,
+        "averageError": 0
+      },
+      {
+        "name": "identity→constant",
+        "exactRate": 0,
+        "averageError": null
+      },
+      {
+        "name": "identity→arithmetic",
+        "exactRate": 0,
+        "averageError": null
+      },
+      {
+        "name": "identity→periodic",
+        "exactRate": 0,
+        "averageError": null
+      }
+    ]
+  },
+  "random": {
+    "status": "uncertain",
+    "best": {
+      "name": "identity→constant",
+      "transformOrder": 0,
+      "exactRate": 0,
+      "averageError": null
+    },
+    "top": [
+      {
+        "name": "identity→constant",
+        "exactRate": 0,
+        "averageError": null
+      },
+      {
+        "name": "identity→arithmetic",
+        "exactRate": 0,
+        "averageError": null
+      },
+      {
+        "name": "identity→periodic",
+        "exactRate": 0,
+        "averageError": null
+      },
+      {
+        "name": "identity→differences",
+        "exactRate": 0,
+        "averageError": null
+      },
+      {
+        "name": "identity→recurrence",
+        "exactRate": 0,
+        "averageError": null
+      }
+    ]
+  }
+}

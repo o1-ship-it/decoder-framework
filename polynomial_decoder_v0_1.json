@@ -1,0 +1,104 @@
+{
+  "decoded": {
+    "domain": "polynomial",
+    "decoder": "sparse_polynomial_normalization",
+    "representation": "3[x^1*y^1] + 2[y^2] + -1[z^1]",
+    "hypothesis": {
+      "terms": [
+        {
+          "coefficient": 3,
+          "powers": {
+            "x": 1,
+            "y": 1
+          }
+        },
+        {
+          "coefficient": 2,
+          "powers": {
+            "y": 2
+          }
+        },
+        {
+          "coefficient": -1,
+          "powers": {
+            "z": 1
+          }
+        }
+      ],
+      "content": 2
+    },
+    "complexity": 3,
+    "residual": 0,
+    "verification": "normalized_exactly",
+    "limits": [
+      "整数系数多项式",
+      "变量交换和同类项合并视为表示变化",
+      "不包含实数域语义或不等式解集"
+    ]
+  },
+  "equivalentVerification": {
+    "status": "verified_polynomial",
+    "termCount": 3
+  },
+  "wrongVerification": {
+    "status": "counterexample_found",
+    "reason": "多项式规范形式不一致"
+  },
+  "certificate": {
+    "schemaVersion": 1,
+    "claim": "polynomial_normal_form",
+    "source": {
+      "terms": [
+        {
+          "coefficient": 3,
+          "powers": {
+            "x": 1,
+            "y": 1
+          }
+        },
+        {
+          "coefficient": 2,
+          "powers": {
+            "y": 2
+          }
+        },
+        {
+          "coefficient": -1,
+          "powers": {
+            "z": 1
+          }
+        }
+      ],
+      "content": 2
+    },
+    "hypothesis": {
+      "terms": [
+        {
+          "coefficient": 3,
+          "powers": {
+            "x": 1,
+            "y": 1
+          }
+        },
+        {
+          "coefficient": 2,
+          "powers": {
+            "y": 2
+          }
+        },
+        {
+          "coefficient": -1,
+          "powers": {
+            "z": 1
+          }
+        }
+      ],
+      "content": 2
+    },
+    "limits": [
+      "整数系数多项式",
+      "变量交换和同类项合并视为表示变化",
+      "不包含实数域语义或不等式解集"
+    ]
+  }
+}

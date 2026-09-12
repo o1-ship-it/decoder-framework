@@ -1,0 +1,325 @@
+{
+  "original": {
+    "domain": "equation_system",
+    "decoder": "rational_row_reduction",
+    "representation": "RREF(x,y)",
+    "hypothesis": {
+      "variables": [
+        "x",
+        "y"
+      ],
+      "rref": [
+        [
+          "1",
+          "0",
+          "2"
+        ],
+        [
+          "0",
+          "1",
+          "1"
+        ]
+      ],
+      "rank": 2,
+      "pivots": [
+        "x",
+        "y"
+      ],
+      "freeVariables": [],
+      "consistent": true
+    },
+    "conclusions": {
+      "status": "consistent",
+      "unique": true,
+      "statements": [
+        {
+          "variable": "x",
+          "equals": {
+            "constant": "2",
+            "terms": []
+          }
+        },
+        {
+          "variable": "y",
+          "equals": {
+            "constant": "1",
+            "terms": []
+          }
+        }
+      ]
+    },
+    "complexity": 4,
+    "residual": 0,
+    "verification": "exact_rref",
+    "limits": [
+      "整数系数的有限线性方程组",
+      "解读在有理数域中进行",
+      "RREF 等价不代表选择了唯一的应用语义"
+    ]
+  },
+  "equivalent": {
+    "status": "verified_row_equivalence"
+  },
+  "dependent": {
+    "domain": "equation_system",
+    "decoder": "rational_row_reduction",
+    "representation": "RREF(x,y)",
+    "hypothesis": {
+      "variables": [
+        "x",
+        "y"
+      ],
+      "rref": [
+        [
+          "1",
+          "1/2",
+          "5/2"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "rank": 1,
+      "pivots": [
+        "x"
+      ],
+      "freeVariables": [
+        "y"
+      ],
+      "consistent": true
+    },
+    "conclusions": {
+      "status": "consistent",
+      "unique": false,
+      "statements": [
+        {
+          "variable": "x",
+          "equals": {
+            "constant": "5/2",
+            "terms": [
+              {
+                "variable": "y",
+                "coefficient": "-1/2"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "complexity": 2,
+    "residual": 0,
+    "verification": "exact_rref",
+    "limits": [
+      "整数系数的有限线性方程组",
+      "解读在有理数域中进行",
+      "RREF 等价不代表选择了唯一的应用语义"
+    ]
+  },
+  "inconsistent": {
+    "domain": "equation_system",
+    "decoder": "rational_row_reduction",
+    "representation": "RREF(x,y)",
+    "hypothesis": {
+      "variables": [
+        "x",
+        "y"
+      ],
+      "rref": [
+        [
+          "1",
+          "1/2",
+          "5/2"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "rank": 1,
+      "pivots": [
+        "x"
+      ],
+      "freeVariables": [
+        "y"
+      ],
+      "consistent": false
+    },
+    "conclusions": {
+      "status": "inconsistent",
+      "statements": []
+    },
+    "complexity": 2,
+    "residual": 1,
+    "verification": "exact_rref",
+    "limits": [
+      "整数系数的有限线性方程组",
+      "解读在有理数域中进行",
+      "RREF 等价不代表选择了唯一的应用语义"
+    ]
+  },
+  "originalVerification": {
+    "status": "verified_system",
+    "rank": 2,
+    "consistent": true,
+    "freeVariables": []
+  },
+  "rowEquivalentVerification": {
+    "status": "verified_system",
+    "rank": 2,
+    "consistent": true,
+    "freeVariables": []
+  },
+  "eliminationVerification": {
+    "status": "verified_elimination",
+    "consistent": true,
+    "unique": true,
+    "conclusions": {
+      "status": "consistent",
+      "unique": true,
+      "statements": [
+        {
+          "variable": "x",
+          "equals": {
+            "constant": "2",
+            "terms": []
+          }
+        },
+        {
+          "variable": "y",
+          "equals": {
+            "constant": "1",
+            "terms": []
+          }
+        }
+      ]
+    }
+  },
+  "certificate": {
+    "schemaVersion": 2,
+    "claim": "linear_system_rref",
+    "input": {
+      "variables": [
+        "x",
+        "y"
+      ],
+      "equations": [
+        {
+          "coefficients": [
+            "2",
+            "1"
+          ],
+          "constant": "5"
+        },
+        {
+          "coefficients": [
+            "1",
+            "-1"
+          ],
+          "constant": "1"
+        }
+      ]
+    },
+    "source": {
+      "variables": [
+        "x",
+        "y"
+      ],
+      "rref": [
+        [
+          "1",
+          "0",
+          "2"
+        ],
+        [
+          "0",
+          "1",
+          "1"
+        ]
+      ],
+      "rank": 2,
+      "pivots": [
+        "x",
+        "y"
+      ],
+      "freeVariables": [],
+      "consistent": true
+    },
+    "hypothesis": {
+      "variables": [
+        "x",
+        "y"
+      ],
+      "rref": [
+        [
+          "1",
+          "0",
+          "2"
+        ],
+        [
+          "0",
+          "1",
+          "1"
+        ]
+      ],
+      "rank": 2,
+      "pivots": [
+        "x",
+        "y"
+      ],
+      "freeVariables": [],
+      "consistent": true
+    },
+    "conclusions": {
+      "status": "consistent",
+      "unique": true,
+      "statements": [
+        {
+          "variable": "x",
+          "equals": {
+            "constant": "2",
+            "terms": []
+          }
+        },
+        {
+          "variable": "y",
+          "equals": {
+            "constant": "1",
+            "terms": []
+          }
+        }
+      ]
+    },
+    "trace": [
+      {
+        "op": "scale",
+        "row": 0,
+        "factor": "1/2"
+      },
+      {
+        "op": "add",
+        "target": 1,
+        "source": 0,
+        "factor": "-1"
+      },
+      {
+        "op": "scale",
+        "row": 1,
+        "factor": "-2/3"
+      },
+      {
+        "op": "add",
+        "target": 0,
+        "source": 1,
+        "factor": "-1/2"
+      }
+    ],
+    "limits": [
+      "整数系数的有限线性方程组",
+      "解读在有理数域中进行",
+      "RREF 等价不代表选择了唯一的应用语义"
+    ]
+  }
+}

@@ -1,0 +1,482 @@
+{
+  "schemaVersion": 1,
+  "claim": "parameter_condition_experiment",
+  "cases": {
+    "rotation": {
+      "parameterVariables": [
+        "a",
+        "b"
+      ],
+      "degree": 2,
+      "coefficients": [
+        -1,
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "condition": "-1 + a^2 + b^2=0",
+      "checks": [
+        {
+          "parameters": {
+            "a": 0,
+            "b": 1
+          },
+          "predicted": 0,
+          "actual": 0,
+          "residual": 0
+        },
+        {
+          "parameters": {
+            "a": 1,
+            "b": 0
+          },
+          "predicted": 0,
+          "actual": 0,
+          "residual": 0
+        },
+        {
+          "parameters": {
+            "a": 0,
+            "b": -1
+          },
+          "predicted": 0,
+          "actual": 0,
+          "residual": 0
+        },
+        {
+          "parameters": {
+            "a": -1,
+            "b": 0
+          },
+          "predicted": 0,
+          "actual": 0,
+          "residual": 0
+        },
+        {
+          "parameters": {
+            "a": 1,
+            "b": 1
+          },
+          "predicted": 1,
+          "actual": 1,
+          "residual": 0
+        },
+        {
+          "parameters": {
+            "a": 2,
+            "b": 0
+          },
+          "predicted": 3,
+          "actual": 3,
+          "residual": 0
+        },
+        {
+          "parameters": {
+            "a": 2,
+            "b": 1
+          },
+          "predicted": 4,
+          "actual": 4,
+          "residual": 0
+        }
+      ],
+      "stateChecks": [
+        {
+          "state": [
+            1,
+            0
+          ],
+          "parameters": {
+            "a": 0,
+            "b": 1
+          },
+          "residual": 0
+        },
+        {
+          "state": [
+            1,
+            0
+          ],
+          "parameters": {
+            "a": 1,
+            "b": 0
+          },
+          "residual": 0
+        },
+        {
+          "state": [
+            1,
+            0
+          ],
+          "parameters": {
+            "a": 0,
+            "b": -1
+          },
+          "residual": 0
+        },
+        {
+          "state": [
+            1,
+            0
+          ],
+          "parameters": {
+            "a": -1,
+            "b": 0
+          },
+          "residual": 0
+        },
+        {
+          "state": [
+            1,
+            0
+          ],
+          "parameters": {
+            "a": 1,
+            "b": 1
+          },
+          "residual": 1
+        },
+        {
+          "state": [
+            1,
+            0
+          ],
+          "parameters": {
+            "a": 2,
+            "b": 0
+          },
+          "residual": 3
+        },
+        {
+          "state": [
+            1,
+            0
+          ],
+          "parameters": {
+            "a": 2,
+            "b": 1
+          },
+          "residual": 4
+        }
+      ],
+      "fitChecks": [
+        {
+          "parameters": {
+            "a": 0,
+            "b": 1
+          },
+          "predicted": 0,
+          "actual": 0,
+          "residual": 0
+        },
+        {
+          "parameters": {
+            "a": 1,
+            "b": 0
+          },
+          "predicted": 0,
+          "actual": 0,
+          "residual": 0
+        },
+        {
+          "parameters": {
+            "a": 0,
+            "b": -1
+          },
+          "predicted": 0,
+          "actual": 0,
+          "residual": 0
+        },
+        {
+          "parameters": {
+            "a": -1,
+            "b": 0
+          },
+          "predicted": 0,
+          "actual": 0,
+          "residual": 0
+        },
+        {
+          "parameters": {
+            "a": 1,
+            "b": 1
+          },
+          "predicted": 1,
+          "actual": 1,
+          "residual": 0
+        },
+        {
+          "parameters": {
+            "a": 2,
+            "b": 0
+          },
+          "predicted": 3,
+          "actual": 3,
+          "residual": 0
+        }
+      ],
+      "holdoutChecks": [
+        {
+          "parameters": {
+            "a": 2,
+            "b": 1
+          },
+          "predicted": 4,
+          "actual": 4,
+          "residual": 0
+        }
+      ],
+      "fitResidualMax": 0,
+      "holdoutResidualMax": 0,
+      "identifiable": true,
+      "generalizes": true,
+      "status": "verified_parameter_condition",
+      "point": [
+        1,
+        0
+      ]
+    },
+    "adversarial": {
+      "parameterVariables": [
+        "a",
+        "b"
+      ],
+      "degree": 2,
+      "coefficients": [
+        44,
+        34,
+        -47,
+        12,
+        -16,
+        9
+      ],
+      "condition": "44 + 34 a - 47 b + 12 a^2 - 16 ab + 9 b^2=0",
+      "checks": [
+        {
+          "parameters": {
+            "a": -2,
+            "b": 0
+          },
+          "predicted": 24,
+          "actual": 24,
+          "residual": 0
+        },
+        {
+          "parameters": {
+            "a": -1,
+            "b": 1
+          },
+          "predicted": 0,
+          "actual": 0,
+          "residual": 0
+        },
+        {
+          "parameters": {
+            "a": 0,
+            "b": 4
+          },
+          "predicted": 0,
+          "actual": 0,
+          "residual": 0
+        },
+        {
+          "parameters": {
+            "a": 1,
+            "b": 2
+          },
+          "predicted": 0,
+          "actual": 0,
+          "residual": 0
+        },
+        {
+          "parameters": {
+            "a": 2,
+            "b": 7
+          },
+          "predicted": 48,
+          "actual": 48,
+          "residual": 0
+        },
+        {
+          "parameters": {
+            "a": 3,
+            "b": -3
+          },
+          "predicted": 620,
+          "actual": 624,
+          "residual": 4
+        },
+        {
+          "parameters": {
+            "a": 4,
+            "b": 0
+          },
+          "predicted": 372,
+          "actual": 3720,
+          "residual": 3348
+        }
+      ],
+      "stateChecks": [
+        {
+          "state": [
+            1,
+            0
+          ],
+          "parameters": {
+            "a": -2,
+            "b": 0
+          },
+          "residual": 24
+        },
+        {
+          "state": [
+            1,
+            0
+          ],
+          "parameters": {
+            "a": -1,
+            "b": 1
+          },
+          "residual": 0
+        },
+        {
+          "state": [
+            1,
+            0
+          ],
+          "parameters": {
+            "a": 0,
+            "b": 4
+          },
+          "residual": 0
+        },
+        {
+          "state": [
+            1,
+            0
+          ],
+          "parameters": {
+            "a": 1,
+            "b": 2
+          },
+          "residual": 0
+        },
+        {
+          "state": [
+            1,
+            0
+          ],
+          "parameters": {
+            "a": 2,
+            "b": 7
+          },
+          "residual": 48
+        },
+        {
+          "state": [
+            1,
+            0
+          ],
+          "parameters": {
+            "a": 3,
+            "b": -3
+          },
+          "residual": 624
+        },
+        {
+          "state": [
+            1,
+            0
+          ],
+          "parameters": {
+            "a": 4,
+            "b": 0
+          },
+          "residual": 3720
+        }
+      ],
+      "fitChecks": [
+        {
+          "parameters": {
+            "a": -2,
+            "b": 0
+          },
+          "predicted": 24,
+          "actual": 24,
+          "residual": 0
+        },
+        {
+          "parameters": {
+            "a": -1,
+            "b": 1
+          },
+          "predicted": 0,
+          "actual": 0,
+          "residual": 0
+        },
+        {
+          "parameters": {
+            "a": 0,
+            "b": 4
+          },
+          "predicted": 0,
+          "actual": 0,
+          "residual": 0
+        },
+        {
+          "parameters": {
+            "a": 1,
+            "b": 2
+          },
+          "predicted": 0,
+          "actual": 0,
+          "residual": 0
+        },
+        {
+          "parameters": {
+            "a": 2,
+            "b": 7
+          },
+          "predicted": 48,
+          "actual": 48,
+          "residual": 0
+        },
+        {
+          "parameters": {
+            "a": 3,
+            "b": -3
+          },
+          "predicted": 620,
+          "actual": 624,
+          "residual": 4
+        }
+      ],
+      "holdoutChecks": [
+        {
+          "parameters": {
+            "a": 4,
+            "b": 0
+          },
+          "predicted": 372,
+          "actual": 3720,
+          "residual": 3348
+        }
+      ],
+      "fitResidualMax": 4,
+      "holdoutResidualMax": 3348,
+      "identifiable": true,
+      "generalizes": false,
+      "status": "overfit_candidate",
+      "point": [
+        1,
+        0
+      ]
+    }
+  },
+  "conclusion": {
+    "rotationGeneralizes": true,
+    "adversarialRejected": true
+  }
+}

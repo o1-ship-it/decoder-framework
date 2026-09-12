@@ -1,0 +1,527 @@
+{
+  "schemaVersion": 1,
+  "protocol": {
+    "trainSize": 8,
+    "holdoutLength": 4,
+    "sourceSelectionSplits": [
+      8,
+      10,
+      12
+    ]
+  },
+  "sourceSummary": {
+    "arithmetic": "arithmetic",
+    "periodic": "periodic",
+    "differences": "differences",
+    "recurrence": "recurrence",
+    "differenceRecurrence": "difference→recurrence"
+  },
+  "metrics": {
+    "sameFamilyExactRate": 1,
+    "crossFamilyExactRate": 0.3,
+    "sameFamilyCount": 10,
+    "crossFamilyCount": 40
+  },
+  "transfer": [
+    {
+      "sourceFamily": "arithmetic",
+      "targetFamily": "arithmetic",
+      "variant": 0,
+      "decoder": "arithmetic",
+      "valid": true,
+      "exact": true,
+      "error": 0,
+      "note": "公差=4"
+    },
+    {
+      "sourceFamily": "arithmetic",
+      "targetFamily": "arithmetic",
+      "variant": 1,
+      "decoder": "arithmetic",
+      "valid": true,
+      "exact": true,
+      "error": 0,
+      "note": "公差=7"
+    },
+    {
+      "sourceFamily": "arithmetic",
+      "targetFamily": "periodic",
+      "variant": 0,
+      "decoder": "arithmetic",
+      "valid": false,
+      "exact": false,
+      "error": null,
+      "note": "差分不恒定"
+    },
+    {
+      "sourceFamily": "arithmetic",
+      "targetFamily": "periodic",
+      "variant": 1,
+      "decoder": "arithmetic",
+      "valid": false,
+      "exact": false,
+      "error": null,
+      "note": "差分不恒定"
+    },
+    {
+      "sourceFamily": "arithmetic",
+      "targetFamily": "differences",
+      "variant": 0,
+      "decoder": "arithmetic",
+      "valid": false,
+      "exact": false,
+      "error": null,
+      "note": "差分不恒定"
+    },
+    {
+      "sourceFamily": "arithmetic",
+      "targetFamily": "differences",
+      "variant": 1,
+      "decoder": "arithmetic",
+      "valid": false,
+      "exact": false,
+      "error": null,
+      "note": "差分不恒定"
+    },
+    {
+      "sourceFamily": "arithmetic",
+      "targetFamily": "recurrence",
+      "variant": 0,
+      "decoder": "arithmetic",
+      "valid": false,
+      "exact": false,
+      "error": null,
+      "note": "差分不恒定"
+    },
+    {
+      "sourceFamily": "arithmetic",
+      "targetFamily": "recurrence",
+      "variant": 1,
+      "decoder": "arithmetic",
+      "valid": false,
+      "exact": false,
+      "error": null,
+      "note": "差分不恒定"
+    },
+    {
+      "sourceFamily": "arithmetic",
+      "targetFamily": "differenceRecurrence",
+      "variant": 0,
+      "decoder": "arithmetic",
+      "valid": false,
+      "exact": false,
+      "error": null,
+      "note": "差分不恒定"
+    },
+    {
+      "sourceFamily": "arithmetic",
+      "targetFamily": "differenceRecurrence",
+      "variant": 1,
+      "decoder": "arithmetic",
+      "valid": false,
+      "exact": false,
+      "error": null,
+      "note": "差分不恒定"
+    },
+    {
+      "sourceFamily": "periodic",
+      "targetFamily": "arithmetic",
+      "variant": 0,
+      "decoder": "periodic",
+      "valid": false,
+      "exact": false,
+      "error": null,
+      "note": "未发现稳定周期"
+    },
+    {
+      "sourceFamily": "periodic",
+      "targetFamily": "arithmetic",
+      "variant": 1,
+      "decoder": "periodic",
+      "valid": false,
+      "exact": false,
+      "error": null,
+      "note": "未发现稳定周期"
+    },
+    {
+      "sourceFamily": "periodic",
+      "targetFamily": "periodic",
+      "variant": 0,
+      "decoder": "periodic",
+      "valid": true,
+      "exact": true,
+      "error": 0,
+      "note": "周期=3"
+    },
+    {
+      "sourceFamily": "periodic",
+      "targetFamily": "periodic",
+      "variant": 1,
+      "decoder": "periodic",
+      "valid": true,
+      "exact": true,
+      "error": 0,
+      "note": "周期=3"
+    },
+    {
+      "sourceFamily": "periodic",
+      "targetFamily": "differences",
+      "variant": 0,
+      "decoder": "periodic",
+      "valid": false,
+      "exact": false,
+      "error": null,
+      "note": "未发现稳定周期"
+    },
+    {
+      "sourceFamily": "periodic",
+      "targetFamily": "differences",
+      "variant": 1,
+      "decoder": "periodic",
+      "valid": false,
+      "exact": false,
+      "error": null,
+      "note": "未发现稳定周期"
+    },
+    {
+      "sourceFamily": "periodic",
+      "targetFamily": "recurrence",
+      "variant": 0,
+      "decoder": "periodic",
+      "valid": false,
+      "exact": false,
+      "error": null,
+      "note": "未发现稳定周期"
+    },
+    {
+      "sourceFamily": "periodic",
+      "targetFamily": "recurrence",
+      "variant": 1,
+      "decoder": "periodic",
+      "valid": false,
+      "exact": false,
+      "error": null,
+      "note": "未发现稳定周期"
+    },
+    {
+      "sourceFamily": "periodic",
+      "targetFamily": "differenceRecurrence",
+      "variant": 0,
+      "decoder": "periodic",
+      "valid": false,
+      "exact": false,
+      "error": null,
+      "note": "未发现稳定周期"
+    },
+    {
+      "sourceFamily": "periodic",
+      "targetFamily": "differenceRecurrence",
+      "variant": 1,
+      "decoder": "periodic",
+      "valid": false,
+      "exact": false,
+      "error": null,
+      "note": "未发现稳定周期"
+    },
+    {
+      "sourceFamily": "differences",
+      "targetFamily": "arithmetic",
+      "variant": 0,
+      "decoder": "differences",
+      "valid": true,
+      "exact": true,
+      "error": 0,
+      "note": "恒定1阶差分"
+    },
+    {
+      "sourceFamily": "differences",
+      "targetFamily": "arithmetic",
+      "variant": 1,
+      "decoder": "differences",
+      "valid": true,
+      "exact": true,
+      "error": 0,
+      "note": "恒定1阶差分"
+    },
+    {
+      "sourceFamily": "differences",
+      "targetFamily": "periodic",
+      "variant": 0,
+      "decoder": "differences",
+      "valid": false,
+      "exact": false,
+      "error": null,
+      "note": "没有恒定的低阶差分"
+    },
+    {
+      "sourceFamily": "differences",
+      "targetFamily": "periodic",
+      "variant": 1,
+      "decoder": "differences",
+      "valid": true,
+      "exact": false,
+      "error": 1721.25,
+      "note": "恒定6阶差分"
+    },
+    {
+      "sourceFamily": "differences",
+      "targetFamily": "differences",
+      "variant": 0,
+      "decoder": "differences",
+      "valid": true,
+      "exact": true,
+      "error": 0,
+      "note": "恒定2阶差分"
+    },
+    {
+      "sourceFamily": "differences",
+      "targetFamily": "differences",
+      "variant": 1,
+      "decoder": "differences",
+      "valid": true,
+      "exact": true,
+      "error": 0,
+      "note": "恒定2阶差分"
+    },
+    {
+      "sourceFamily": "differences",
+      "targetFamily": "recurrence",
+      "variant": 0,
+      "decoder": "differences",
+      "valid": false,
+      "exact": false,
+      "error": null,
+      "note": "没有恒定的低阶差分"
+    },
+    {
+      "sourceFamily": "differences",
+      "targetFamily": "recurrence",
+      "variant": 1,
+      "decoder": "differences",
+      "valid": false,
+      "exact": false,
+      "error": null,
+      "note": "没有恒定的低阶差分"
+    },
+    {
+      "sourceFamily": "differences",
+      "targetFamily": "differenceRecurrence",
+      "variant": 0,
+      "decoder": "differences",
+      "valid": false,
+      "exact": false,
+      "error": null,
+      "note": "没有恒定的低阶差分"
+    },
+    {
+      "sourceFamily": "differences",
+      "targetFamily": "differenceRecurrence",
+      "variant": 1,
+      "decoder": "differences",
+      "valid": false,
+      "exact": false,
+      "error": null,
+      "note": "没有恒定的低阶差分"
+    },
+    {
+      "sourceFamily": "recurrence",
+      "targetFamily": "arithmetic",
+      "variant": 0,
+      "decoder": "recurrence",
+      "valid": true,
+      "exact": true,
+      "error": 0,
+      "note": "xₙ=2xₙ₋₁+(-1)xₙ₋₂"
+    },
+    {
+      "sourceFamily": "recurrence",
+      "targetFamily": "arithmetic",
+      "variant": 1,
+      "decoder": "recurrence",
+      "valid": true,
+      "exact": true,
+      "error": 0,
+      "note": "xₙ=2xₙ₋₁+(-1)xₙ₋₂"
+    },
+    {
+      "sourceFamily": "recurrence",
+      "targetFamily": "periodic",
+      "variant": 0,
+      "decoder": "recurrence",
+      "valid": false,
+      "exact": false,
+      "error": null,
+      "note": "未发现低阶整数递推"
+    },
+    {
+      "sourceFamily": "recurrence",
+      "targetFamily": "periodic",
+      "variant": 1,
+      "decoder": "recurrence",
+      "valid": false,
+      "exact": false,
+      "error": null,
+      "note": "未发现低阶整数递推"
+    },
+    {
+      "sourceFamily": "recurrence",
+      "targetFamily": "differences",
+      "variant": 0,
+      "decoder": "recurrence",
+      "valid": false,
+      "exact": false,
+      "error": null,
+      "note": "未发现低阶整数递推"
+    },
+    {
+      "sourceFamily": "recurrence",
+      "targetFamily": "differences",
+      "variant": 1,
+      "decoder": "recurrence",
+      "valid": false,
+      "exact": false,
+      "error": null,
+      "note": "未发现低阶整数递推"
+    },
+    {
+      "sourceFamily": "recurrence",
+      "targetFamily": "recurrence",
+      "variant": 0,
+      "decoder": "recurrence",
+      "valid": true,
+      "exact": true,
+      "error": 0,
+      "note": "xₙ=1xₙ₋₁+(1)xₙ₋₂"
+    },
+    {
+      "sourceFamily": "recurrence",
+      "targetFamily": "recurrence",
+      "variant": 1,
+      "decoder": "recurrence",
+      "valid": true,
+      "exact": true,
+      "error": 0,
+      "note": "xₙ=1xₙ₋₁+(1)xₙ₋₂"
+    },
+    {
+      "sourceFamily": "recurrence",
+      "targetFamily": "differenceRecurrence",
+      "variant": 0,
+      "decoder": "recurrence",
+      "valid": false,
+      "exact": false,
+      "error": null,
+      "note": "未发现低阶整数递推"
+    },
+    {
+      "sourceFamily": "recurrence",
+      "targetFamily": "differenceRecurrence",
+      "variant": 1,
+      "decoder": "recurrence",
+      "valid": false,
+      "exact": false,
+      "error": null,
+      "note": "未发现低阶整数递推"
+    },
+    {
+      "sourceFamily": "differenceRecurrence",
+      "targetFamily": "arithmetic",
+      "variant": 0,
+      "decoder": "difference→recurrence",
+      "valid": true,
+      "exact": true,
+      "error": 0,
+      "note": "Δxₙ=-4Δxₙ₋₁+(5)Δxₙ₋₂"
+    },
+    {
+      "sourceFamily": "differenceRecurrence",
+      "targetFamily": "arithmetic",
+      "variant": 1,
+      "decoder": "difference→recurrence",
+      "valid": true,
+      "exact": true,
+      "error": 0,
+      "note": "Δxₙ=-4Δxₙ₋₁+(5)Δxₙ₋₂"
+    },
+    {
+      "sourceFamily": "differenceRecurrence",
+      "targetFamily": "periodic",
+      "variant": 0,
+      "decoder": "difference→recurrence",
+      "valid": true,
+      "exact": true,
+      "error": 0,
+      "note": "Δxₙ=-1Δxₙ₋₁+(-1)Δxₙ₋₂"
+    },
+    {
+      "sourceFamily": "differenceRecurrence",
+      "targetFamily": "periodic",
+      "variant": 1,
+      "decoder": "difference→recurrence",
+      "valid": true,
+      "exact": true,
+      "error": 0,
+      "note": "Δxₙ=-1Δxₙ₋₁+(-1)Δxₙ₋₂"
+    },
+    {
+      "sourceFamily": "differenceRecurrence",
+      "targetFamily": "differences",
+      "variant": 0,
+      "decoder": "difference→recurrence",
+      "valid": true,
+      "exact": true,
+      "error": 0,
+      "note": "Δxₙ=2Δxₙ₋₁+(-1)Δxₙ₋₂"
+    },
+    {
+      "sourceFamily": "differenceRecurrence",
+      "targetFamily": "differences",
+      "variant": 1,
+      "decoder": "difference→recurrence",
+      "valid": true,
+      "exact": true,
+      "error": 0,
+      "note": "Δxₙ=2Δxₙ₋₁+(-1)Δxₙ₋₂"
+    },
+    {
+      "sourceFamily": "differenceRecurrence",
+      "targetFamily": "recurrence",
+      "variant": 0,
+      "decoder": "difference→recurrence",
+      "valid": true,
+      "exact": true,
+      "error": 0,
+      "note": "Δxₙ=1Δxₙ₋₁+(1)Δxₙ₋₂"
+    },
+    {
+      "sourceFamily": "differenceRecurrence",
+      "targetFamily": "recurrence",
+      "variant": 1,
+      "decoder": "difference→recurrence",
+      "valid": true,
+      "exact": true,
+      "error": 0,
+      "note": "Δxₙ=1Δxₙ₋₁+(1)Δxₙ₋₂"
+    },
+    {
+      "sourceFamily": "differenceRecurrence",
+      "targetFamily": "differenceRecurrence",
+      "variant": 0,
+      "decoder": "difference→recurrence",
+      "valid": true,
+      "exact": true,
+      "error": 0,
+      "note": "Δxₙ=1Δxₙ₋₁+(1)Δxₙ₋₂"
+    },
+    {
+      "sourceFamily": "differenceRecurrence",
+      "targetFamily": "differenceRecurrence",
+      "variant": 1,
+      "decoder": "difference→recurrence",
+      "valid": true,
+      "exact": true,
+      "error": 0,
+      "note": "Δxₙ=1Δxₙ₋₁+(1)Δxₙ₋₂"
+    }
+  ]
+}

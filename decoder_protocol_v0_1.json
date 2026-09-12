@@ -1,0 +1,580 @@
+{
+  "schemaVersion": 1,
+  "fields": [
+    "domain",
+    "decoder",
+    "complexity",
+    "residual",
+    "verification"
+  ],
+  "results": {
+    "sequenceArithmetic": {
+      "domain": "sequence",
+      "status": "candidate_frozen",
+      "decoder": "arithmetic",
+      "representation": "公差=4",
+      "hypothesis": {
+        "kind": "arithmetic",
+        "start": 3,
+        "difference": 4
+      },
+      "complexity": 2,
+      "complexityUnit": "domain_specific_proxy_not_bits",
+      "residual": 0,
+      "residualMeaning": "verification_failure_indicator",
+      "evidenceScope": "future_sequence_values",
+      "verification": "verified_on_supplied_observations",
+      "limits": [
+        "有限整数序列；无噪声；预测精确相等",
+        "验证通过只涉及提供的有限观测，不构成无限序列定理",
+        "学习与候选搜索为人工设定的有限规则集合"
+      ]
+    },
+    "sequencePeriodic": {
+      "domain": "sequence",
+      "status": "candidate_frozen",
+      "decoder": "periodic",
+      "representation": "周期=3",
+      "hypothesis": {
+        "kind": "periodic",
+        "pattern": [
+          1,
+          2,
+          3
+        ]
+      },
+      "complexity": 3,
+      "complexityUnit": "domain_specific_proxy_not_bits",
+      "residual": 0,
+      "residualMeaning": "verification_failure_indicator",
+      "evidenceScope": "future_sequence_values",
+      "verification": "verified_on_supplied_observations",
+      "limits": [
+        "有限整数序列；无噪声；预测精确相等",
+        "验证通过只涉及提供的有限观测，不构成无限序列定理",
+        "学习与候选搜索为人工设定的有限规则集合"
+      ]
+    },
+    "graphCycle": {
+      "domain": "graph",
+      "status": "candidate_frozen",
+      "decoder": "cycle",
+      "representation": "C6",
+      "hypothesis": {
+        "kind": "cycle",
+        "n": 6
+      },
+      "complexity": 2,
+      "complexityUnit": "domain_specific_proxy_not_bits",
+      "residual": 0,
+      "residualMeaning": "verification_failure_indicator",
+      "evidenceScope": "observed_graph_only",
+      "verification": "verified_on_graph",
+      "limits": [
+        "简单无向图",
+        "标签不承载结构意义",
+        "有限图不变量检查，不等价于完整图同构证明"
+      ]
+    },
+    "graphRelabeledCycle": {
+      "domain": "graph",
+      "status": "candidate_frozen",
+      "decoder": "cycle",
+      "representation": "C6",
+      "hypothesis": {
+        "kind": "cycle",
+        "n": 6
+      },
+      "complexity": 2,
+      "complexityUnit": "domain_specific_proxy_not_bits",
+      "residual": 0,
+      "residualMeaning": "verification_failure_indicator",
+      "evidenceScope": "observed_graph_only",
+      "verification": "verified_on_graph",
+      "limits": [
+        "简单无向图",
+        "标签不承载结构意义",
+        "有限图不变量检查，不等价于完整图同构证明"
+      ]
+    },
+    "equationScaled": {
+      "domain": "equation",
+      "status": "candidate_frozen",
+      "decoder": "linear_normalization",
+      "representation": "2x+-1y=3",
+      "hypothesis": {
+        "terms": {
+          "x": 2,
+          "y": -1
+        },
+        "constant": 3
+      },
+      "complexity": 3,
+      "complexityUnit": "term_count_proxy",
+      "residual": 0,
+      "residualMeaning": "equivalence_verification_failure_indicator",
+      "verification": "verified_equation",
+      "limits": [
+        "整数线性方程",
+        "等价关系是整体非零整数倍和统一符号",
+        "不处理非线性语义或实数域的额外解集差异"
+      ]
+    },
+    "equationCounterexample": {
+      "domain": "equation",
+      "status": "candidate_frozen",
+      "decoder": "linear_normalization",
+      "representation": "2x+-1y=3",
+      "hypothesis": {
+        "terms": {
+          "x": 2,
+          "y": -1
+        },
+        "constant": 3
+      },
+      "complexity": 3,
+      "complexityUnit": "term_count_proxy",
+      "residual": 1,
+      "residualMeaning": "equivalence_verification_failure_indicator",
+      "verification": "counterexample_found",
+      "limits": [
+        "整数线性方程",
+        "等价关系是整体非零整数倍和统一符号",
+        "不处理非线性语义或实数域的额外解集差异"
+      ]
+    },
+    "equationSystem": {
+      "domain": "equation_system",
+      "status": "candidate_frozen",
+      "decoder": "rational_row_reduction",
+      "representation": "RREF(x,y)",
+      "hypothesis": {
+        "variables": [
+          "x",
+          "y"
+        ],
+        "rref": [
+          [
+            "1",
+            "0",
+            "2"
+          ],
+          [
+            "0",
+            "1",
+            "1"
+          ]
+        ],
+        "rank": 2,
+        "pivots": [
+          "x",
+          "y"
+        ],
+        "freeVariables": [],
+        "consistent": true
+      },
+      "conclusions": {
+        "status": "consistent",
+        "unique": true,
+        "statements": [
+          {
+            "variable": "x",
+            "equals": {
+              "constant": "2",
+              "terms": []
+            }
+          },
+          {
+            "variable": "y",
+            "equals": {
+              "constant": "1",
+              "terms": []
+            }
+          }
+        ]
+      },
+      "complexity": 4,
+      "complexityUnit": "rank_times_variable_count",
+      "residual": 0,
+      "residualMeaning": "rref_verification_failure_indicator",
+      "evidenceScope": "finite_linear_system",
+      "verification": "verified_system",
+      "limits": [
+        "整数系数的有限线性方程组",
+        "解读在有理数域中进行",
+        "RREF 等价不代表选择了唯一的应用语义"
+      ]
+    },
+    "generatedSequence": {
+      "domain": "sequence",
+      "status": "candidate_frozen",
+      "decoder": "1阶差分→recurrence",
+      "representation": "difference^1→recurrence",
+      "hypothesis": {
+        "kind": "composed",
+        "transform": "difference^1",
+        "base": {
+          "kind": "linear_recurrence",
+          "coefficients": [
+            1,
+            1
+          ],
+          "initial": [
+            1,
+            2
+          ]
+        },
+        "baseDecoder": "recurrence"
+      },
+      "complexity": 1,
+      "complexityUnit": "composed_decoder_proxy",
+      "residual": 0,
+      "residualMeaning": "composed_decoder_verification_failure_indicator",
+      "evidenceScope": "finite_sequence_and_observed_holdout",
+      "verification": "verified_composed_decoder",
+      "limits": [
+        "有限整数序列",
+        "变换链来自有限搜索空间",
+        "证书证明有限样本假设，不证明无限序列规律"
+      ],
+      "searchRounds": [
+        {
+          "order": 0,
+          "status": "uncertain",
+          "best": {
+            "name": "identity→constant",
+            "exactRate": 0,
+            "averageError": null,
+            "eligible": false
+          },
+          "reason": "当前表示空间没有稳定候选"
+        },
+        {
+          "order": 1,
+          "status": "candidate_frozen",
+          "best": {
+            "name": "1阶差分→recurrence",
+            "exactRate": 1,
+            "averageError": 0,
+            "eligible": true
+          },
+          "reason": "通过当前验证"
+        }
+      ]
+    },
+    "polynomial": {
+      "domain": "polynomial",
+      "status": "candidate_frozen",
+      "decoder": "polynomial_normal_form",
+      "representation": "2[x^1*y^1] + 1[y^2]",
+      "hypothesis": {
+        "terms": [
+          {
+            "coefficient": 2,
+            "powers": {
+              "x": 1,
+              "y": 1
+            }
+          },
+          {
+            "coefficient": 1,
+            "powers": {
+              "y": 2
+            }
+          }
+        ],
+        "content": 3
+      },
+      "complexity": 2,
+      "complexityUnit": "monomial_count",
+      "residual": 0,
+      "residualMeaning": "normalization_verification_failure_indicator",
+      "verification": "verified_polynomial",
+      "limits": [
+        "整数系数多项式",
+        "变量交换和同类项合并视为表示变化",
+        "不包含实数域语义或不等式解集"
+      ]
+    },
+    "polynomialAnalysis": {
+      "domain": "polynomial_analysis",
+      "status": "candidate_frozen",
+      "decoder": "polynomial_invariant_analysis",
+      "representation": "degree=2; homogeneous=true",
+      "hypothesis": {
+        "normalized": {
+          "terms": [
+            {
+              "coefficient": 2,
+              "powers": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "coefficient": 1,
+              "powers": {
+                "x": 2
+              }
+            },
+            {
+              "coefficient": 1,
+              "powers": {
+                "y": 2
+              }
+            }
+          ],
+          "content": 1
+        },
+        "variables": [
+          "x",
+          "y"
+        ],
+        "totalDegree": 2,
+        "homogeneous": true,
+        "derivatives": {
+          "x": {
+            "terms": [
+              {
+                "coefficient": 1,
+                "powers": {
+                  "x": 1
+                }
+              },
+              {
+                "coefficient": 1,
+                "powers": {
+                  "y": 1
+                }
+              }
+            ],
+            "content": 2
+          },
+          "y": {
+            "terms": [
+              {
+                "coefficient": 1,
+                "powers": {
+                  "x": 1
+                }
+              },
+              {
+                "coefficient": 1,
+                "powers": {
+                  "y": 1
+                }
+              }
+            ],
+            "content": 2
+          }
+        },
+        "eulerIdentity": true,
+        "euler": {
+          "terms": [
+            {
+              "coefficient": 2,
+              "powers": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "coefficient": 1,
+              "powers": {
+                "x": 2
+              }
+            },
+            {
+              "coefficient": 1,
+              "powers": {
+                "y": 2
+              }
+            }
+          ],
+          "content": 1
+        },
+        "scaledOriginal": {
+          "terms": [
+            {
+              "coefficient": 2,
+              "powers": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "coefficient": 1,
+              "powers": {
+                "x": 2
+              }
+            },
+            {
+              "coefficient": 1,
+              "powers": {
+                "y": 2
+              }
+            }
+          ],
+          "content": 2
+        }
+      },
+      "complexity": 5,
+      "complexityUnit": "term_plus_variable_count",
+      "residual": 0,
+      "residualMeaning": "invariant_recomputation_failure_indicator",
+      "verification": "verified_polynomial_analysis",
+      "limits": [
+        "有限整数多项式",
+        "齐次性按总次数定义",
+        "欧拉恒等式仅在齐次情形作为结构证据"
+      ]
+    },
+    "dynamicsRotation": {
+      "domain": "dynamics",
+      "status": "candidate_frozen",
+      "decoder": "polynomial_invariant_search",
+      "representation": "二维多项式映射不变量",
+      "hypothesis": [
+        {
+          "coefficients": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "polynomial": [
+            {
+              "coefficient": 1,
+              "powers": [
+                0,
+                2
+              ]
+            },
+            {
+              "coefficient": 1,
+              "powers": [
+                2,
+                0
+              ]
+            }
+          ],
+          "rule": "1x^0y^2 + 1x^2y^0"
+        }
+      ],
+      "complexity": 1,
+      "complexityUnit": "candidate_count",
+      "residual": 0,
+      "residualMeaning": "symbolic_and_trajectory_verification_failure_indicator",
+      "verification": "verified_dynamics_invariants",
+      "search": {
+        "maxDegree": 2,
+        "coefficientRange": 1,
+        "method": "linear_nullspace"
+      },
+      "readability": {
+        "machine": {
+          "audience": "machine",
+          "decoder": "linear_nullspace",
+          "basisSize": 6,
+          "candidateCount": 1
+        },
+        "human": [
+          "1x^0y^2 + 1x^2y^0"
+        ]
+      },
+      "trajectoryChecks": [
+        {
+          "rule": "1x^0y^2 + 1x^2y^0",
+          "point": [
+            0,
+            0
+          ],
+          "residual": 0
+        },
+        {
+          "rule": "1x^0y^2 + 1x^2y^0",
+          "point": [
+            1,
+            0
+          ],
+          "residual": 0
+        },
+        {
+          "rule": "1x^0y^2 + 1x^2y^0",
+          "point": [
+            0,
+            1
+          ],
+          "residual": 0
+        },
+        {
+          "rule": "1x^0y^2 + 1x^2y^0",
+          "point": [
+            1,
+            1
+          ],
+          "residual": 0
+        },
+        {
+          "rule": "1x^0y^2 + 1x^2y^0",
+          "point": [
+            -1,
+            2
+          ],
+          "residual": 0
+        },
+        {
+          "rule": "1x^0y^2 + 1x^2y^0",
+          "point": [
+            2,
+            -1
+          ],
+          "residual": 0
+        }
+      ],
+      "limits": [
+        "二维多项式映射",
+        "次数≤2",
+        "系数范围≤1",
+        "发现方法=linear_nullspace",
+        "搜索边界内未发现不变量不等于全空间不存在"
+      ]
+    },
+    "dynamicsLowSearch": {
+      "domain": "dynamics",
+      "status": "uncertain",
+      "decoder": "polynomial_invariant_search",
+      "representation": "二维多项式映射不变量",
+      "hypothesis": [],
+      "complexity": 0,
+      "complexityUnit": "candidate_count",
+      "residual": null,
+      "residualMeaning": "symbolic_and_trajectory_verification_failure_indicator",
+      "verification": "no_nontrivial_invariant",
+      "search": {
+        "maxDegree": 1,
+        "coefficientRange": 1,
+        "method": "linear_nullspace"
+      },
+      "readability": {
+        "machine": {
+          "audience": "machine",
+          "decoder": "linear_nullspace",
+          "basisSize": 3,
+          "candidateCount": 0
+        },
+        "human": []
+      },
+      "trajectoryChecks": [],
+      "limits": [
+        "二维多项式映射",
+        "次数≤1",
+        "系数范围≤1",
+        "发现方法=linear_nullspace",
+        "搜索边界内未发现不变量不等于全空间不存在"
+      ]
+    }
+  }
+}

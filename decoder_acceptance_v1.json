@@ -1,0 +1,652 @@
+{
+  "schemaVersion": 1,
+  "claim": "framework_acceptance",
+  "passed": true,
+  "counts": {
+    "total": 8,
+    "passed": 8,
+    "failed": 0
+  },
+  "results": [
+    {
+      "name": "arithmetic_sequence",
+      "expected": "verified_on_supplied_observations",
+      "actual": "verified_on_supplied_observations",
+      "passed": true,
+      "result": {
+        "domain": "sequence",
+        "status": "candidate_frozen",
+        "decoder": "arithmetic",
+        "representation": "公差=4",
+        "hypothesis": {
+          "kind": "arithmetic",
+          "start": 3,
+          "difference": 4
+        },
+        "complexity": 2,
+        "complexityUnit": "domain_specific_proxy_not_bits",
+        "residual": 0,
+        "residualMeaning": "verification_failure_indicator",
+        "evidenceScope": "future_sequence_values",
+        "verification": "verified_on_supplied_observations",
+        "limits": [
+          "有限整数序列；无噪声；预测精确相等",
+          "验证通过只涉及提供的有限观测，不构成无限序列定理",
+          "学习与候选搜索为人工设定的有限规则集合"
+        ]
+      }
+    },
+    {
+      "name": "random_uncertainty",
+      "expected": "no_certificate",
+      "actual": "no_certificate",
+      "passed": true,
+      "result": {
+        "domain": "sequence",
+        "status": "uncertain",
+        "decoder": null,
+        "complexity": null,
+        "residual": null,
+        "verification": "no_certificate"
+      }
+    },
+    {
+      "name": "rotation_invariant",
+      "expected": "verified_dynamics_invariants",
+      "actual": "verified_dynamics_invariants",
+      "passed": true,
+      "result": {
+        "domain": "dynamics",
+        "status": "candidate_frozen",
+        "decoder": "polynomial_invariant_search",
+        "representation": "二维多项式映射不变量",
+        "hypothesis": [
+          {
+            "coefficients": [
+              0,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "polynomial": [
+              {
+                "coefficient": 1,
+                "powers": [
+                  0,
+                  2
+                ]
+              },
+              {
+                "coefficient": 1,
+                "powers": [
+                  2,
+                  0
+                ]
+              }
+            ],
+            "rule": "1x^0y^2 + 1x^2y^0"
+          }
+        ],
+        "complexity": 1,
+        "complexityUnit": "candidate_count",
+        "residual": 0,
+        "residualMeaning": "symbolic_and_trajectory_verification_failure_indicator",
+        "verification": "verified_dynamics_invariants",
+        "search": {
+          "maxDegree": 2,
+          "coefficientRange": 1,
+          "method": "linear_nullspace"
+        },
+        "readability": {
+          "machine": {
+            "audience": "machine",
+            "decoder": "linear_nullspace",
+            "basisSize": 6,
+            "candidateCount": 1
+          },
+          "human": [
+            "1x^0y^2 + 1x^2y^0"
+          ]
+        },
+        "trajectoryChecks": [
+          {
+            "rule": "1x^0y^2 + 1x^2y^0",
+            "point": [
+              0,
+              0
+            ],
+            "residual": 0
+          },
+          {
+            "rule": "1x^0y^2 + 1x^2y^0",
+            "point": [
+              1,
+              0
+            ],
+            "residual": 0
+          },
+          {
+            "rule": "1x^0y^2 + 1x^2y^0",
+            "point": [
+              0,
+              1
+            ],
+            "residual": 0
+          },
+          {
+            "rule": "1x^0y^2 + 1x^2y^0",
+            "point": [
+              1,
+              1
+            ],
+            "residual": 0
+          },
+          {
+            "rule": "1x^0y^2 + 1x^2y^0",
+            "point": [
+              -1,
+              2
+            ],
+            "residual": 0
+          },
+          {
+            "rule": "1x^0y^2 + 1x^2y^0",
+            "point": [
+              2,
+              -1
+            ],
+            "residual": 0
+          }
+        ],
+        "limits": [
+          "二维多项式映射",
+          "次数≤2",
+          "系数范围≤1",
+          "发现方法=linear_nullspace",
+          "搜索边界内未发现不变量不等于全空间不存在"
+        ]
+      }
+    },
+    {
+      "name": "low_search_unknown",
+      "expected": "no_nontrivial_invariant",
+      "actual": "no_nontrivial_invariant",
+      "passed": true,
+      "result": {
+        "domain": "dynamics",
+        "status": "uncertain",
+        "decoder": "polynomial_invariant_search",
+        "representation": "二维多项式映射不变量",
+        "hypothesis": [],
+        "complexity": 0,
+        "complexityUnit": "candidate_count",
+        "residual": null,
+        "residualMeaning": "symbolic_and_trajectory_verification_failure_indicator",
+        "verification": "no_nontrivial_invariant",
+        "search": {
+          "maxDegree": 1,
+          "coefficientRange": 1,
+          "method": "linear_nullspace"
+        },
+        "readability": {
+          "machine": {
+            "audience": "machine",
+            "decoder": "linear_nullspace",
+            "basisSize": 3,
+            "candidateCount": 0
+          },
+          "human": []
+        },
+        "trajectoryChecks": [],
+        "limits": [
+          "二维多项式映射",
+          "次数≤1",
+          "系数范围≤1",
+          "发现方法=linear_nullspace",
+          "搜索边界内未发现不变量不等于全空间不存在"
+        ]
+      }
+    },
+    {
+      "name": "parameter_condition",
+      "expected": "verified_parameter_condition",
+      "actual": "verified_parameter_condition",
+      "passed": true,
+      "result": {
+        "domain": "dynamics_parameterized",
+        "status": "candidate_frozen",
+        "decoder": "parameterized_rotation_scaling",
+        "representation": "F(a,b)(x,y)=(ax-by,bx+ay)",
+        "hypothesis": [
+          {
+            "rule": "x^2+y^2",
+            "polynomial": [
+              {
+                "coefficient": 1,
+                "powers": [
+                  2,
+                  0
+                ]
+              },
+              {
+                "coefficient": 1,
+                "powers": [
+                  0,
+                  2
+                ]
+              }
+            ]
+          }
+        ],
+        "condition": "a^2+b^2=1",
+        "complexity": 1,
+        "complexityUnit": "candidate_count",
+        "residual": 0,
+        "verification": "verified_parameter_condition",
+        "limits": [
+          "二维整数参数旋转缩放族",
+          "当前只搜索半径平方不变量",
+          "未满足条件时不代表不存在其他类型不变量"
+        ]
+      }
+    },
+    {
+      "name": "parameter_region_unknown",
+      "expected": "uncertain_parameter_region",
+      "actual": "uncertain_parameter_region",
+      "passed": true,
+      "result": {
+        "domain": "dynamics_parameterized",
+        "status": "uncertain",
+        "decoder": "parameterized_rotation_scaling",
+        "representation": "F(a,b)(x,y)=(ax-by,bx+ay)",
+        "hypothesis": [],
+        "condition": "a^2+b^2=1",
+        "complexity": 0,
+        "complexityUnit": "candidate_count",
+        "residual": null,
+        "verification": "uncertain_parameter_region",
+        "limits": [
+          "二维整数参数旋转缩放族",
+          "当前只搜索半径平方不变量",
+          "未满足条件时不代表不存在其他类型不变量"
+        ]
+      }
+    },
+    {
+      "name": "equation",
+      "expected": "verified_equation",
+      "actual": "verified_equation",
+      "passed": true,
+      "result": {
+        "domain": "equation",
+        "status": "candidate_frozen",
+        "decoder": "linear_normalization",
+        "representation": "2x+-1y=3",
+        "hypothesis": {
+          "terms": {
+            "x": 2,
+            "y": -1
+          },
+          "constant": 3
+        },
+        "complexity": 3,
+        "complexityUnit": "term_count_proxy",
+        "residual": 0,
+        "residualMeaning": "equivalence_verification_failure_indicator",
+        "verification": "verified_equation",
+        "limits": [
+          "整数线性方程",
+          "等价关系是整体非零整数倍和统一符号",
+          "不处理非线性语义或实数域的额外解集差异"
+        ]
+      }
+    },
+    {
+      "name": "polynomial_analysis",
+      "expected": "verified_polynomial_analysis",
+      "actual": "verified_polynomial_analysis",
+      "passed": true,
+      "result": {
+        "domain": "polynomial_analysis",
+        "status": "candidate_frozen",
+        "decoder": "polynomial_invariant_analysis",
+        "representation": "degree=2; homogeneous=true",
+        "hypothesis": {
+          "normalized": {
+            "terms": [
+              {
+                "coefficient": 2,
+                "powers": {
+                  "x": 1,
+                  "y": 1
+                }
+              },
+              {
+                "coefficient": 1,
+                "powers": {
+                  "x": 2
+                }
+              },
+              {
+                "coefficient": 1,
+                "powers": {
+                  "y": 2
+                }
+              }
+            ],
+            "content": 1
+          },
+          "variables": [
+            "x",
+            "y"
+          ],
+          "totalDegree": 2,
+          "homogeneous": true,
+          "derivatives": {
+            "x": {
+              "terms": [
+                {
+                  "coefficient": 1,
+                  "powers": {
+                    "x": 1
+                  }
+                },
+                {
+                  "coefficient": 1,
+                  "powers": {
+                    "y": 1
+                  }
+                }
+              ],
+              "content": 2
+            },
+            "y": {
+              "terms": [
+                {
+                  "coefficient": 1,
+                  "powers": {
+                    "x": 1
+                  }
+                },
+                {
+                  "coefficient": 1,
+                  "powers": {
+                    "y": 1
+                  }
+                }
+              ],
+              "content": 2
+            }
+          },
+          "eulerIdentity": true,
+          "euler": {
+            "terms": [
+              {
+                "coefficient": 2,
+                "powers": {
+                  "x": 1,
+                  "y": 1
+                }
+              },
+              {
+                "coefficient": 1,
+                "powers": {
+                  "x": 2
+                }
+              },
+              {
+                "coefficient": 1,
+                "powers": {
+                  "y": 2
+                }
+              }
+            ],
+            "content": 1
+          },
+          "scaledOriginal": {
+            "terms": [
+              {
+                "coefficient": 2,
+                "powers": {
+                  "x": 1,
+                  "y": 1
+                }
+              },
+              {
+                "coefficient": 1,
+                "powers": {
+                  "x": 2
+                }
+              },
+              {
+                "coefficient": 1,
+                "powers": {
+                  "y": 2
+                }
+              }
+            ],
+            "content": 2
+          }
+        },
+        "complexity": 5,
+        "complexityUnit": "term_plus_variable_count",
+        "residual": 0,
+        "residualMeaning": "invariant_recomputation_failure_indicator",
+        "verification": "verified_polynomial_analysis",
+        "limits": [
+          "有限整数多项式",
+          "齐次性按总次数定义",
+          "欧拉恒等式仅在齐次情形作为结构证据"
+        ]
+      }
+    }
+  ],
+  "extensions": {
+    "parameterCondition": {
+      "rotationGeneralizes": true,
+      "adversarialRejected": true
+    },
+    "resources": {
+      "schemaVersion": 1,
+      "claim": "decoder_resource_profile",
+      "tasks": [
+        {
+          "name": "arithmetic_sequence",
+          "elapsedMs": 0.1952,
+          "status": "verified_on_supplied_observations",
+          "candidateCount": null,
+          "error": null
+        },
+        {
+          "name": "random_uncertainty",
+          "elapsedMs": 0.0905,
+          "status": "no_certificate",
+          "candidateCount": null,
+          "error": null
+        },
+        {
+          "name": "rotation_invariant",
+          "elapsedMs": 0.4669,
+          "status": "verified_dynamics_invariants",
+          "candidateCount": 1,
+          "error": null
+        }
+      ]
+    },
+    "passed": true
+  },
+  "report": {
+    "schemaVersion": 1,
+    "scope": "per_domain_decoder_results",
+    "rows": [
+      {
+        "index": 0,
+        "domain": "sequence",
+        "status": "candidate_frozen",
+        "verification": "verified_on_supplied_observations",
+        "verificationStrength": "verified",
+        "residual": 0,
+        "complexity": 2,
+        "readability": {
+          "human": true,
+          "machine": true
+        },
+        "evidenceScope": "future_sequence_values"
+      },
+      {
+        "index": 1,
+        "domain": "sequence",
+        "status": "uncertain",
+        "verification": "no_certificate",
+        "verificationStrength": "unknown",
+        "residual": null,
+        "complexity": null,
+        "readability": {
+          "human": false,
+          "machine": false
+        },
+        "evidenceScope": null
+      },
+      {
+        "index": 2,
+        "domain": "dynamics",
+        "status": "candidate_frozen",
+        "verification": "verified_dynamics_invariants",
+        "verificationStrength": "verified",
+        "residual": 0,
+        "complexity": 1,
+        "readability": {
+          "human": true,
+          "machine": true
+        },
+        "evidenceScope": null
+      },
+      {
+        "index": 3,
+        "domain": "dynamics",
+        "status": "uncertain",
+        "verification": "no_nontrivial_invariant",
+        "verificationStrength": "unknown",
+        "residual": null,
+        "complexity": 0,
+        "readability": {
+          "human": true,
+          "machine": true
+        },
+        "evidenceScope": null
+      },
+      {
+        "index": 4,
+        "domain": "dynamics_parameterized",
+        "status": "candidate_frozen",
+        "verification": "verified_parameter_condition",
+        "verificationStrength": "verified",
+        "residual": 0,
+        "complexity": 1,
+        "readability": {
+          "human": true,
+          "machine": true
+        },
+        "evidenceScope": null
+      },
+      {
+        "index": 5,
+        "domain": "dynamics_parameterized",
+        "status": "uncertain",
+        "verification": "uncertain_parameter_region",
+        "verificationStrength": "candidate",
+        "residual": null,
+        "complexity": 0,
+        "readability": {
+          "human": true,
+          "machine": true
+        },
+        "evidenceScope": null
+      },
+      {
+        "index": 6,
+        "domain": "equation",
+        "status": "candidate_frozen",
+        "verification": "verified_equation",
+        "verificationStrength": "verified",
+        "residual": 0,
+        "complexity": 3,
+        "readability": {
+          "human": true,
+          "machine": true
+        },
+        "evidenceScope": null
+      },
+      {
+        "index": 7,
+        "domain": "polynomial_analysis",
+        "status": "candidate_frozen",
+        "verification": "verified_polynomial_analysis",
+        "verificationStrength": "verified",
+        "residual": 0,
+        "complexity": 5,
+        "readability": {
+          "human": true,
+          "machine": true
+        },
+        "evidenceScope": null
+      }
+    ],
+    "summary": [
+      {
+        "domain": "sequence",
+        "total": 2,
+        "verified": 1,
+        "refuted": 0,
+        "unknown": 1,
+        "verificationRate": 0.5,
+        "humanReadableRate": 0.5,
+        "machineReadableRate": 0.5
+      },
+      {
+        "domain": "dynamics",
+        "total": 2,
+        "verified": 1,
+        "refuted": 0,
+        "unknown": 1,
+        "verificationRate": 0.5,
+        "humanReadableRate": 1,
+        "machineReadableRate": 1
+      },
+      {
+        "domain": "dynamics_parameterized",
+        "total": 2,
+        "verified": 1,
+        "refuted": 0,
+        "unknown": 1,
+        "verificationRate": 0.5,
+        "humanReadableRate": 1,
+        "machineReadableRate": 1
+      },
+      {
+        "domain": "equation",
+        "total": 1,
+        "verified": 1,
+        "refuted": 0,
+        "unknown": 0,
+        "verificationRate": 1,
+        "humanReadableRate": 1,
+        "machineReadableRate": 1
+      },
+      {
+        "domain": "polynomial_analysis",
+        "total": 1,
+        "verified": 1,
+        "refuted": 0,
+        "unknown": 0,
+        "verificationRate": 1,
+        "humanReadableRate": 1,
+        "machineReadableRate": 1
+      }
+    ],
+    "limitation": "复杂度和可读性是协议字段上的代理指标，不构成跨领域总分"
+  }
+}

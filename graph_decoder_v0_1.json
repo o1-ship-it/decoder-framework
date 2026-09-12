@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "sourceCertificate": {
+    "status": "candidate_frozen",
+    "certificate": {
+      "schemaVersion": 1,
+      "claim": "finite_graph_invariant",
+      "graphHash": "0b75b8c85bfa6b4b32e58ac80bd3921514365cbbb7eb732abbb5b72ee1cfb29f",
+      "n": 6,
+      "model": {
+        "kind": "cycle",
+        "n": 6
+      },
+      "rule": "C6",
+      "complexity": 2,
+      "candidateNames": [
+        "cycle",
+        "regular",
+        "raw_edges"
+      ],
+      "limits": [
+        "简单无向图",
+        "标签不承载结构意义",
+        "有限图不变量检查，不等价于完整图同构证明"
+      ]
+    }
+  },
+  "rows": [
+    {
+      "name": "cycle",
+      "winner": "cycle",
+      "validCandidates": [
+        "cycle",
+        "regular",
+        "raw_edges"
+      ],
+      "verification": {
+        "status": "verified_on_graph",
+        "invariant": "cycle",
+        "n": 6
+      }
+    },
+    {
+      "name": "relabeledCycle",
+      "winner": "cycle",
+      "validCandidates": [
+        "cycle",
+        "regular",
+        "raw_edges"
+      ],
+      "verification": {
+        "status": "verified_on_graph",
+        "invariant": "cycle",
+        "n": 6
+      }
+    },
+    {
+      "name": "path",
+      "winner": "path",
+      "validCandidates": [
+        "path",
+        "raw_edges"
+      ],
+      "verification": {
+        "status": "counterexample_found",
+        "reason": "图哈希改变，输入表示不一致"
+      }
+    },
+    {
+      "name": "star",
+      "winner": "star",
+      "validCandidates": [
+        "star",
+        "raw_edges"
+      ],
+      "verification": {
+        "status": "counterexample_found",
+        "reason": "图哈希改变，输入表示不一致"
+      }
+    },
+    {
+      "name": "cycleWithChord",
+      "winner": "raw_edges",
+      "validCandidates": [
+        "raw_edges"
+      ],
+      "verification": {
+        "status": "counterexample_found",
+        "reason": "图哈希改变，输入表示不一致"
+      }
+    }
+  ],
+  "relabelingHashEqual": true
+}

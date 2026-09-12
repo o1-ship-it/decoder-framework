@@ -1,0 +1,676 @@
+{
+  "schemaVersion": 2,
+  "protocol": {
+    "developmentLength": 16,
+    "splitSizes": [
+      8,
+      10,
+      12
+    ],
+    "holdoutStartTerm": 17
+  },
+  "cases": {
+    "arithmetic": {
+      "development": [
+        3,
+        7,
+        11,
+        15,
+        19,
+        23,
+        27,
+        31,
+        35,
+        39,
+        43,
+        47,
+        51,
+        55,
+        59,
+        63
+      ],
+      "holdout": [
+        67,
+        71,
+        75,
+        79
+      ],
+      "selection": [
+        {
+          "name": "arithmetic",
+          "score": 2,
+          "passRate": 1,
+          "eligible": true
+        },
+        {
+          "name": "differences",
+          "score": 2,
+          "passRate": 1,
+          "eligible": true
+        },
+        {
+          "name": "recurrence",
+          "score": 4,
+          "passRate": 1,
+          "eligible": true
+        }
+      ],
+      "certificate": {
+        "schemaVersion": 2,
+        "claim": "finite_sample_hypothesis",
+        "arithmetic": "exact_integer",
+        "decoder": "arithmetic",
+        "rule": "公差=4",
+        "model": {
+          "kind": "arithmetic",
+          "start": 3,
+          "difference": 4
+        },
+        "developmentLength": 16,
+        "developmentSha256": "957e806def64b18e4c021bb7f67d0a563a2a9fe65d4cb340ca52b85473d102be",
+        "forecast": [
+          "67",
+          "71",
+          "75",
+          "79"
+        ],
+        "selection": {
+          "diagnostics": [
+            "constant:失配",
+            "arithmetic:样本通过",
+            "periodic:失配",
+            "differences:样本通过",
+            "recurrence:样本通过",
+            "polynomial:样本通过"
+          ],
+          "splits": [
+            8,
+            10,
+            12
+          ],
+          "horizon": 2,
+          "passRate": 1
+        },
+        "complexity": {
+          "value": 2,
+          "unit": "heuristic_proxy_not_bits"
+        },
+        "limits": [
+          "有限整数序列；无噪声；预测精确相等",
+          "验证通过只涉及提供的有限观测，不构成无限序列定理",
+          "学习与候选搜索为人工设定的有限规则集合"
+        ]
+      },
+      "verification": {
+        "status": "verified_on_supplied_observations",
+        "checkedTerms": 4,
+        "developmentTerms": 16,
+        "forecastTerms": 4
+      }
+    },
+    "periodic": {
+      "development": [
+        1,
+        2,
+        3,
+        1,
+        2,
+        3,
+        1,
+        2,
+        3,
+        1,
+        2,
+        3,
+        1,
+        2,
+        3,
+        1
+      ],
+      "holdout": [
+        2,
+        3,
+        1,
+        2
+      ],
+      "selection": [
+        {
+          "name": "periodic",
+          "score": 3,
+          "passRate": 1,
+          "eligible": true
+        },
+        {
+          "name": "difference→recurrence",
+          "score": 6,
+          "passRate": 1,
+          "eligible": true
+        },
+        {
+          "name": "polynomial",
+          "score": 19990,
+          "passRate": 0,
+          "eligible": false
+        }
+      ],
+      "certificate": {
+        "schemaVersion": 2,
+        "claim": "finite_sample_hypothesis",
+        "arithmetic": "exact_integer",
+        "decoder": "periodic",
+        "rule": "周期=3",
+        "model": {
+          "kind": "periodic",
+          "pattern": [
+            1,
+            2,
+            3
+          ]
+        },
+        "developmentLength": 16,
+        "developmentSha256": "2bba59847633b4cb22c7cf58c2f20045f67423eedb121f22a9b9bb4422bf0182",
+        "forecast": [
+          "2",
+          "3",
+          "1",
+          "2"
+        ],
+        "selection": {
+          "diagnostics": [
+            "constant:失配",
+            "arithmetic:失配",
+            "periodic:样本通过",
+            "differences:失配",
+            "recurrence:失配",
+            "polynomial:外推失败"
+          ],
+          "splits": [
+            8,
+            10,
+            12
+          ],
+          "horizon": 2,
+          "passRate": 1
+        },
+        "complexity": {
+          "value": 3,
+          "unit": "heuristic_proxy_not_bits"
+        },
+        "limits": [
+          "有限整数序列；无噪声；预测精确相等",
+          "验证通过只涉及提供的有限观测，不构成无限序列定理",
+          "学习与候选搜索为人工设定的有限规则集合"
+        ]
+      },
+      "verification": {
+        "status": "verified_on_supplied_observations",
+        "checkedTerms": 4,
+        "developmentTerms": 16,
+        "forecastTerms": 4
+      }
+    },
+    "quadratic": {
+      "development": [
+        0,
+        1,
+        4,
+        9,
+        16,
+        25,
+        36,
+        49,
+        64,
+        81,
+        100,
+        121,
+        144,
+        169,
+        196,
+        225
+      ],
+      "holdout": [
+        256,
+        289,
+        324,
+        361
+      ],
+      "selection": [
+        {
+          "name": "differences",
+          "score": 3,
+          "passRate": 1,
+          "eligible": true
+        },
+        {
+          "name": "polynomial",
+          "score": 10,
+          "passRate": 1,
+          "eligible": true
+        },
+        {
+          "name": "constant",
+          "score": null,
+          "passRate": 0,
+          "eligible": false
+        }
+      ],
+      "certificate": {
+        "schemaVersion": 2,
+        "claim": "finite_sample_hypothesis",
+        "arithmetic": "exact_integer",
+        "decoder": "differences",
+        "rule": "恒定2阶差分",
+        "model": {
+          "kind": "finite_differences",
+          "coefficients": [
+            0,
+            1,
+            2
+          ]
+        },
+        "developmentLength": 16,
+        "developmentSha256": "2bb67287046dfc2ede014a129354a625dfb3050051380ec96c134a7fc5e24c16",
+        "forecast": [
+          "256",
+          "289",
+          "324",
+          "361"
+        ],
+        "selection": {
+          "diagnostics": [
+            "constant:失配",
+            "arithmetic:失配",
+            "periodic:失配",
+            "differences:样本通过",
+            "recurrence:失配",
+            "polynomial:样本通过"
+          ],
+          "splits": [
+            8,
+            10,
+            12
+          ],
+          "horizon": 2,
+          "passRate": 1
+        },
+        "complexity": {
+          "value": 3,
+          "unit": "heuristic_proxy_not_bits"
+        },
+        "limits": [
+          "有限整数序列；无噪声；预测精确相等",
+          "验证通过只涉及提供的有限观测，不构成无限序列定理",
+          "学习与候选搜索为人工设定的有限规则集合"
+        ]
+      },
+      "verification": {
+        "status": "verified_on_supplied_observations",
+        "checkedTerms": 4,
+        "developmentTerms": 16,
+        "forecastTerms": 4
+      }
+    },
+    "fibonacci": {
+      "development": [
+        1,
+        1,
+        2,
+        3,
+        5,
+        8,
+        13,
+        21,
+        34,
+        55,
+        89,
+        144,
+        233,
+        377,
+        610,
+        987
+      ],
+      "holdout": [
+        1597,
+        2584,
+        4181,
+        6765
+      ],
+      "selection": [
+        {
+          "name": "recurrence",
+          "score": 4,
+          "passRate": 1,
+          "eligible": true
+        },
+        {
+          "name": "difference→recurrence",
+          "score": 6,
+          "passRate": 1,
+          "eligible": true
+        },
+        {
+          "name": "polynomial",
+          "score": 2616.666666666667,
+          "passRate": 0,
+          "eligible": false
+        }
+      ],
+      "certificate": {
+        "schemaVersion": 2,
+        "claim": "finite_sample_hypothesis",
+        "arithmetic": "exact_integer",
+        "decoder": "recurrence",
+        "rule": "xₙ=1xₙ₋₁+(1)xₙ₋₂",
+        "model": {
+          "kind": "linear_recurrence",
+          "coefficients": [
+            1,
+            1
+          ],
+          "initial": [
+            1,
+            1
+          ]
+        },
+        "developmentLength": 16,
+        "developmentSha256": "658a9e9a178a5bd9d583bb08680deb9cd4e217bf35dd01d0a3e89415b47cdd92",
+        "forecast": [
+          "1597",
+          "2584",
+          "4181",
+          "6765"
+        ],
+        "selection": {
+          "diagnostics": [
+            "constant:失配",
+            "arithmetic:失配",
+            "periodic:失配",
+            "differences:失配",
+            "recurrence:样本通过",
+            "polynomial:外推失败"
+          ],
+          "splits": [
+            8,
+            10,
+            12
+          ],
+          "horizon": 2,
+          "passRate": 1
+        },
+        "complexity": {
+          "value": 4,
+          "unit": "heuristic_proxy_not_bits"
+        },
+        "limits": [
+          "有限整数序列；无噪声；预测精确相等",
+          "验证通过只涉及提供的有限观测，不构成无限序列定理",
+          "学习与候选搜索为人工设定的有限规则集合"
+        ]
+      },
+      "verification": {
+        "status": "verified_on_supplied_observations",
+        "checkedTerms": 4,
+        "developmentTerms": 16,
+        "forecastTerms": 4
+      }
+    },
+    "differenceRecurrence": {
+      "development": [
+        1,
+        2,
+        4,
+        7,
+        12,
+        20,
+        33,
+        54,
+        88,
+        143,
+        232,
+        376,
+        609,
+        986,
+        1596,
+        2583
+      ],
+      "holdout": [
+        4180,
+        6764,
+        10945,
+        17710
+      ],
+      "selection": [
+        {
+          "name": "difference→recurrence",
+          "score": 6,
+          "passRate": 1,
+          "eligible": true
+        },
+        {
+          "name": "polynomial",
+          "score": 1006.6666666666667,
+          "passRate": 0,
+          "eligible": false
+        },
+        {
+          "name": "constant",
+          "score": null,
+          "passRate": 0,
+          "eligible": false
+        }
+      ],
+      "certificate": {
+        "schemaVersion": 2,
+        "claim": "finite_sample_hypothesis",
+        "arithmetic": "exact_integer",
+        "decoder": "difference→recurrence",
+        "rule": "Δxₙ=1Δxₙ₋₁+(1)Δxₙ₋₂",
+        "model": {
+          "kind": "difference_recurrence",
+          "coefficients": [
+            1,
+            1
+          ],
+          "initial": [
+            1,
+            2,
+            4
+          ]
+        },
+        "developmentLength": 16,
+        "developmentSha256": "4ac0f7e8526a0497e14ec8dc4560284a3406f861d0f7d7e72883b67667d21493",
+        "forecast": [
+          "4180",
+          "6764",
+          "10945",
+          "17710"
+        ],
+        "selection": {
+          "diagnostics": [
+            "constant:失配",
+            "arithmetic:失配",
+            "periodic:失配",
+            "differences:失配",
+            "recurrence:失配",
+            "polynomial:外推失败"
+          ],
+          "splits": [
+            8,
+            10,
+            12
+          ],
+          "horizon": 2,
+          "passRate": 1
+        },
+        "complexity": {
+          "value": 6,
+          "unit": "heuristic_proxy_not_bits"
+        },
+        "limits": [
+          "有限整数序列；无噪声；预测精确相等",
+          "验证通过只涉及提供的有限观测，不构成无限序列定理",
+          "学习与候选搜索为人工设定的有限规则集合"
+        ]
+      },
+      "verification": {
+        "status": "verified_on_supplied_observations",
+        "checkedTerms": 4,
+        "developmentTerms": 16,
+        "forecastTerms": 4
+      }
+    },
+    "random": {
+      "development": [
+        48,
+        89,
+        52,
+        78,
+        57,
+        39,
+        38,
+        66,
+        90,
+        24,
+        54,
+        22,
+        9,
+        70,
+        79,
+        29
+      ],
+      "holdout": [
+        15,
+        3,
+        36,
+        21
+      ],
+      "selection": [
+        {
+          "name": "polynomial",
+          "score": 179230,
+          "passRate": 0,
+          "eligible": false
+        },
+        {
+          "name": "constant",
+          "score": null,
+          "passRate": 0,
+          "eligible": false
+        },
+        {
+          "name": "arithmetic",
+          "score": null,
+          "passRate": 0,
+          "eligible": false
+        }
+      ],
+      "certificate": null,
+      "verification": {
+        "status": "no_certificate",
+        "reason": "开发数据未产生合格候选"
+      }
+    },
+    "adversarial": {
+      "development": [
+        3,
+        7,
+        11,
+        15,
+        19,
+        23,
+        27,
+        31,
+        35,
+        39,
+        43,
+        47,
+        51,
+        55,
+        59,
+        63
+      ],
+      "holdout": [
+        68,
+        72,
+        76,
+        80
+      ],
+      "selection": [
+        {
+          "name": "arithmetic",
+          "score": 2,
+          "passRate": 1,
+          "eligible": true
+        },
+        {
+          "name": "differences",
+          "score": 2,
+          "passRate": 1,
+          "eligible": true
+        },
+        {
+          "name": "recurrence",
+          "score": 4,
+          "passRate": 1,
+          "eligible": true
+        }
+      ],
+      "certificate": {
+        "schemaVersion": 2,
+        "claim": "finite_sample_hypothesis",
+        "arithmetic": "exact_integer",
+        "decoder": "arithmetic",
+        "rule": "公差=4",
+        "model": {
+          "kind": "arithmetic",
+          "start": 3,
+          "difference": 4
+        },
+        "developmentLength": 16,
+        "developmentSha256": "957e806def64b18e4c021bb7f67d0a563a2a9fe65d4cb340ca52b85473d102be",
+        "forecast": [
+          "67",
+          "71",
+          "75",
+          "79"
+        ],
+        "selection": {
+          "diagnostics": [
+            "constant:失配",
+            "arithmetic:样本通过",
+            "periodic:失配",
+            "differences:样本通过",
+            "recurrence:样本通过",
+            "polynomial:样本通过"
+          ],
+          "splits": [
+            8,
+            10,
+            12
+          ],
+          "horizon": 2,
+          "passRate": 1
+        },
+        "complexity": {
+          "value": 2,
+          "unit": "heuristic_proxy_not_bits"
+        },
+        "limits": [
+          "有限整数序列；无噪声；预测精确相等",
+          "验证通过只涉及提供的有限观测，不构成无限序列定理",
+          "学习与候选搜索为人工设定的有限规则集合"
+        ]
+      },
+      "verification": {
+        "status": "counterexample_found",
+        "counterexample": {
+          "term": 1,
+          "actual": "68",
+          "expected": "67",
+          "globalTerm": 17
+        },
+        "checkedTerms": 4
+      }
+    }
+  }
+}

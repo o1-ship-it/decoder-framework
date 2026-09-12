@@ -1,0 +1,12 @@
+const assert = require("node:assert/strict");
+const acceptance = require("./decoder_acceptance.js");
+const audit = require("./decoder_audit.js");
+const result = audit.audit(acceptance.run());
+assert.equal(result.passed, true);
+const bad = JSON.parse(JSON.stringify(acceptance.run()));
+bad.report.rows[0].residual = 1;
+assert.equal(audit.audit(bad).passed, false);
+const badSummary = JSON.parse(JSON.stringify(acceptance.run()));
+badSummary.report.summary[0].verified += 1;
+assert.equal(audit.audit(badSummary).passed, false);
+console.log("decoder_audit_test: passed");

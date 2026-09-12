@@ -1,0 +1,179 @@
+{
+  "arithmetic": {
+    "family": "arithmetic",
+    "status": "transferred",
+    "plan": "identity→arithmetic",
+    "outcomes": [
+      {
+        "variant": 0,
+        "valid": true,
+        "exact": true,
+        "error": 0,
+        "note": "原表示；公差=4",
+        "diagnosis": {
+          "status": "passed",
+          "action": "保持当前解码器计划",
+          "prediction": [
+            51,
+            55,
+            59,
+            63
+          ]
+        }
+      },
+      {
+        "variant": 1,
+        "valid": true,
+        "exact": true,
+        "error": 0,
+        "note": "原表示；公差=9",
+        "diagnosis": {
+          "status": "passed",
+          "action": "保持当前解码器计划",
+          "prediction": [
+            96,
+            105,
+            114,
+            123
+          ]
+        }
+      },
+      {
+        "variant": 2,
+        "valid": true,
+        "exact": true,
+        "error": 0,
+        "note": "原表示；公差=-2",
+        "diagnosis": {
+          "status": "passed",
+          "action": "保持当前解码器计划",
+          "prediction": [
+            26,
+            24,
+            22,
+            20
+          ]
+        }
+      }
+    ],
+    "sameStructureRate": 1
+  },
+  "quadratic": {
+    "family": "quadratic",
+    "status": "transferred",
+    "plan": "identity→differences",
+    "outcomes": [
+      {
+        "variant": 0,
+        "valid": true,
+        "exact": true,
+        "error": 0,
+        "note": "原表示；恒定2阶差分",
+        "diagnosis": {
+          "status": "passed",
+          "action": "保持当前解码器计划",
+          "prediction": [
+            144,
+            169,
+            196,
+            225
+          ]
+        }
+      },
+      {
+        "variant": 1,
+        "valid": true,
+        "exact": true,
+        "error": 0,
+        "note": "原表示；恒定2阶差分",
+        "diagnosis": {
+          "status": "passed",
+          "action": "保持当前解码器计划",
+          "prediction": [
+            291,
+            341,
+            395,
+            453
+          ]
+        }
+      },
+      {
+        "variant": 2,
+        "valid": true,
+        "exact": true,
+        "error": 0,
+        "note": "原表示；恒定2阶差分",
+        "diagnosis": {
+          "status": "passed",
+          "action": "保持当前解码器计划",
+          "prediction": [
+            708,
+            832,
+            966,
+            1110
+          ]
+        }
+      }
+    ],
+    "sameStructureRate": 1
+  },
+  "cumulativeFibonacci": {
+    "family": "cumulativeFibonacci",
+    "status": "transferred",
+    "plan": "1阶差分→recurrence",
+    "outcomes": [
+      {
+        "variant": 0,
+        "valid": true,
+        "exact": true,
+        "error": 0,
+        "note": "Δ^1表示；xₙ=1xₙ₋₁+(1)xₙ₋₂",
+        "diagnosis": {
+          "status": "passed",
+          "action": "保持当前解码器计划",
+          "prediction": [
+            609,
+            986,
+            1596,
+            2583
+          ]
+        }
+      },
+      {
+        "variant": 1,
+        "valid": true,
+        "exact": true,
+        "error": 0,
+        "note": "Δ^1表示；xₙ=1xₙ₋₁+(1)xₙ₋₂",
+        "diagnosis": {
+          "status": "passed",
+          "action": "保持当前解码器计划",
+          "prediction": [
+            842,
+            1363,
+            2206,
+            3570
+          ]
+        }
+      },
+      {
+        "variant": 2,
+        "valid": true,
+        "exact": true,
+        "error": 0,
+        "note": "Δ^1表示；xₙ=1xₙ₋₁+(1)xₙ₋₂",
+        "diagnosis": {
+          "status": "passed",
+          "action": "保持当前解码器计划",
+          "prediction": [
+            1451,
+            2349,
+            3802,
+            6153
+          ]
+        }
+      }
+    ],
+    "sameStructureRate": 1
+  }
+}

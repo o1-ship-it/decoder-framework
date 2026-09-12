@@ -1,0 +1,955 @@
+{
+  "arithmetic": {
+    "status": "candidate_frozen",
+    "best": {
+      "name": "identity→arithmetic",
+      "descriptionLength": 2,
+      "exactRate": 1,
+      "averageError": 0,
+      "eligible": true,
+      "trials": [
+        {
+          "trainSize": 8,
+          "valid": true,
+          "exact": true,
+          "error": 0,
+          "note": "原表示；公差=4"
+        },
+        {
+          "trainSize": 10,
+          "valid": true,
+          "exact": true,
+          "error": 0,
+          "note": "原表示；公差=4"
+        },
+        {
+          "trainSize": 12,
+          "valid": true,
+          "exact": true,
+          "error": 0,
+          "note": "原表示；公差=4"
+        }
+      ],
+      "transformOrder": 0,
+      "model": {
+        "kind": "composed",
+        "transform": "difference^0",
+        "base": {
+          "kind": "arithmetic",
+          "start": 3,
+          "difference": 4
+        },
+        "baseDecoder": "arithmetic"
+      }
+    },
+    "ranking": [
+      {
+        "name": "identity→arithmetic",
+        "descriptionLength": 2,
+        "exactRate": 1,
+        "averageError": 0,
+        "eligible": true,
+        "trials": [
+          {
+            "trainSize": 8,
+            "valid": true,
+            "exact": true,
+            "error": 0,
+            "note": "原表示；公差=4"
+          },
+          {
+            "trainSize": 10,
+            "valid": true,
+            "exact": true,
+            "error": 0,
+            "note": "原表示；公差=4"
+          },
+          {
+            "trainSize": 12,
+            "valid": true,
+            "exact": true,
+            "error": 0,
+            "note": "原表示；公差=4"
+          }
+        ],
+        "transformOrder": 0,
+        "model": {
+          "kind": "composed",
+          "transform": "difference^0",
+          "base": {
+            "kind": "arithmetic",
+            "start": 3,
+            "difference": 4
+          },
+          "baseDecoder": "arithmetic"
+        }
+      },
+      {
+        "name": "identity→differences",
+        "descriptionLength": 2,
+        "exactRate": 1,
+        "averageError": 0,
+        "eligible": true,
+        "trials": [
+          {
+            "trainSize": 8,
+            "valid": true,
+            "exact": true,
+            "error": 0,
+            "note": "原表示；恒定1阶差分"
+          },
+          {
+            "trainSize": 10,
+            "valid": true,
+            "exact": true,
+            "error": 0,
+            "note": "原表示；恒定1阶差分"
+          },
+          {
+            "trainSize": 12,
+            "valid": true,
+            "exact": true,
+            "error": 0,
+            "note": "原表示；恒定1阶差分"
+          }
+        ],
+        "transformOrder": 0,
+        "model": {
+          "kind": "composed",
+          "transform": "difference^0",
+          "base": {
+            "kind": "finite_differences",
+            "coefficients": [
+              3,
+              4
+            ]
+          },
+          "baseDecoder": "differences"
+        }
+      },
+      {
+        "name": "identity→recurrence",
+        "descriptionLength": 4,
+        "exactRate": 1,
+        "averageError": 0,
+        "eligible": true,
+        "trials": [
+          {
+            "trainSize": 8,
+            "valid": true,
+            "exact": true,
+            "error": 0,
+            "note": "原表示；xₙ=2xₙ₋₁+(-1)xₙ₋₂"
+          },
+          {
+            "trainSize": 10,
+            "valid": true,
+            "exact": true,
+            "error": 0,
+            "note": "原表示；xₙ=2xₙ₋₁+(-1)xₙ₋₂"
+          },
+          {
+            "trainSize": 12,
+            "valid": true,
+            "exact": true,
+            "error": 0,
+            "note": "原表示；xₙ=2xₙ₋₁+(-1)xₙ₋₂"
+          }
+        ],
+        "transformOrder": 0,
+        "model": {
+          "kind": "composed",
+          "transform": "difference^0",
+          "base": {
+            "kind": "linear_recurrence",
+            "coefficients": [
+              2,
+              -1
+            ],
+            "initial": [
+              3,
+              7
+            ]
+          },
+          "baseDecoder": "recurrence"
+        }
+      },
+      {
+        "name": "identity→constant",
+        "descriptionLength": null,
+        "exactRate": 0,
+        "averageError": null,
+        "eligible": false,
+        "trials": [
+          {
+            "trainSize": 8,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "序列不恒定"
+          },
+          {
+            "trainSize": 10,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "序列不恒定"
+          },
+          {
+            "trainSize": 12,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "序列不恒定"
+          }
+        ],
+        "transformOrder": 0,
+        "model": null
+      },
+      {
+        "name": "identity→periodic",
+        "descriptionLength": null,
+        "exactRate": 0,
+        "averageError": null,
+        "eligible": false,
+        "trials": [
+          {
+            "trainSize": 8,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "未发现稳定周期"
+          },
+          {
+            "trainSize": 10,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "未发现稳定周期"
+          },
+          {
+            "trainSize": 12,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "未发现稳定周期"
+          }
+        ],
+        "transformOrder": 0,
+        "model": null
+      }
+    ],
+    "rounds": [
+      {
+        "order": 0,
+        "status": "candidate_frozen",
+        "best": {
+          "name": "identity→arithmetic",
+          "exactRate": 1,
+          "averageError": 0,
+          "eligible": true
+        },
+        "reason": "通过当前验证"
+      }
+    ],
+    "selectedOrder": 0
+  },
+  "quadratic": {
+    "status": "candidate_frozen",
+    "best": {
+      "name": "identity→differences",
+      "descriptionLength": 3,
+      "exactRate": 1,
+      "averageError": 0,
+      "eligible": true,
+      "trials": [
+        {
+          "trainSize": 8,
+          "valid": true,
+          "exact": true,
+          "error": 0,
+          "note": "原表示；恒定2阶差分"
+        },
+        {
+          "trainSize": 10,
+          "valid": true,
+          "exact": true,
+          "error": 0,
+          "note": "原表示；恒定2阶差分"
+        },
+        {
+          "trainSize": 12,
+          "valid": true,
+          "exact": true,
+          "error": 0,
+          "note": "原表示；恒定2阶差分"
+        }
+      ],
+      "transformOrder": 0,
+      "model": {
+        "kind": "composed",
+        "transform": "difference^0",
+        "base": {
+          "kind": "finite_differences",
+          "coefficients": [
+            0,
+            1,
+            2
+          ]
+        },
+        "baseDecoder": "differences"
+      }
+    },
+    "ranking": [
+      {
+        "name": "identity→differences",
+        "descriptionLength": 3,
+        "exactRate": 1,
+        "averageError": 0,
+        "eligible": true,
+        "trials": [
+          {
+            "trainSize": 8,
+            "valid": true,
+            "exact": true,
+            "error": 0,
+            "note": "原表示；恒定2阶差分"
+          },
+          {
+            "trainSize": 10,
+            "valid": true,
+            "exact": true,
+            "error": 0,
+            "note": "原表示；恒定2阶差分"
+          },
+          {
+            "trainSize": 12,
+            "valid": true,
+            "exact": true,
+            "error": 0,
+            "note": "原表示；恒定2阶差分"
+          }
+        ],
+        "transformOrder": 0,
+        "model": {
+          "kind": "composed",
+          "transform": "difference^0",
+          "base": {
+            "kind": "finite_differences",
+            "coefficients": [
+              0,
+              1,
+              2
+            ]
+          },
+          "baseDecoder": "differences"
+        }
+      },
+      {
+        "name": "identity→constant",
+        "descriptionLength": null,
+        "exactRate": 0,
+        "averageError": null,
+        "eligible": false,
+        "trials": [
+          {
+            "trainSize": 8,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "序列不恒定"
+          },
+          {
+            "trainSize": 10,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "序列不恒定"
+          },
+          {
+            "trainSize": 12,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "序列不恒定"
+          }
+        ],
+        "transformOrder": 0,
+        "model": null
+      },
+      {
+        "name": "identity→arithmetic",
+        "descriptionLength": null,
+        "exactRate": 0,
+        "averageError": null,
+        "eligible": false,
+        "trials": [
+          {
+            "trainSize": 8,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "差分不恒定"
+          },
+          {
+            "trainSize": 10,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "差分不恒定"
+          },
+          {
+            "trainSize": 12,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "差分不恒定"
+          }
+        ],
+        "transformOrder": 0,
+        "model": null
+      },
+      {
+        "name": "identity→periodic",
+        "descriptionLength": null,
+        "exactRate": 0,
+        "averageError": null,
+        "eligible": false,
+        "trials": [
+          {
+            "trainSize": 8,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "未发现稳定周期"
+          },
+          {
+            "trainSize": 10,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "未发现稳定周期"
+          },
+          {
+            "trainSize": 12,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "未发现稳定周期"
+          }
+        ],
+        "transformOrder": 0,
+        "model": null
+      },
+      {
+        "name": "identity→recurrence",
+        "descriptionLength": null,
+        "exactRate": 0,
+        "averageError": null,
+        "eligible": false,
+        "trials": [
+          {
+            "trainSize": 8,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "未发现低阶整数递推"
+          },
+          {
+            "trainSize": 10,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "未发现低阶整数递推"
+          },
+          {
+            "trainSize": 12,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "未发现低阶整数递推"
+          }
+        ],
+        "transformOrder": 0,
+        "model": null
+      }
+    ],
+    "rounds": [
+      {
+        "order": 0,
+        "status": "candidate_frozen",
+        "best": {
+          "name": "identity→differences",
+          "exactRate": 1,
+          "averageError": 0,
+          "eligible": true
+        },
+        "reason": "通过当前验证"
+      }
+    ],
+    "selectedOrder": 0
+  },
+  "cumulativeFib": {
+    "status": "candidate_frozen",
+    "best": {
+      "name": "1阶差分→recurrence",
+      "descriptionLength": 5,
+      "exactRate": 1,
+      "averageError": 0,
+      "eligible": true,
+      "trials": [
+        {
+          "trainSize": 8,
+          "valid": true,
+          "exact": true,
+          "error": 0,
+          "note": "Δ^1表示；xₙ=1xₙ₋₁+(1)xₙ₋₂"
+        },
+        {
+          "trainSize": 10,
+          "valid": true,
+          "exact": true,
+          "error": 0,
+          "note": "Δ^1表示；xₙ=1xₙ₋₁+(1)xₙ₋₂"
+        },
+        {
+          "trainSize": 12,
+          "valid": true,
+          "exact": true,
+          "error": 0,
+          "note": "Δ^1表示；xₙ=1xₙ₋₁+(1)xₙ₋₂"
+        }
+      ],
+      "transformOrder": 1,
+      "model": {
+        "kind": "composed",
+        "transform": "difference^1",
+        "base": {
+          "kind": "linear_recurrence",
+          "coefficients": [
+            1,
+            1
+          ],
+          "initial": [
+            1,
+            2
+          ]
+        },
+        "baseDecoder": "recurrence"
+      }
+    },
+    "ranking": [
+      {
+        "name": "1阶差分→recurrence",
+        "descriptionLength": 5,
+        "exactRate": 1,
+        "averageError": 0,
+        "eligible": true,
+        "trials": [
+          {
+            "trainSize": 8,
+            "valid": true,
+            "exact": true,
+            "error": 0,
+            "note": "Δ^1表示；xₙ=1xₙ₋₁+(1)xₙ₋₂"
+          },
+          {
+            "trainSize": 10,
+            "valid": true,
+            "exact": true,
+            "error": 0,
+            "note": "Δ^1表示；xₙ=1xₙ₋₁+(1)xₙ₋₂"
+          },
+          {
+            "trainSize": 12,
+            "valid": true,
+            "exact": true,
+            "error": 0,
+            "note": "Δ^1表示；xₙ=1xₙ₋₁+(1)xₙ₋₂"
+          }
+        ],
+        "transformOrder": 1,
+        "model": {
+          "kind": "composed",
+          "transform": "difference^1",
+          "base": {
+            "kind": "linear_recurrence",
+            "coefficients": [
+              1,
+              1
+            ],
+            "initial": [
+              1,
+              2
+            ]
+          },
+          "baseDecoder": "recurrence"
+        }
+      },
+      {
+        "name": "identity→constant",
+        "descriptionLength": null,
+        "exactRate": 0,
+        "averageError": null,
+        "eligible": false,
+        "trials": [
+          {
+            "trainSize": 8,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "序列不恒定"
+          },
+          {
+            "trainSize": 10,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "序列不恒定"
+          },
+          {
+            "trainSize": 12,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "序列不恒定"
+          }
+        ],
+        "transformOrder": 0,
+        "model": null
+      },
+      {
+        "name": "identity→arithmetic",
+        "descriptionLength": null,
+        "exactRate": 0,
+        "averageError": null,
+        "eligible": false,
+        "trials": [
+          {
+            "trainSize": 8,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "差分不恒定"
+          },
+          {
+            "trainSize": 10,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "差分不恒定"
+          },
+          {
+            "trainSize": 12,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "差分不恒定"
+          }
+        ],
+        "transformOrder": 0,
+        "model": null
+      },
+      {
+        "name": "identity→periodic",
+        "descriptionLength": null,
+        "exactRate": 0,
+        "averageError": null,
+        "eligible": false,
+        "trials": [
+          {
+            "trainSize": 8,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "未发现稳定周期"
+          },
+          {
+            "trainSize": 10,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "未发现稳定周期"
+          },
+          {
+            "trainSize": 12,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "未发现稳定周期"
+          }
+        ],
+        "transformOrder": 0,
+        "model": null
+      },
+      {
+        "name": "identity→differences",
+        "descriptionLength": null,
+        "exactRate": 0,
+        "averageError": null,
+        "eligible": false,
+        "trials": [
+          {
+            "trainSize": 8,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "没有恒定的低阶差分"
+          },
+          {
+            "trainSize": 10,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "没有恒定的低阶差分"
+          },
+          {
+            "trainSize": 12,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "没有恒定的低阶差分"
+          }
+        ],
+        "transformOrder": 0,
+        "model": null
+      },
+      {
+        "name": "identity→recurrence",
+        "descriptionLength": null,
+        "exactRate": 0,
+        "averageError": null,
+        "eligible": false,
+        "trials": [
+          {
+            "trainSize": 8,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "未发现低阶整数递推"
+          },
+          {
+            "trainSize": 10,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "未发现低阶整数递推"
+          },
+          {
+            "trainSize": 12,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "未发现低阶整数递推"
+          }
+        ],
+        "transformOrder": 0,
+        "model": null
+      },
+      {
+        "name": "1阶差分→constant",
+        "descriptionLength": null,
+        "exactRate": 0,
+        "averageError": null,
+        "eligible": false,
+        "trials": [
+          {
+            "trainSize": 8,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "序列不恒定"
+          },
+          {
+            "trainSize": 10,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "序列不恒定"
+          },
+          {
+            "trainSize": 12,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "序列不恒定"
+          }
+        ],
+        "transformOrder": 0,
+        "model": null
+      },
+      {
+        "name": "1阶差分→arithmetic",
+        "descriptionLength": null,
+        "exactRate": 0,
+        "averageError": null,
+        "eligible": false,
+        "trials": [
+          {
+            "trainSize": 8,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "差分不恒定"
+          },
+          {
+            "trainSize": 10,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "差分不恒定"
+          },
+          {
+            "trainSize": 12,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "差分不恒定"
+          }
+        ],
+        "transformOrder": 0,
+        "model": null
+      },
+      {
+        "name": "1阶差分→periodic",
+        "descriptionLength": null,
+        "exactRate": 0,
+        "averageError": null,
+        "eligible": false,
+        "trials": [
+          {
+            "trainSize": 8,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "未发现稳定周期"
+          },
+          {
+            "trainSize": 10,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "未发现稳定周期"
+          },
+          {
+            "trainSize": 12,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "未发现稳定周期"
+          }
+        ],
+        "transformOrder": 0,
+        "model": null
+      },
+      {
+        "name": "1阶差分→differences",
+        "descriptionLength": null,
+        "exactRate": 0,
+        "averageError": null,
+        "eligible": false,
+        "trials": [
+          {
+            "trainSize": 8,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "没有恒定的低阶差分"
+          },
+          {
+            "trainSize": 10,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "没有恒定的低阶差分"
+          },
+          {
+            "trainSize": 12,
+            "valid": false,
+            "exact": false,
+            "error": null,
+            "note": "没有恒定的低阶差分"
+          }
+        ],
+        "transformOrder": 0,
+        "model": null
+      }
+    ],
+    "rounds": [
+      {
+        "order": 0,
+        "status": "uncertain",
+        "best": {
+          "name": "identity→constant",
+          "exactRate": 0,
+          "averageError": null,
+          "eligible": false
+        },
+        "reason": "当前表示空间没有稳定候选"
+      },
+      {
+        "order": 1,
+        "status": "candidate_frozen",
+        "best": {
+          "name": "1阶差分→recurrence",
+          "exactRate": 1,
+          "averageError": 0,
+          "eligible": true
+        },
+        "reason": "通过当前验证"
+      }
+    ],
+    "selectedOrder": 1
+  },
+  "random": {
+    "status": "uncertain",
+    "rounds": [
+      {
+        "order": 0,
+        "status": "uncertain",
+        "best": {
+          "name": "identity→constant",
+          "exactRate": 0,
+          "averageError": null,
+          "eligible": false
+        },
+        "reason": "当前表示空间没有稳定候选"
+      },
+      {
+        "order": 1,
+        "status": "uncertain",
+        "best": {
+          "name": "identity→constant",
+          "exactRate": 0,
+          "averageError": null,
+          "eligible": false
+        },
+        "reason": "当前表示空间没有稳定候选"
+      },
+      {
+        "order": 2,
+        "status": "uncertain",
+        "best": {
+          "name": "identity→constant",
+          "exactRate": 0,
+          "averageError": null,
+          "eligible": false
+        },
+        "reason": "当前表示空间没有稳定候选"
+      },
+      {
+        "order": 3,
+        "status": "uncertain",
+        "best": {
+          "name": "identity→constant",
+          "exactRate": 0,
+          "averageError": null,
+          "eligible": false
+        },
+        "reason": "当前表示空间没有稳定候选"
+      }
+    ],
+    "selectedOrder": null,
+    "suggestion": "扩大表示变换或增加独立观测"
+  }
+}

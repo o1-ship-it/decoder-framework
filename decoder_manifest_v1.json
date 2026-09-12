@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "claim": "decoder_reproducibility_manifest",
+  "files": [
+    {
+      "path": "decoder_v1.js",
+      "sha256": "8e7aedbcf7d07571ba3c6208b1f69a67649cdc71d8c2e8a02ba0644083772e70"
+    },
+    {
+      "path": "decoder_protocol.js",
+      "sha256": "1512b158d86b9b5e1f635277008f06015022fc06d158b9bff120e0602f3d2bdd"
+    },
+    {
+      "path": "dynamics_invariant.js",
+      "sha256": "0b192f2318840377f3a60a6e9c26a6592539205934d41553e0bbadb150aa0dd1"
+    },
+    {
+      "path": "dynamics_invariant_verifier.js",
+      "sha256": "7f1e35ce6b520000e6314be23c39f8ff4ee125906e35e22d64d3364c0c60b409"
+    },
+    {
+      "path": "decoder_acceptance_v1.json",
+      "sha256": "ff9dd6929f02e4e5a0b3aa5b3d6d8d317249a4b5b97e91dc89557a8b41c1c7e2"
+    }
+  ]
+}

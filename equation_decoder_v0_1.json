@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "decoded": {
+    "domain": "equation",
+    "decoder": "linear_normalization",
+    "representation": "2x+-1y=3",
+    "hypothesis": {
+      "terms": {
+        "x": 2,
+        "y": -1
+      },
+      "constant": 3
+    },
+    "complexity": 3,
+    "residual": 0,
+    "verification": "normalized_exactly",
+    "limits": [
+      "整数线性方程",
+      "等价关系是整体非零整数倍和统一符号",
+      "不处理非线性语义或实数域的额外解集差异"
+    ]
+  },
+  "scaledEquivalence": true,
+  "renameEquivalence": {
+    "status": "verified_under_rename",
+    "renamed": {
+      "terms": {
+        "u": 2,
+        "v": -1
+      },
+      "constant": 3
+    }
+  },
+  "originalVerification": {
+    "status": "verified_equation",
+    "variables": 2
+  },
+  "scaledVerification": {
+    "status": "verified_equation",
+    "variables": 2
+  },
+  "wrongVerification": {
+    "status": "counterexample_found",
+    "reason": "输入方程不满足证书来源"
+  },
+  "certificate": {
+    "schemaVersion": 1,
+    "claim": "linear_equation_normal_form",
+    "source": {
+      "terms": {
+        "x": 2,
+        "y": -1
+      },
+      "constant": 3
+    },
+    "hypothesis": {
+      "terms": {
+        "x": 2,
+        "y": -1
+      },
+      "constant": 3
+    },
+    "limits": [
+      "整数线性方程",
+      "等价关系是整体非零整数倍和统一符号",
+      "不处理非线性语义或实数域的额外解集差异"
+    ]
+  }
+}

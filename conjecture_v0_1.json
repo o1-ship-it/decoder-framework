@@ -1,0 +1,78 @@
+{
+  "sequence": {
+    "status": "conjecture",
+    "domain": "sequence",
+    "claim": {
+      "kind": "finite_sequence_rule",
+      "decoder": "identity→arithmetic",
+      "transform": "difference^0",
+      "baseModel": {
+        "kind": "arithmetic",
+        "start": 3,
+        "difference": 4
+      }
+    },
+    "evidence": {
+      "developmentLength": 16,
+      "forecast": [
+        "67",
+        "71",
+        "75",
+        "79"
+      ],
+      "exactRate": 1
+    },
+    "limits": [
+      "有限整数序列",
+      "变换链来自有限搜索空间",
+      "证书证明有限样本假设，不证明无限序列规律"
+    ]
+  },
+  "graph": {
+    "status": "conjecture",
+    "domain": "graph",
+    "claim": {
+      "kind": "finite_graph_invariant",
+      "decoder": "cycle",
+      "model": {
+        "kind": "cycle",
+        "n": 6
+      }
+    },
+    "evidence": {
+      "vertices": 6,
+      "edges": 6,
+      "validCandidates": [
+        "cycle",
+        "regular",
+        "raw_edges"
+      ]
+    },
+    "limits": [
+      "有限简单无向图",
+      "结构判断依赖预设不变量",
+      "不等价于完整图同构定理"
+    ]
+  },
+  "polynomial": {
+    "status": "conjecture",
+    "domain": "polynomial",
+    "claim": {
+      "kind": "euler_homogeneous_identity",
+      "degree": 2,
+      "variables": [
+        "x",
+        "y"
+      ]
+    },
+    "evidence": {
+      "termCount": 3,
+      "checked": true
+    },
+    "limits": [
+      "有限整数多项式",
+      "齐次性按总次数定义",
+      "欧拉恒等式仅在齐次情形作为结构证据"
+    ]
+  }
+}

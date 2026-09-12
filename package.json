@@ -1,0 +1,16 @@
+{
+  "name": "decoder-framework",
+  "version": "1.0.0",
+  "description": "A verifiable framework for layered information decoding experiments.",
+  "private": false,
+  "type": "commonjs",
+  "scripts": {
+    "test": "node -e \"const fs=require('fs'); const cp=require('child_process'); const files=fs.readdirSync('.').filter(f=>f.endsWith('_test.js')).sort(); for (const file of files) cp.execFileSync(process.execPath,[file],{stdio:'inherit'});\"",
+    "acceptance": "node decoder_acceptance.js",
+    "audit": "node decoder_audit.js",
+    "manifest": "node decoder_manifest.js"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "representation": "WL-1 颜色细化",
+  "discovered": {
+    "cycle": {
+      "representation": "顶点颜色及邻居颜色多重集的迭代细化",
+      "invariant": {
+        "kind": "wl1",
+        "n": 6,
+        "rounds": 2,
+        "signature": "0|0|0|0|0|0",
+        "degreeHistogram": "2|2|2|2|2|2",
+        "connected": true
+      },
+      "canonicalKey": "{\"n\":6,\"edges\":\"[[0,1],[0,2],[1,3],[2,4],[3,5],[4,5]]\"}"
+    },
+    "relabeledCycle": {
+      "representation": "顶点颜色及邻居颜色多重集的迭代细化",
+      "invariant": {
+        "kind": "wl1",
+        "n": 6,
+        "rounds": 2,
+        "signature": "0|0|0|0|0|0",
+        "degreeHistogram": "2|2|2|2|2|2",
+        "connected": true
+      },
+      "canonicalKey": "{\"n\":6,\"edges\":\"[[0,1],[0,2],[1,3],[2,4],[3,5],[4,5]]\"}"
+    },
+    "disjointTriangles": {
+      "representation": "顶点颜色及邻居颜色多重集的迭代细化",
+      "invariant": {
+        "kind": "wl1",
+        "n": 6,
+        "rounds": 2,
+        "signature": "0|0|0|0|0|0",
+        "degreeHistogram": "2|2|2|2|2|2",
+        "connected": false
+      },
+      "canonicalKey": "{\"n\":6,\"edges\":\"[[0,1],[0,2],[1,2],[3,4],[3,5],[4,5]]\"}"
+    },
+    "path": {
+      "representation": "顶点颜色及邻居颜色多重集的迭代细化",
+      "invariant": {
+        "kind": "wl1",
+        "n": 6,
+        "rounds": 2,
+        "signature": "0|0|1|1|2|2",
+        "degreeHistogram": "1|1|2|2|2|2",
+        "connected": true
+      },
+      "canonicalKey": "{\"n\":6,\"edges\":\"[[0,1],[0,2],[1,3],[2,4],[3,5]]\"}"
+    },
+    "star": {
+      "representation": "顶点颜色及邻居颜色多重集的迭代细化",
+      "invariant": {
+        "kind": "wl1",
+        "n": 6,
+        "rounds": 2,
+        "signature": "0|0|0|0|0|1",
+        "degreeHistogram": "1|1|1|1|1|5",
+        "connected": true
+      },
+      "canonicalKey": "{\"n\":6,\"edges\":\"[[0,1],[0,2],[0,3],[0,4],[0,5]]\"}"
+    }
+  },
+  "comparisons": {
+    "relabeling": {
+      "sameInvariant": true,
+      "isomorphicForSmallGraph": true,
+      "left": {
+        "kind": "wl1",
+        "n": 6,
+        "rounds": 2,
+        "signature": "0|0|0|0|0|0",
+        "degreeHistogram": "2|2|2|2|2|2",
+        "connected": true
+      },
+      "right": {
+        "kind": "wl1",
+        "n": 6,
+        "rounds": 2,
+        "signature": "0|0|0|0|0|0",
+        "degreeHistogram": "2|2|2|2|2|2",
+        "connected": true
+      }
+    },
+    "collision": {
+      "sameInvariant": true,
+      "isomorphicForSmallGraph": false,
+      "left": {
+        "kind": "wl1",
+        "n": 6,
+        "rounds": 2,
+        "signature": "0|0|0|0|0|0",
+        "degreeHistogram": "2|2|2|2|2|2",
+        "connected": true
+      },
+      "right": {
+        "kind": "wl1",
+        "n": 6,
+        "rounds": 2,
+        "signature": "0|0|0|0|0|0",
+        "degreeHistogram": "2|2|2|2|2|2",
+        "connected": false
+      }
+    }
+  },
+  "collisionGroups": [
+    [
+      {
+        "name": "cycle",
+        "canonicalKey": "{\"n\":6,\"edges\":\"[[0,1],[0,2],[1,3],[2,4],[3,5],[4,5]]\"}"
+      },
+      {
+        "name": "relabeledCycle",
+        "canonicalKey": "{\"n\":6,\"edges\":\"[[0,1],[0,2],[1,3],[2,4],[3,5],[4,5]]\"}"
+      },
+      {
+        "name": "disjointTriangles",
+        "canonicalKey": "{\"n\":6,\"edges\":\"[[0,1],[0,2],[1,2],[3,4],[3,5],[4,5]]\"}"
+      }
+    ]
+  ],
+  "limitation": "颜色细化相同只表示当前不变量无法区分，不表示图同构"
+}

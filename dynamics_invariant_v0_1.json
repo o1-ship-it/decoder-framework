@@ -1,0 +1,96 @@
+{
+  "rotation": {
+    "map": {
+      "x": [
+        {
+          "coefficient": -1,
+          "powers": [
+            0,
+            1
+          ]
+        }
+      ],
+      "y": [
+        {
+          "coefficient": 1,
+          "powers": [
+            1,
+            0
+          ]
+        }
+      ]
+    },
+    "invariantCount": 6,
+    "invariants": [
+      "-1x^0y^2 + -1x^2y^0",
+      "1x^0y^2 + 1x^2y^0",
+      "-1x^0y^2 + -1x^2y^0 + -1x^0y^0",
+      "-1x^0y^2 + -1x^2y^0 + 1x^0y^0",
+      "1x^0y^2 + 1x^2y^0 + -1x^0y^0"
+    ],
+    "allVerified": true
+  },
+  "shear": {
+    "map": {
+      "x": [
+        {
+          "coefficient": 1,
+          "powers": [
+            1,
+            0
+          ]
+        },
+        {
+          "coefficient": 1,
+          "powers": [
+            0,
+            1
+          ]
+        }
+      ],
+      "y": [
+        {
+          "coefficient": 1,
+          "powers": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    "invariantCount": 24,
+    "invariants": [
+      "-1x^0y^1",
+      "-1x^0y^2",
+      "1x^0y^1",
+      "1x^0y^2",
+      "-1x^0y^1 + -1x^0y^0"
+    ],
+    "allVerified": true
+  },
+  "expanding": {
+    "map": {
+      "x": [
+        {
+          "coefficient": 2,
+          "powers": [
+            1,
+            0
+          ]
+        }
+      ],
+      "y": [
+        {
+          "coefficient": 3,
+          "powers": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    "invariantCount": 0,
+    "invariants": [],
+    "allVerified": true
+  }
+}
