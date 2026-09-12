@@ -15,4 +15,5 @@ assert.equal(output.summary.length, 2);
 assert.equal(output.summary.find(row => row.domain === "dynamics").verified, 1);
 assert.equal(output.summary.find(row => row.domain === "dynamics_parameterized").unknown, 1);
 assert.equal(report.verificationStrength(results[0]), "verified");
+assert.ok(report.translationCoverage(results[0]) >= 0);
 console.log("decoder_report_test: passed");

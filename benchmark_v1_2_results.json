@@ -9,7 +9,7 @@
       "expected": "verified",
       "actual": "verified_noisy_sequence",
       "verificationStrength": "verified",
-      "elapsedMs": 0.401,
+      "elapsedMs": 0.4315,
       "stressSize": 2,
       "stressVerification": "uncertain_noisy_sequence",
       "stressStrength": "unknown"
@@ -19,7 +19,7 @@
       "expected": "unknown",
       "actual": "uncertain_noisy_sequence",
       "verificationStrength": "unknown",
-      "elapsedMs": 0.0368,
+      "elapsedMs": 0.0384,
       "stressSize": 2,
       "stressVerification": "uncertain_noisy_sequence",
       "stressStrength": "unknown"

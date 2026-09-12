@@ -4,11 +4,11 @@
   "files": [
     {
       "path": "decoder_v1.js",
-      "sha256": "8e7aedbcf7d07571ba3c6208b1f69a67649cdc71d8c2e8a02ba0644083772e70"
+      "sha256": "51fbc1014a99f42aa3e55cde9bc6ebfc4da8dc906ad5832b6f6e4b86240c6414"
     },
     {
       "path": "decoder_protocol.js",
-      "sha256": "1512b158d86b9b5e1f635277008f06015022fc06d158b9bff120e0602f3d2bdd"
+      "sha256": "14c52ac8ba7dfc49591c1bfffd1345401ca3271a9ff47e847271db51e8b49752"
     },
     {
       "path": "dynamics_invariant.js",
@@ -19,8 +19,24 @@
       "sha256": "7f1e35ce6b520000e6314be23c39f8ff4ee125906e35e22d64d3364c0c60b409"
     },
     {
+      "path": "decoder_noisy_sequence.js",
+      "sha256": "479218be98c07a7f03f0e90e7a7545d809cc311f433551f98f62a271dbaf4654"
+    },
+    {
+      "path": "decoder_distribution_shift.js",
+      "sha256": "7b00de6b25e4c9f659ac985b4ab37755520094ff2a6832c3face61093140b331"
+    },
+    {
+      "path": "decoder_translation.js",
+      "sha256": "2b786a6ad8fd88d421b6ab89359691d6eceed0ed19c37ca49629f608f8f1aa28"
+    },
+    {
       "path": "decoder_acceptance_v1.json",
-      "sha256": "ff9dd6929f02e4e5a0b3aa5b3d6d8d317249a4b5b97e91dc89557a8b41c1c7e2"
+      "sha256": "3ffa5edd4a0bc4c70b071dd7b4421befe858af9b9e51717bcd323d80c9b3cfe9"
+    },
+    {
+      "path": "benchmark_v1_2_results.json",
+      "sha256": "cd67e02e4bf47e335d0e9930b6fc234875f23aa2c7681fc6f9040a895180c5fa"
     }
   ]
 }
