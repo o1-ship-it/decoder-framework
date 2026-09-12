@@ -10,7 +10,7 @@
       "expected": "verified",
       "actual": "verified_on_supplied_observations",
       "verificationStrength": "verified",
-      "elapsedMs": 3.4405,
+      "elapsedMs": 3.5154,
       "withinBudget": true,
       "stressSize": 4,
       "stressVerification": "counterexample_found"
@@ -20,7 +20,7 @@
       "expected": "unknown",
       "actual": "no_certificate",
       "verificationStrength": "unknown",
-      "elapsedMs": 0.6273,
+      "elapsedMs": 0.5135,
       "withinBudget": true,
       "stressSize": 4,
       "stressVerification": "no_certificate"
@@ -30,7 +30,7 @@
       "expected": "verified",
       "actual": "verified_dynamics_invariants",
       "verificationStrength": "verified",
-      "elapsedMs": 13.1056,
+      "elapsedMs": 11.854,
       "withinBudget": true,
       "stressSize": 1,
       "stressVerification": null
@@ -40,7 +40,7 @@
       "expected": "unknown",
       "actual": "uncertain_parameter_region",
       "verificationStrength": "unknown",
-      "elapsedMs": 0.2608,
+      "elapsedMs": 0.227,
       "withinBudget": true,
       "stressSize": 1,
       "stressVerification": null

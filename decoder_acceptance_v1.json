@@ -455,21 +455,21 @@
       "tasks": [
         {
           "name": "arithmetic_sequence",
-          "elapsedMs": 0.3113,
+          "elapsedMs": 0.3314,
           "status": "verified_on_supplied_observations",
           "candidateCount": null,
           "error": null
         },
         {
           "name": "random_uncertainty",
-          "elapsedMs": 0.1642,
+          "elapsedMs": 0.2074,
           "status": "no_certificate",
           "candidateCount": null,
           "error": null
         },
         {
           "name": "rotation_invariant",
-          "elapsedMs": 0.439,
+          "elapsedMs": 0.4546,
           "status": "verified_dynamics_invariants",
           "candidateCount": 1,
           "error": null
@@ -494,6 +494,7 @@
           "human": true,
           "machine": true
         },
+        "translationCoverage": null,
         "evidenceScope": "future_sequence_values"
       },
       {
@@ -508,6 +509,7 @@
           "human": false,
           "machine": false
         },
+        "translationCoverage": null,
         "evidenceScope": null
       },
       {
@@ -522,6 +524,7 @@
           "human": true,
           "machine": true
         },
+        "translationCoverage": 0.25,
         "evidenceScope": null
       },
       {
@@ -536,6 +539,7 @@
           "human": true,
           "machine": true
         },
+        "translationCoverage": 0,
         "evidenceScope": null
       },
       {
@@ -550,6 +554,7 @@
           "human": true,
           "machine": true
         },
+        "translationCoverage": null,
         "evidenceScope": null
       },
       {
@@ -564,6 +569,7 @@
           "human": true,
           "machine": true
         },
+        "translationCoverage": null,
         "evidenceScope": null
       },
       {
@@ -578,6 +584,7 @@
           "human": true,
           "machine": true
         },
+        "translationCoverage": null,
         "evidenceScope": null
       },
       {
@@ -592,6 +599,7 @@
           "human": true,
           "machine": true
         },
+        "translationCoverage": null,
         "evidenceScope": null
       }
     ],
