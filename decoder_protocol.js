@@ -22,6 +22,7 @@ const parameterizedDynamics = require("./dynamics_parameterized.js");
 const noisySequence = require("./decoder_noisy_sequence.js");
 const multivariateCondition = require("./dynamics_condition_multivariate.js");
 const machineRepresentation = require("./machine_representation.js");
+const machineDecoderSearch = require("./machine_decoder_search.js");
 
 function sequenceCase(development, holdout) {
   if (!Array.isArray(holdout) || holdout.length === 0) throw new TypeError("序列验证需要非空留出数据");
@@ -177,6 +178,10 @@ function machineRepresentationCase(input) {
   const verification = machineRepresentation.verifyCertificate(certificate, input.graph);
   return { domain: "machine_representation", status: verification.status === "verified_machine_representation" ? "candidate_frozen" : "uncertain", decoder: certificate.representation.kind, representation: "机器 WL-1 向量摘要", hypothesis: certificate.representation.vector, complexity: certificate.representation.vector.length, complexityUnit: "machine_feature_count", residual: verification.status === "verified_machine_representation" ? 0 : 1, verification: verification.status, readability: { machine: certificate.representation, human: certificate.representation.translation }, limits: ["当前内置 graph_wl1 表示", "机器向量摘要可验证，人类翻译可能丢失信息"] };
 }
+function machineDecoderSearchCase(input) {
+  const certificate = machineDecoderSearch.makeCertificate(input.examples); const verification = machineDecoderSearch.verifyCertificate(certificate, input.holdout || []);
+  return { domain: "machine_decoder_search", status: verification.status === "verified_machine_decoder" ? "candidate_frozen" : "uncertain", decoder: certificate.winner.decoder, representation: certificate.winner.representation, hypothesis: certificate.winner, complexity: certificate.winner.total - certificate.winner.correct, complexityUnit: "training_error_count", residual: verification.status === "verified_machine_decoder" ? 0 : 1, verification: verification.status, readability: { machine: certificate.winner, human: `自动选择 ${certificate.winner.decoder} 解码器` }, limits: certificate.limits };
+}
 
 function generatedSequenceCase(input) {
   const searchResult = adaptiveSearch.adaptiveSynthesize(input.sequence, { splitSizes: input.splitSizes || [8, 10, 12], maxOrder: input.maxOrder || 2 });
@@ -215,7 +220,8 @@ function decode(input) {
   if (input?.domain === "noisy_sequence") return noisySequenceCase(input);
   if (input?.domain === "dynamics_condition_multivariate") return multivariateConditionCase(input);
   if (input?.domain === "machine_representation") return machineRepresentationCase(input);
+  if (input?.domain === "machine_decoder_search") return machineDecoderSearchCase(input);
   throw new TypeError("协议输入必须声明受支持的 domain");
 }
 
-module.exports = { decode, sequenceCase, graphCase, equationCase, equationSystemCase, dynamicsCase, parameterizedDynamicsCase, noisySequenceCase, multivariateConditionCase, machineRepresentationCase };
+module.exports = { decode, sequenceCase, graphCase, equationCase, equationSystemCase, dynamicsCase, parameterizedDynamicsCase, noisySequenceCase, multivariateConditionCase, machineRepresentationCase, machineDecoderSearchCase };

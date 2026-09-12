@@ -26,6 +26,8 @@ const multiCondition = v1.decodeObject({ domain: "dynamics_condition_multivariat
 assert.equal(multiCondition.verification, "verified_parameter_condition");
 const machine = v1.decodeObject({ domain: "machine_representation", graph: { n: 3, edges: [[0, 1], [1, 2], [0, 2]] } });
 assert.equal(machine.verification, "verified_machine_representation");
+const machineSearch = v1.decodeObject({ domain: "machine_decoder_search", examples: [{ graph: { n: 3, edges: [[0,1],[1,2],[2,0]] }, label: "cycle" }, { graph: { n: 4, edges: [[0,1],[1,2],[2,3],[3,0]] }, label: "cycle" }], holdout: [{ graph: { n: 5, edges: [[0,1],[1,2],[2,3],[3,4],[4,0]] }, label: "cycle" }] });
+assert.equal(machineSearch.verification, "verified_machine_decoder");
 
 const batch = v1.decodeBatch([
   { domain: "graph", graph: graph.cycle(6) },

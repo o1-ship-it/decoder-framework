@@ -1,0 +1,1 @@
+const assert=require("node:assert/strict"),fs=require("node:fs"),runner=require("./benchmark_v1_5_runner.js");const r=runner.run(JSON.parse(fs.readFileSync("./benchmark_v1_5.json","utf8")));assert.equal(r.results.length,1);assert.equal(r.results[0].verificationStrength,"verified");console.log("benchmark_v1_5_runner_test: passed");

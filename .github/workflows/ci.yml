@@ -15,3 +15,4 @@ jobs:
       - run: npm run benchmark:v1.2
       - run: npm run benchmark:v1.3
       - run: npm run benchmark:v1.4
+      - run: npm run benchmark:v1.5

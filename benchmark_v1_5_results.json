@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "claim": "decoder_benchmark_run",
+  "benchmarkVersion": "1.5",
+  "seed": 20260913,
+  "results": [
+    {
+      "id": "machine_decoder_cycle_v15",
+      "expected": "verified",
+      "actual": "verified_machine_decoder",
+      "verificationStrength": "verified",
+      "translationCoverage": 0.16666666666666666,
+      "elapsedMs": 13.5485
+    }
+  ]
+}

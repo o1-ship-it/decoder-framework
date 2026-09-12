@@ -1,0 +1,10 @@
+const assert = require("node:assert/strict");
+const graph = require("./graph_experiment.js");
+const search = require("./machine_decoder_search.js");
+const examples = [{ graph: graph.cycle(5), label: "cycle" }, { graph: graph.cycle(6), label: "cycle" }, { graph: graph.cycle(7), label: "cycle" }];
+const certificate = search.makeCertificate(examples);
+assert.equal(certificate.winner.decoder, "cycle");
+assert.equal(search.verifyCertificate(certificate, [{ graph: graph.relabel(graph.cycle(8), [2, 5, 1, 7, 0, 6, 3, 4]), label: "cycle" }]).status, "verified_machine_decoder");
+const tampered = JSON.parse(JSON.stringify(certificate)); tampered.winner.decoder = "star";
+assert.equal(search.verifyCertificate(tampered, examples).status, "invalid_certificate");
+console.log("machine_decoder_search_test: passed");

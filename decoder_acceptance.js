@@ -21,6 +21,7 @@ function run() {
     { name: "polynomial_analysis", input: { domain: "polynomial_analysis", polynomial: { terms: [{ coefficient: 1, powers: { x: 2 } }, { coefficient: 2, powers: { x: 1, y: 1 } }, { coefficient: 1, powers: { y: 2 } }] } }, expect: "verified_polynomial_analysis" },
     { name: "multivariate_condition", input: { domain: "dynamics_condition_multivariate", family: "sum_shift_y", samples: [{ a: 1, b: 0, c: 0 }, { a: 0, b: 1, c: 0 }, { a: 0, b: 0, c: 1 }, { a: 2, b: 0, c: 0 }, { a: 1, b: 1, c: 0 }] }, expect: "verified_parameter_condition" },
     { name: "machine_representation", input: { domain: "machine_representation", graph: { n: 3, edges: [[0, 1], [1, 2], [0, 2]] } }, expect: "verified_machine_representation" },
+    { name: "machine_decoder_search", input: { domain: "machine_decoder_search", examples: [{ graph: { n: 3, edges: [[0, 1], [1, 2], [2, 0]] }, label: "cycle" }, { graph: { n: 4, edges: [[0, 1], [1, 2], [2, 3], [3, 0]] }, label: "cycle" }], holdout: [{ graph: { n: 5, edges: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0]] }, label: "cycle" }] }, expect: "verified_machine_decoder" },
   ];
   const results = inputs.map(item => { const result = protocol.decode(item.input); return { name: item.name, expected: item.expect, actual: result.verification, passed: result.verification === item.expect, result }; });
   const condition = conditionExperiment.main();
