@@ -19,6 +19,7 @@ const polynomialAnalysisVerifier = require("./polynomial_analysis_verifier.js");
 const dynamics = require("./dynamics_invariant.js");
 const dynamicsVerifier = require("./dynamics_invariant_verifier.js");
 const parameterizedDynamics = require("./dynamics_parameterized.js");
+const noisySequence = require("./decoder_noisy_sequence.js");
 
 function sequenceCase(development, holdout) {
   if (!Array.isArray(holdout) || holdout.length === 0) throw new TypeError("序列验证需要非空留出数据");
@@ -156,6 +157,11 @@ function parameterizedDynamicsCase(input) {
   return { domain: "dynamics_parameterized", status: hasCandidate ? "candidate_frozen" : "uncertain", decoder: "parameterized_rotation_scaling", representation: "F(a,b)(x,y)=(ax-by,bx+ay)", hypothesis: certificate.candidates, condition: certificate.condition, complexity: certificate.candidates.length, complexityUnit: "candidate_count", residual: hasCandidate ? (verification.status === "verified_parameter_condition" ? 0 : 1) : null, verification: hasCandidate ? verification.status : "uncertain_parameter_region", limits: certificate.limits };
 }
 
+function noisySequenceCase(input) {
+  const result = noisySequence.decode(input.development, input.holdout || [], input.tolerance ?? 1);
+  return { domain: "noisy_sequence", status: result.status === "verified_noisy_sequence" ? "candidate_frozen" : "uncertain", decoder: result.decoder, representation: "中位数步长与截距", hypothesis: result.model, complexity: 2, complexityUnit: "parameter_count", residual: result.residual, residualMeaning: "noise_tolerant_holdout_failure_indicator", verification: result.status, fitResidualMax: result.fitResidualMax, holdoutResidualMax: result.holdoutResidualMax, limits: result.limits };
+}
+
 function generatedSequenceCase(input) {
   const searchResult = adaptiveSearch.adaptiveSynthesize(input.sequence, { splitSizes: input.splitSizes || [8, 10, 12], maxOrder: input.maxOrder || 2 });
   if (searchResult.status !== "candidate_frozen") return { domain: "sequence", status: "uncertain", decoder: null, complexity: null, residual: null, verification: "no_certificate", searchRounds: searchResult.rounds };
@@ -190,7 +196,8 @@ function decode(input) {
   if (input?.domain === "polynomial_analysis") return polynomialAnalysisCase(input);
   if (input?.domain === "dynamics") return dynamicsCase(input);
   if (input?.domain === "dynamics_parameterized") return parameterizedDynamicsCase(input);
+  if (input?.domain === "noisy_sequence") return noisySequenceCase(input);
   throw new TypeError("协议输入必须声明受支持的 domain");
 }
 
-module.exports = { decode, sequenceCase, graphCase, equationCase, equationSystemCase, dynamicsCase, parameterizedDynamicsCase };
+module.exports = { decode, sequenceCase, graphCase, equationCase, equationSystemCase, dynamicsCase, parameterizedDynamicsCase, noisySequenceCase };

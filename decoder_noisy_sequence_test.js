@@ -1,0 +1,11 @@
+const assert = require("node:assert/strict");
+const noisy = require("./decoder_noisy_sequence.js");
+const clean = noisy.decode([3, 7, 11, 15, 19, 23], [27, 31], 0);
+assert.equal(clean.status, "verified_noisy_sequence");
+assert.deepEqual(clean.forecast, [27, 31]);
+const perturbed = noisy.decode([3, 8, 11, 16, 19, 24], [27, 32], 2);
+assert.equal(perturbed.status, "verified_noisy_sequence");
+const failure = noisy.decode([3, 8, 11, 16, 19, 24], [40, 32], 2);
+assert.equal(failure.status, "uncertain_noisy_sequence");
+assert.throws(() => noisy.decode([1, 2, 3], [], 1), /至少 4/);
+console.log("decoder_noisy_sequence_test: passed");

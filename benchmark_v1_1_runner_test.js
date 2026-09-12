@@ -1,0 +1,11 @@
+const assert = require("node:assert/strict");
+const fs = require("node:fs");
+const runner = require("./benchmark_v1_1_runner.js");
+const benchmark = JSON.parse(fs.readFileSync("./benchmark_v1_1.json", "utf8"));
+const result = runner.run(benchmark);
+assert.equal(result.results.length, 4);
+assert.ok(result.results.every(item => item.withinBudget !== false));
+assert.equal(result.results.filter(item => item.verificationStrength === "verified").length, 2);
+assert.equal(result.results.filter(item => item.verificationStrength === "unknown").length, 2);
+assert.ok(result.results.find(item => item.id === "sequence_arithmetic_v11").stressVerification);
+console.log("benchmark_v1_1_runner_test: passed");

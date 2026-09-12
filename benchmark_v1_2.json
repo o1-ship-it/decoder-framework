@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "claim": "decoder_benchmark",
+  "version": "1.2",
+  "seed": 20260913,
+  "resourceBudgetMs": 1000,
+  "cases": [
+    { "id": "noisy_arithmetic_v12", "domain": "noisy_sequence", "partitions": { "train": [3,8,11,16,19,24], "test": [27,32], "stress": [35,40] }, "tolerance": 2, "expected": "verified" },
+    { "id": "noisy_break_v12", "domain": "noisy_sequence", "partitions": { "train": [3,8,11,16,19,24], "test": [40,32], "stress": [35,40] }, "tolerance": 2, "expected": "unknown" }
+  ]
+}

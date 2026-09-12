@@ -1,6 +1,6 @@
 {
   "name": "decoder-framework",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "A verifiable framework for layered information decoding experiments.",
   "private": false,
   "type": "commonjs",
@@ -9,6 +9,9 @@
     "acceptance": "node decoder_acceptance.js",
     "audit": "node decoder_audit.js",
     "manifest": "node decoder_manifest.js"
+    ,"benchmark:v1.1": "node benchmark_v1_1_runner.js"
+    ,"ablation": "node -e \"const a=require('./decoder_ablation'); console.log(JSON.stringify(a.compareDynamics({x:[{coefficient:-1,powers:[0,1]}],y:[{coefficient:1,powers:[1,0]}]}),null,2))\""
+    ,"benchmark:v1.2": "node benchmark_v1_2_runner.js"
   },
   "engines": {
     "node": ">=22"

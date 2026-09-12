@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "claim": "decoder_benchmark_run",
+  "benchmarkVersion": "1.1",
+  "seed": 20260913,
+  "resourceBudgetMs": 1000,
+  "results": [
+    {
+      "id": "sequence_arithmetic_v11",
+      "expected": "verified",
+      "actual": "verified_on_supplied_observations",
+      "verificationStrength": "verified",
+      "elapsedMs": 3.4405,
+      "withinBudget": true,
+      "stressSize": 4,
+      "stressVerification": "counterexample_found"
+    },
+    {
+      "id": "sequence_random_v11",
+      "expected": "unknown",
+      "actual": "no_certificate",
+      "verificationStrength": "unknown",
+      "elapsedMs": 0.6273,
+      "withinBudget": true,
+      "stressSize": 4,
+      "stressVerification": "no_certificate"
+    },
+    {
+      "id": "dynamics_rotation_v11",
+      "expected": "verified",
+      "actual": "verified_dynamics_invariants",
+      "verificationStrength": "verified",
+      "elapsedMs": 13.1056,
+      "withinBudget": true,
+      "stressSize": 1,
+      "stressVerification": null
+    },
+    {
+      "id": "dynamics_boundary_v11",
+      "expected": "unknown",
+      "actual": "uncertain_parameter_region",
+      "verificationStrength": "unknown",
+      "elapsedMs": 0.2608,
+      "withinBudget": true,
+      "stressSize": 1,
+      "stressVerification": null
+    }
+  ]
+}

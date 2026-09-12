@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "claim": "decoder_benchmark_run",
+  "benchmarkVersion": "1.2",
+  "seed": 20260913,
+  "results": [
+    {
+      "id": "noisy_arithmetic_v12",
+      "expected": "verified",
+      "actual": "verified_noisy_sequence",
+      "verificationStrength": "verified",
+      "elapsedMs": 0.4105,
+      "stressSize": 2
+    },
+    {
+      "id": "noisy_break_v12",
+      "expected": "unknown",
+      "actual": "uncertain_noisy_sequence",
+      "verificationStrength": "unknown",
+      "elapsedMs": 0.0353,
+      "stressSize": 2
+    }
+  ]
+}

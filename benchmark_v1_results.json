@@ -1,0 +1,198 @@
+{
+  "schemaVersion": 1,
+  "claim": "decoder_benchmark_run",
+  "benchmarkClaim": "decoder_benchmark",
+  "results": [
+    {
+      "id": "sequence_arithmetic",
+      "expected": "verified",
+      "actual": "verified_on_supplied_observations",
+      "verificationStrength": "verified",
+      "result": {
+        "domain": "sequence",
+        "status": "candidate_frozen",
+        "decoder": "arithmetic",
+        "representation": "公差=4",
+        "hypothesis": {
+          "kind": "arithmetic",
+          "start": 3,
+          "difference": 4
+        },
+        "complexity": 2,
+        "complexityUnit": "domain_specific_proxy_not_bits",
+        "residual": 0,
+        "residualMeaning": "verification_failure_indicator",
+        "evidenceScope": "future_sequence_values",
+        "verification": "verified_on_supplied_observations",
+        "limits": [
+          "有限整数序列；无噪声；预测精确相等",
+          "验证通过只涉及提供的有限观测，不构成无限序列定理",
+          "学习与候选搜索为人工设定的有限规则集合"
+        ]
+      }
+    },
+    {
+      "id": "sequence_random",
+      "expected": "unknown",
+      "actual": "no_certificate",
+      "verificationStrength": "unknown",
+      "result": {
+        "domain": "sequence",
+        "status": "uncertain",
+        "decoder": null,
+        "complexity": null,
+        "residual": null,
+        "verification": "no_certificate"
+      }
+    },
+    {
+      "id": "dynamics_rotation",
+      "expected": "verified",
+      "actual": "verified_dynamics_invariants",
+      "verificationStrength": "verified",
+      "result": {
+        "domain": "dynamics",
+        "status": "candidate_frozen",
+        "decoder": "polynomial_invariant_search",
+        "representation": "二维多项式映射不变量",
+        "hypothesis": [
+          {
+            "coefficients": [
+              0,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "polynomial": [
+              {
+                "coefficient": 1,
+                "powers": [
+                  0,
+                  2
+                ]
+              },
+              {
+                "coefficient": 1,
+                "powers": [
+                  2,
+                  0
+                ]
+              }
+            ],
+            "rule": "1x^0y^2 + 1x^2y^0"
+          }
+        ],
+        "complexity": 1,
+        "complexityUnit": "candidate_count",
+        "residual": 0,
+        "residualMeaning": "symbolic_and_trajectory_verification_failure_indicator",
+        "verification": "verified_dynamics_invariants",
+        "search": {
+          "maxDegree": 2,
+          "coefficientRange": 1,
+          "method": "linear_nullspace"
+        },
+        "readability": {
+          "machine": {
+            "audience": "machine",
+            "decoder": "linear_nullspace",
+            "basisSize": 6,
+            "candidateCount": 1
+          },
+          "human": [
+            "1x^0y^2 + 1x^2y^0"
+          ]
+        },
+        "trajectoryChecks": [
+          {
+            "rule": "1x^0y^2 + 1x^2y^0",
+            "point": [
+              0,
+              0
+            ],
+            "residual": 0
+          },
+          {
+            "rule": "1x^0y^2 + 1x^2y^0",
+            "point": [
+              1,
+              0
+            ],
+            "residual": 0
+          },
+          {
+            "rule": "1x^0y^2 + 1x^2y^0",
+            "point": [
+              0,
+              1
+            ],
+            "residual": 0
+          },
+          {
+            "rule": "1x^0y^2 + 1x^2y^0",
+            "point": [
+              1,
+              1
+            ],
+            "residual": 0
+          },
+          {
+            "rule": "1x^0y^2 + 1x^2y^0",
+            "point": [
+              -1,
+              2
+            ],
+            "residual": 0
+          },
+          {
+            "rule": "1x^0y^2 + 1x^2y^0",
+            "point": [
+              2,
+              -1
+            ],
+            "residual": 0
+          }
+        ],
+        "limits": [
+          "二维多项式映射",
+          "次数≤2",
+          "系数范围≤1",
+          "发现方法=linear_nullspace",
+          "搜索边界内未发现不变量不等于全空间不存在"
+        ]
+      }
+    },
+    {
+      "id": "dynamics_parameter_boundary",
+      "expected": "unknown",
+      "actual": "uncertain_parameter_region",
+      "verificationStrength": "unknown",
+      "result": {
+        "domain": "dynamics_parameterized",
+        "status": "uncertain",
+        "decoder": "parameterized_rotation_scaling",
+        "representation": "F(a,b)(x,y)=(ax-by,bx+ay)",
+        "hypothesis": [],
+        "condition": "a^2+b^2=1",
+        "complexity": 0,
+        "complexityUnit": "candidate_count",
+        "residual": null,
+        "verification": "uncertain_parameter_region",
+        "limits": [
+          "二维整数参数旋转缩放族",
+          "当前只搜索半径平方不变量",
+          "未满足条件时不代表不存在其他类型不变量"
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "total": 4,
+    "verified": 2,
+    "refuted": 0,
+    "unknown": 2,
+    "verificationRate": 0.5
+  }
+}

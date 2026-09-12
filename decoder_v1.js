@@ -2,7 +2,7 @@
 
 const protocol = require("./decoder_protocol.js");
 
-const DOMAINS = new Set(["sequence", "generated_sequence", "graph", "equation", "equation_system", "polynomial", "polynomial_factor", "polynomial_analysis", "dynamics", "dynamics_parameterized"]);
+const DOMAINS = new Set(["sequence", "generated_sequence", "graph", "equation", "equation_system", "polynomial", "polynomial_factor", "polynomial_analysis", "dynamics", "dynamics_parameterized", "noisy_sequence"]);
 
 function decodeObject(input) {
   if (!input || typeof input !== "object" || Array.isArray(input)) throw new TypeError("输入必须是对象");

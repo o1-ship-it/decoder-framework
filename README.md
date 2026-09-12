@@ -1,7 +1,8 @@
 # Decoder Framework v1.0
 
-项目状态与路线见 [PROJECT_STATUS.md](C:/Users/s/Desktop/Theory/PROJECT_STATUS.md)。
-第一版发布说明见 [RELEASE_NOTES_v1.md](C:/Users/s/Desktop/Theory/RELEASE_NOTES_v1.md)。
+项目状态与路线见 [PROJECT_STATUS.md](PROJECT_STATUS.md)。
+第一版发布说明见 [RELEASE_NOTES_v1.md](RELEASE_NOTES_v1.md)。
+升级路线见 [RESEARCH_ROADMAP.md](RESEARCH_ROADMAP.md)。
 
 这是一个把“表示—推理—反馈—验证”落实为实验系统的最小版本。
 
@@ -19,6 +20,9 @@
 - `polynomial_analysis`：变量支持、次数、齐次性和欧拉恒等式分析。
 - `dynamics`：二维多项式映射中的有限次数守恒量搜索。
 - `dynamics_parameterized`：带参数旋转缩放族的守恒量条件发现。
+- `noisy_sequence`：带有限加性噪声的鲁棒数列解码与拒答。
+
+v1.2 发布说明见 [RELEASE_NOTES_v1_2.md](RELEASE_NOTES_v1_2.md)。
 
 动力系统结果通过 `dynamics_invariant_verifier.js` 独立重放搜索，并检查候选的符号恒等式和固定整数轨道点。支持 `method:"linear_nullspace"` 在给定次数空间内直接求解不变量线性空间，也保留 `method:"enumeration"` 作为有限系数对照。搜索范围内没有非平凡候选时返回“不确定”；这不表示整个函数空间不存在守恒量。
 
@@ -58,6 +62,8 @@ decoder_report.js 为不同信息域生成分域评价报告，统一列出验�
 
 运行 `node decoder_acceptance.js` 可执行第一版端到端验收，结果写入 decoder_acceptance_v1.json。
 
+运行 `npm run benchmark:v1.2` 可执行 v1.2 带噪 benchmark。
+
 dynamics_condition_general.js 提供一参数一次条件推导原型，用于逐步扩展参数化解码器。
 
 dynamics_condition_general.js 现在支持单参数低阶多项式条件，例如从残差恢复 c^2-1=0，并要求留出样本验证。
@@ -81,3 +87,6 @@ decoder_manifest.js 为核心源码和验收报告生成 SHA-256 可复现清单
 decoder_resource_profile.js 可记录各解码器运行时间、状态和候选规模，为计算成本指标提供数据。
 
 总体验收还会记录前三个代表任务的资源剖面，并确认没有执行错误。
+
+公开基准：enchmark_v1.json；运行 
+ode benchmark_runner.js 生成 enchmark_v1_results.json。

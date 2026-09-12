@@ -20,6 +20,8 @@ assert.equal(dynamics.verification, "verified_dynamics_invariants");
 assert.ok(dynamics.hypothesis.some(item => item.rule.includes("x^2y^0") && item.rule.includes("x^0y^2")));
 const parameterized = v1.decodeObject({ domain: "dynamics_parameterized", parameters: { a: 0, b: 1 } });
 assert.equal(parameterized.verification, "verified_parameter_condition");
+const noisy = v1.decodeObject({ domain: "noisy_sequence", development: [3, 8, 11, 16, 19, 24], holdout: [27, 32], tolerance: 1 });
+assert.equal(noisy.verification, "verified_noisy_sequence");
 
 const batch = v1.decodeBatch([
   { domain: "graph", graph: graph.cycle(6) },

@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "claim": "decoder_benchmark",
+  "description": "公开可重复的解码器基准任务",
+  "cases": [
+    { "id": "sequence_arithmetic", "domain": "sequence", "partitions": { "train": [3,7,11,15,19,23,27,31,35,39,43,47,51,55,59,63], "test": [67,71,75,79] }, "expected": "verified" },
+    { "id": "sequence_random", "domain": "sequence", "partitions": { "train": [3,1,4,1,5,9,2,6,5,3,5,8,9,7,9,3], "test": [2,3,8,4] }, "expected": "unknown" },
+    { "id": "dynamics_rotation", "domain": "dynamics", "partitions": { "train": [{ "a": 0, "b": 1 }, { "a": 1, "b": 0 }], "test": [{ "a": 0, "b": -1 }] }, "expected": "verified" },
+    { "id": "dynamics_parameter_boundary", "domain": "dynamics_parameterized", "partitions": { "train": [{ "a": 0, "b": 1 }], "test": [{ "a": 1, "b": 1 }] }, "expected": "unknown" }
+  ]
+}
