@@ -28,6 +28,8 @@ const machine = v1.decodeObject({ domain: "machine_representation", graph: { n: 
 assert.equal(machine.verification, "verified_machine_representation");
 const machineSearch = v1.decodeObject({ domain: "machine_decoder_search", examples: [{ graph: { n: 3, edges: [[0,1],[1,2],[2,0]] }, label: "cycle" }, { graph: { n: 4, edges: [[0,1],[1,2],[2,3],[3,0]] }, label: "cycle" }], holdout: [{ graph: { n: 5, edges: [[0,1],[1,2],[2,3],[3,4],[4,0]] }, label: "cycle" }] });
 assert.equal(machineSearch.verification, "verified_machine_decoder");
+const hidden = v1.decodeObject({ domain: "hidden_sequence", development: [3, 16, 13, 15, 8, 7, 2, 11], holdout: [5, 9], options: { maxModulus: 20 } });
+assert.equal(hidden.verification, "verified_hidden_structure");
 
 const batch = v1.decodeBatch([
   { domain: "graph", graph: graph.cycle(6) },

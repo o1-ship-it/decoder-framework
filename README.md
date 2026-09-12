@@ -21,6 +21,7 @@
 - `dynamics`：二维多项式映射中的有限次数守恒量搜索。
 - `dynamics_parameterized`：带参数旋转缩放族的守恒量条件发现。
 - `noisy_sequence`：带有限加性噪声的鲁棒数列解码与拒答。
+- `hidden_sequence`：从原始序列搜索模仿射递推，并用留出数据和证书重放验证隐藏生成机制。
 
 v1.2 发布说明见 [RELEASE_NOTES_v1_2.md](RELEASE_NOTES_v1_2.md)。
 
@@ -96,4 +97,7 @@ dynamics_condition_multivariate.js 支持任意命名参数的一次条件推导
 v1.3 发布说明见 [RELEASE_NOTES_v1_3.md](RELEASE_NOTES_v1_3.md)。
 v1.4 发布说明见 [RELEASE_NOTES_v1_4.md](RELEASE_NOTES_v1_4.md)。
 v1.5 发布说明见 [RELEASE_NOTES_v1_5.md](RELEASE_NOTES_v1_5.md)。
+v1.6 发布说明见 [RELEASE_NOTES_v1_6.md](RELEASE_NOTES_v1_6.md)。
+
+运行 `npm run benchmark:v1.6` 可复现隐藏结构发现基准。搜索范围内没有稳定候选时返回 `uncertain_hidden_structure`，不把有限样本拟合误报为定理。
 dynamics_condition_multivariate 支持多参数一次条件推导与秩不足拒答。

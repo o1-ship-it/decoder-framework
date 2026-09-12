@@ -3,8 +3,8 @@
   "claim": "framework_acceptance",
   "passed": true,
   "counts": {
-    "total": 11,
-    "passed": 11,
+    "total": 12,
+    "passed": 12,
     "failed": 0
   },
   "results": [
@@ -562,6 +562,38 @@
           "准确率只对给定样本负责"
         ]
       }
+    },
+    {
+      "name": "hidden_modular_affine",
+      "expected": "verified_hidden_structure",
+      "actual": "verified_hidden_structure",
+      "passed": true,
+      "result": {
+        "domain": "hidden_sequence",
+        "status": "candidate_frozen",
+        "decoder": "modular_affine_recurrence",
+        "representation": "模仿射递推",
+        "hypothesis": {
+          "modulus": 17,
+          "multiplier": 5,
+          "offset": 1,
+          "forecast": [
+            5,
+            9
+          ],
+          "holdoutResidualMax": 0
+        },
+        "complexity": 3,
+        "complexityUnit": "modulus_multiplier_offset",
+        "residual": 0,
+        "verification": "verified_hidden_structure",
+        "candidateCount": 1,
+        "limits": [
+          "模数2..20",
+          "模仿射一阶递推",
+          "有限参数搜索不代表不存在其他生成机制"
+        ]
+      }
     }
   ],
   "extensions": {
@@ -575,21 +607,21 @@
       "tasks": [
         {
           "name": "arithmetic_sequence",
-          "elapsedMs": 0.2889,
+          "elapsedMs": 0.5417,
           "status": "verified_on_supplied_observations",
           "candidateCount": null,
           "error": null
         },
         {
           "name": "random_uncertainty",
-          "elapsedMs": 0.1765,
+          "elapsedMs": 0.1632,
           "status": "no_certificate",
           "candidateCount": null,
           "error": null
         },
         {
           "name": "rotation_invariant",
-          "elapsedMs": 0.5198,
+          "elapsedMs": 0.4276,
           "status": "verified_dynamics_invariants",
           "candidateCount": 1,
           "error": null
@@ -766,6 +798,21 @@
         },
         "translationCoverage": 0.16666666666666666,
         "evidenceScope": null
+      },
+      {
+        "index": 11,
+        "domain": "hidden_sequence",
+        "status": "candidate_frozen",
+        "verification": "verified_hidden_structure",
+        "verificationStrength": "verified",
+        "residual": 0,
+        "complexity": 3,
+        "readability": {
+          "human": true,
+          "machine": true
+        },
+        "translationCoverage": null,
+        "evidenceScope": null
       }
     ],
     "summary": [
@@ -841,6 +888,16 @@
       },
       {
         "domain": "machine_decoder_search",
+        "total": 1,
+        "verified": 1,
+        "refuted": 0,
+        "unknown": 0,
+        "verificationRate": 1,
+        "humanReadableRate": 1,
+        "machineReadableRate": 1
+      },
+      {
+        "domain": "hidden_sequence",
         "total": 1,
         "verified": 1,
         "refuted": 0,

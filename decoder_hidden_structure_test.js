@@ -1,0 +1,10 @@
+const assert = require("node:assert/strict");
+const hidden = require("./decoder_hidden_structure.js");
+let sequence = [3]; for (let i = 0; i < 12; i += 1) sequence.push((5 * sequence.at(-1) + 1) % 17);
+const certificate = hidden.makeCertificate(sequence.slice(0, 8), sequence.slice(8), { maxModulus: 20 });
+assert.equal(certificate.result.status, "verified_hidden_structure");
+assert.equal(hidden.verifyCertificate(certificate).status, "verified_hidden_structure");
+const tampered = JSON.parse(JSON.stringify(certificate)); tampered.result.winner.offset += 1;
+assert.equal(hidden.verifyCertificate(tampered).status, "invalid_certificate");
+assert.equal(hidden.discover([3, 1, 4, 1, 5, 9], [2, 6], { maxModulus: 8 }).status, "uncertain_hidden_structure");
+console.log("decoder_hidden_structure_test: passed");

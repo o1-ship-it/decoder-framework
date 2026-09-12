@@ -23,6 +23,7 @@ const noisySequence = require("./decoder_noisy_sequence.js");
 const multivariateCondition = require("./dynamics_condition_multivariate.js");
 const machineRepresentation = require("./machine_representation.js");
 const machineDecoderSearch = require("./machine_decoder_search.js");
+const hiddenStructure = require("./decoder_hidden_structure.js");
 
 function sequenceCase(development, holdout) {
   if (!Array.isArray(holdout) || holdout.length === 0) throw new TypeError("序列验证需要非空留出数据");
@@ -182,6 +183,7 @@ function machineDecoderSearchCase(input) {
   const certificate = machineDecoderSearch.makeCertificate(input.examples); const verification = machineDecoderSearch.verifyCertificate(certificate, input.holdout || []);
   return { domain: "machine_decoder_search", status: verification.status === "verified_machine_decoder" ? "candidate_frozen" : "uncertain", decoder: certificate.winner.decoder, representation: certificate.winner.representation, hypothesis: certificate.winner, complexity: certificate.winner.total - certificate.winner.correct, complexityUnit: "training_error_count", residual: verification.status === "verified_machine_decoder" ? 0 : 1, verification: verification.status, readability: { machine: certificate.winner, human: `自动选择 ${certificate.winner.decoder} 解码器` }, limits: certificate.limits };
 }
+function hiddenStructureCase(input) { const result = hiddenStructure.discover(input.development, input.holdout || [], input.options || {}); return { domain: "hidden_sequence", status: result.status === "verified_hidden_structure" ? "candidate_frozen" : "uncertain", decoder: result.decoder, representation: "模仿射递推", hypothesis: result.winner, complexity: result.winner ? 3 : null, complexityUnit: "modulus_multiplier_offset", residual: result.residual, verification: result.status, candidateCount: result.candidateCount, limits: result.limits }; }
 
 function generatedSequenceCase(input) {
   const searchResult = adaptiveSearch.adaptiveSynthesize(input.sequence, { splitSizes: input.splitSizes || [8, 10, 12], maxOrder: input.maxOrder || 2 });
@@ -221,7 +223,8 @@ function decode(input) {
   if (input?.domain === "dynamics_condition_multivariate") return multivariateConditionCase(input);
   if (input?.domain === "machine_representation") return machineRepresentationCase(input);
   if (input?.domain === "machine_decoder_search") return machineDecoderSearchCase(input);
+  if (input?.domain === "hidden_sequence") return hiddenStructureCase(input);
   throw new TypeError("协议输入必须声明受支持的 domain");
 }
 
-module.exports = { decode, sequenceCase, graphCase, equationCase, equationSystemCase, dynamicsCase, parameterizedDynamicsCase, noisySequenceCase, multivariateConditionCase, machineRepresentationCase, machineDecoderSearchCase };
+module.exports = { decode, sequenceCase, graphCase, equationCase, equationSystemCase, dynamicsCase, parameterizedDynamicsCase, noisySequenceCase, multivariateConditionCase, machineRepresentationCase, machineDecoderSearchCase, hiddenStructureCase };

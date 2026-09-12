@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "claim": "decoder_benchmark_run",
+  "benchmarkVersion": "1.6",
+  "seed": 20260913,
+  "results": [
+    {
+      "id": "hidden_modular_affine_v16",
+      "expected": "verified",
+      "actual": "verified_hidden_structure",
+      "verificationStrength": "verified",
+      "elapsedMs": 0.9653
+    },
+    {
+      "id": "hidden_unknown_v16",
+      "expected": "unknown",
+      "actual": "uncertain_hidden_structure",
+      "verificationStrength": "unknown",
+      "elapsedMs": 0.0676
+    }
+  ]
+}
