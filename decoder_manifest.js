@@ -15,7 +15,7 @@ function verifyManifest(manifest, directory = __dirname) {
   } catch (error) { return { status: "invalid_manifest", reason: error.message }; }
 }
 function main() {
-  const names = ["decoder_v1.js", "decoder_protocol.js", "dynamics_invariant.js", "dynamics_invariant_verifier.js", "decoder_noisy_sequence.js", "decoder_distribution_shift.js", "decoder_translation.js", "decoder_acceptance_v1.json", "benchmark_v1_2_results.json"];
+  const names = ["decoder_v1.js", "decoder_protocol.js", "dynamics_invariant.js", "dynamics_invariant_verifier.js", "decoder_noisy_sequence.js", "decoder_distribution_shift.js", "decoder_translation.js", "dynamics_condition_multivariate.js", "decoder_acceptance_v1.json", "benchmark_v1_2_results.json", "benchmark_v1_3_results.json"];
   const manifest = createManifest(names.map(name => path.join(__dirname, name))); fs.writeFileSync(path.join(__dirname, "decoder_manifest_v1.json"), JSON.stringify(manifest, null, 2), "utf8"); console.log(`清单：${manifest.files.length} 个文件，${verifyManifest(manifest).status}`); return manifest;
 }
 if (require.main === module) main();

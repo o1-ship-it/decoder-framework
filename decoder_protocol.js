@@ -20,6 +20,7 @@ const dynamics = require("./dynamics_invariant.js");
 const dynamicsVerifier = require("./dynamics_invariant_verifier.js");
 const parameterizedDynamics = require("./dynamics_parameterized.js");
 const noisySequence = require("./decoder_noisy_sequence.js");
+const multivariateCondition = require("./dynamics_condition_multivariate.js");
 
 function sequenceCase(development, holdout) {
   if (!Array.isArray(holdout) || holdout.length === 0) throw new TypeError("序列验证需要非空留出数据");
@@ -162,6 +163,14 @@ function noisySequenceCase(input) {
   return { domain: "noisy_sequence", status: result.status === "verified_noisy_sequence" ? "candidate_frozen" : "uncertain", decoder: result.decoder, representation: "中位数步长与截距", hypothesis: result.model, complexity: 2, complexityUnit: "parameter_count", residual: result.residual, residualMeaning: "noise_tolerant_holdout_failure_indicator", verification: result.status, fitResidualMax: result.fitResidualMax, holdoutResidualMax: result.holdoutResidualMax, limits: result.limits };
 }
 
+function multivariateConditionCase(input) {
+  if (input.family !== "sum_shift_y") throw new TypeError("当前协议只支持 family=sum_shift_y");
+  const family = ({ a, b, c }) => ({ x: [{ coefficient: 1, powers: [1, 0] }], y: [{ coefficient: 1, powers: [0, 1] }, { coefficient: a + b + c - 1, powers: [0, 0] }] });
+  const invariant = { polynomial: [{ coefficient: 1, powers: [0, 1] }] };
+  const result = multivariateCondition.inferLinearCondition(family, invariant, ["a", "b", "c"], input.samples, input.fitCount || 4, input.point || [1, 0]);
+  return { domain: "dynamics_condition_multivariate", status: result.generalizes ? "candidate_frozen" : "uncertain", decoder: "multivariate_linear_condition", representation: "参数残差线性零空间", hypothesis: result.condition, complexity: result.parameterVariables.length + 1, complexityUnit: "parameter_plus_intercept", residual: result.generalizes ? 0 : 1, verification: result.status, fitResidualMax: result.fitResidualMax, holdoutResidualMax: result.holdoutResidualMax, limits: ["当前内置 sum_shift_y 参数族", "一次参数条件", "留出样本必须独立"] };
+}
+
 function generatedSequenceCase(input) {
   const searchResult = adaptiveSearch.adaptiveSynthesize(input.sequence, { splitSizes: input.splitSizes || [8, 10, 12], maxOrder: input.maxOrder || 2 });
   if (searchResult.status !== "candidate_frozen") return { domain: "sequence", status: "uncertain", decoder: null, complexity: null, residual: null, verification: "no_certificate", searchRounds: searchResult.rounds };
@@ -197,7 +206,8 @@ function decode(input) {
   if (input?.domain === "dynamics") return dynamicsCase(input);
   if (input?.domain === "dynamics_parameterized") return parameterizedDynamicsCase(input);
   if (input?.domain === "noisy_sequence") return noisySequenceCase(input);
+  if (input?.domain === "dynamics_condition_multivariate") return multivariateConditionCase(input);
   throw new TypeError("协议输入必须声明受支持的 domain");
 }
 
-module.exports = { decode, sequenceCase, graphCase, equationCase, equationSystemCase, dynamicsCase, parameterizedDynamicsCase, noisySequenceCase };
+module.exports = { decode, sequenceCase, graphCase, equationCase, equationSystemCase, dynamicsCase, parameterizedDynamicsCase, noisySequenceCase, multivariateConditionCase };

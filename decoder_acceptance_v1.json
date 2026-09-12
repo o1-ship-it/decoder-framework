@@ -3,8 +3,8 @@
   "claim": "framework_acceptance",
   "passed": true,
   "counts": {
-    "total": 8,
-    "passed": 8,
+    "total": 9,
+    "passed": 9,
     "failed": 0
   },
   "results": [
@@ -442,6 +442,30 @@
           "欧拉恒等式仅在齐次情形作为结构证据"
         ]
       }
+    },
+    {
+      "name": "multivariate_condition",
+      "expected": "verified_parameter_condition",
+      "actual": "verified_parameter_condition",
+      "passed": true,
+      "result": {
+        "domain": "dynamics_condition_multivariate",
+        "status": "candidate_frozen",
+        "decoder": "multivariate_linear_condition",
+        "representation": "参数残差线性零空间",
+        "hypothesis": "-1 + a + b + c=0",
+        "complexity": 4,
+        "complexityUnit": "parameter_plus_intercept",
+        "residual": 0,
+        "verification": "verified_parameter_condition",
+        "fitResidualMax": 0,
+        "holdoutResidualMax": 0,
+        "limits": [
+          "当前内置 sum_shift_y 参数族",
+          "一次参数条件",
+          "留出样本必须独立"
+        ]
+      }
     }
   ],
   "extensions": {
@@ -455,21 +479,21 @@
       "tasks": [
         {
           "name": "arithmetic_sequence",
-          "elapsedMs": 0.3314,
+          "elapsedMs": 0.2953,
           "status": "verified_on_supplied_observations",
           "candidateCount": null,
           "error": null
         },
         {
           "name": "random_uncertainty",
-          "elapsedMs": 0.2074,
+          "elapsedMs": 0.163,
           "status": "no_certificate",
           "candidateCount": null,
           "error": null
         },
         {
           "name": "rotation_invariant",
-          "elapsedMs": 0.4546,
+          "elapsedMs": 0.498,
           "status": "verified_dynamics_invariants",
           "candidateCount": 1,
           "error": null
@@ -601,6 +625,21 @@
         },
         "translationCoverage": null,
         "evidenceScope": null
+      },
+      {
+        "index": 8,
+        "domain": "dynamics_condition_multivariate",
+        "status": "candidate_frozen",
+        "verification": "verified_parameter_condition",
+        "verificationStrength": "verified",
+        "residual": 0,
+        "complexity": 4,
+        "readability": {
+          "human": true,
+          "machine": false
+        },
+        "translationCoverage": null,
+        "evidenceScope": null
       }
     ],
     "summary": [
@@ -653,6 +692,16 @@
         "verificationRate": 1,
         "humanReadableRate": 1,
         "machineReadableRate": 1
+      },
+      {
+        "domain": "dynamics_condition_multivariate",
+        "total": 1,
+        "verified": 1,
+        "refuted": 0,
+        "unknown": 0,
+        "verificationRate": 1,
+        "humanReadableRate": 1,
+        "machineReadableRate": 0
       }
     ],
     "limitation": "复杂度和可读性是协议字段上的代理指标，不构成跨领域总分"

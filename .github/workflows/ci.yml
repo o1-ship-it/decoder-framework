@@ -12,3 +12,5 @@ jobs:
       - run: npm run acceptance
       - run: npm run audit
       - run: npm run benchmark:v1.1
+      - run: npm run benchmark:v1.2
+      - run: npm run benchmark:v1.3

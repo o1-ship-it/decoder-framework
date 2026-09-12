@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "claim": "decoder_benchmark_run",
+  "benchmarkVersion": "1.3",
+  "seed": 20260913,
+  "results": [
+    {
+      "id": "multivariate_condition_v13",
+      "expected": "verified",
+      "actual": "verified_parameter_condition",
+      "verificationStrength": "verified",
+      "elapsedMs": 1.2958
+    },
+    {
+      "id": "multivariate_rank_failure_v13",
+      "expected": "unknown",
+      "actual": "error",
+      "verificationStrength": "unknown",
+      "error": "多参数样本秩不足以确定条件"
+    }
+  ]
+}

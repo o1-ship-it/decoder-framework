@@ -22,6 +22,8 @@ const parameterized = v1.decodeObject({ domain: "dynamics_parameterized", parame
 assert.equal(parameterized.verification, "verified_parameter_condition");
 const noisy = v1.decodeObject({ domain: "noisy_sequence", development: [3, 8, 11, 16, 19, 24], holdout: [27, 32], tolerance: 1 });
 assert.equal(noisy.verification, "verified_noisy_sequence");
+const multiCondition = v1.decodeObject({ domain: "dynamics_condition_multivariate", family: "sum_shift_y", samples: [{ a: 1, b: 0, c: 0 }, { a: 0, b: 1, c: 0 }, { a: 0, b: 0, c: 1 }, { a: 2, b: 0, c: 0 }, { a: 1, b: 1, c: 0 }] });
+assert.equal(multiCondition.verification, "verified_parameter_condition");
 
 const batch = v1.decodeBatch([
   { domain: "graph", graph: graph.cycle(6) },

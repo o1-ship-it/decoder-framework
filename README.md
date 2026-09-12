@@ -90,3 +90,8 @@ decoder_resource_profile.js 可记录各解码器运行时间、状态和候选�
 
 公开基准：enchmark_v1.json；运行 
 ode benchmark_runner.js 生成 enchmark_v1_results.json。
+
+dynamics_condition_multivariate.js 支持任意命名参数的一次条件推导，并在样本秩不足时拒答。
+
+ v1.3 发布说明见 [RELEASE_NOTES_v1_3.md](RELEASE_NOTES_v1_3.md)。
+dynamics_condition_multivariate 支持多参数一次条件推导与秩不足拒答。
