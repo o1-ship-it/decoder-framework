@@ -4,11 +4,11 @@
   "files": [
     {
       "path": "decoder_v1.js",
-      "sha256": "d556648895fa73e8b11f382e4be4fdab7dd940ea78c6f566a056cf9161ccdb98"
+      "sha256": "474030a2819df125f276584408be5e818bc9ce353daad402ad41589b1d3a4d3c"
     },
     {
       "path": "decoder_protocol.js",
-      "sha256": "827e8d62b62be32d372e38959bec26438d7c5e7b0b602b03ca2e6c1c17f36389"
+      "sha256": "7bf018d0de40e8fb626d9d15ea2e2d432e759657b79feb65507614ad206f4377"
     },
     {
       "path": "dynamics_invariant.js",
@@ -35,8 +35,12 @@
       "sha256": "aa6b9deb31d054fd044880fc818808d10888782c5db9ec14db1c35596ae81b9c"
     },
     {
+      "path": "machine_representation.js",
+      "sha256": "4e4409278bb368c55bd995003b8fd835ce2808d510c264c27c4f2589ce12c4c1"
+    },
+    {
       "path": "decoder_acceptance_v1.json",
-      "sha256": "959b0b342a4500c562ca903ddc06c03feffb0ecb8658a57f0494bfa014a11620"
+      "sha256": "b28838951604d92d2bb94b19ddbb94cadbfc7d11f4b3f05eacf165de731afe9d"
     },
     {
       "path": "benchmark_v1_2_results.json",
@@ -45,6 +49,10 @@
     {
       "path": "benchmark_v1_3_results.json",
       "sha256": "d3838cd82cd52856649d996bb511ad5503344fc0e5ec633c6ea4da905ecaf4c7"
+    },
+    {
+      "path": "benchmark_v1_4_results.json",
+      "sha256": "1344effb1f159df53854b162dea533e17dcbe77ffdb548652bb078116640af04"
     }
   ]
 }

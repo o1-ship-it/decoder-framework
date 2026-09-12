@@ -1,0 +1,10 @@
+const assert = require("node:assert/strict");
+const graph = require("./graph_experiment.js");
+const machine = require("./machine_representation.js");
+const original = graph.cycle(6); const relabeled = graph.relabel(original, [2, 5, 1, 4, 0, 3]);
+const certificate = machine.makeCertificate(original);
+assert.equal(machine.verifyCertificate(certificate, relabeled).status, "verified_machine_representation");
+assert.equal(machine.encodeGraphWL(original).digest, machine.encodeGraphWL(relabeled).digest);
+const tampered = JSON.parse(JSON.stringify(certificate)); tampered.representation.translation.connected = false;
+assert.equal(machine.verifyCertificate(tampered, original).status, "invalid_certificate");
+console.log("machine_representation_test: passed");

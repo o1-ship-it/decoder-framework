@@ -93,5 +93,6 @@ ode benchmark_runner.js 生成 enchmark_v1_results.json。
 
 dynamics_condition_multivariate.js 支持任意命名参数的一次条件推导，并在样本秩不足时拒答。
 
- v1.3 发布说明见 [RELEASE_NOTES_v1_3.md](RELEASE_NOTES_v1_3.md)。
+v1.3 发布说明见 [RELEASE_NOTES_v1_3.md](RELEASE_NOTES_v1_3.md)。
+v1.4 发布说明见 [RELEASE_NOTES_v1_4.md](RELEASE_NOTES_v1_4.md)。
 dynamics_condition_multivariate 支持多参数一次条件推导与秩不足拒答。

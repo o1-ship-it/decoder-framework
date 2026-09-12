@@ -3,8 +3,8 @@
   "claim": "framework_acceptance",
   "passed": true,
   "counts": {
-    "total": 9,
-    "passed": 9,
+    "total": 10,
+    "passed": 10,
     "failed": 0
   },
   "results": [
@@ -466,6 +466,56 @@
           "留出样本必须独立"
         ]
       }
+    },
+    {
+      "name": "machine_representation",
+      "expected": "verified_machine_representation",
+      "actual": "verified_machine_representation",
+      "passed": true,
+      "result": {
+        "domain": "machine_representation",
+        "status": "candidate_frozen",
+        "decoder": "graph_wl1",
+        "representation": "机器 WL-1 向量摘要",
+        "hypothesis": [
+          3,
+          3,
+          "2|2|2",
+          "b6f5a3b65a1f80d5a519e1ae9268444d4ccded44bfbb0eb1de69b1ee1b8f6b74",
+          1
+        ],
+        "complexity": 5,
+        "complexityUnit": "machine_feature_count",
+        "residual": 0,
+        "verification": "verified_machine_representation",
+        "readability": {
+          "machine": {
+            "kind": "graph_wl1",
+            "vector": [
+              3,
+              3,
+              "2|2|2",
+              "b6f5a3b65a1f80d5a519e1ae9268444d4ccded44bfbb0eb1de69b1ee1b8f6b74",
+              1
+            ],
+            "digest": "a17939df4087b6bf4f0c0ae28526d685ce006401833a9dad4c36d5732b120481",
+            "translation": {
+              "vertices": 3,
+              "degreeHistogram": "2|2|2",
+              "connected": true
+            }
+          },
+          "human": {
+            "vertices": 3,
+            "degreeHistogram": "2|2|2",
+            "connected": true
+          }
+        },
+        "limits": [
+          "当前内置 graph_wl1 表示",
+          "机器向量摘要可验证，人类翻译可能丢失信息"
+        ]
+      }
     }
   ],
   "extensions": {
@@ -479,21 +529,21 @@
       "tasks": [
         {
           "name": "arithmetic_sequence",
-          "elapsedMs": 0.2953,
+          "elapsedMs": 0.3008,
           "status": "verified_on_supplied_observations",
           "candidateCount": null,
           "error": null
         },
         {
           "name": "random_uncertainty",
-          "elapsedMs": 0.163,
+          "elapsedMs": 0.1708,
           "status": "no_certificate",
           "candidateCount": null,
           "error": null
         },
         {
           "name": "rotation_invariant",
-          "elapsedMs": 0.498,
+          "elapsedMs": 0.4245,
           "status": "verified_dynamics_invariants",
           "candidateCount": 1,
           "error": null
@@ -640,6 +690,21 @@
         },
         "translationCoverage": null,
         "evidenceScope": null
+      },
+      {
+        "index": 9,
+        "domain": "machine_representation",
+        "status": "candidate_frozen",
+        "verification": "verified_machine_representation",
+        "verificationStrength": "verified",
+        "residual": 0,
+        "complexity": 5,
+        "readability": {
+          "human": true,
+          "machine": true
+        },
+        "translationCoverage": 0.75,
+        "evidenceScope": null
       }
     ],
     "summary": [
@@ -702,6 +767,16 @@
         "verificationRate": 1,
         "humanReadableRate": 1,
         "machineReadableRate": 0
+      },
+      {
+        "domain": "machine_representation",
+        "total": 1,
+        "verified": 1,
+        "refuted": 0,
+        "unknown": 0,
+        "verificationRate": 1,
+        "humanReadableRate": 1,
+        "machineReadableRate": 1
       }
     ],
     "limitation": "复杂度和可读性是协议字段上的代理指标，不构成跨领域总分"

@@ -21,6 +21,7 @@ const dynamicsVerifier = require("./dynamics_invariant_verifier.js");
 const parameterizedDynamics = require("./dynamics_parameterized.js");
 const noisySequence = require("./decoder_noisy_sequence.js");
 const multivariateCondition = require("./dynamics_condition_multivariate.js");
+const machineRepresentation = require("./machine_representation.js");
 
 function sequenceCase(development, holdout) {
   if (!Array.isArray(holdout) || holdout.length === 0) throw new TypeError("序列验证需要非空留出数据");
@@ -171,6 +172,12 @@ function multivariateConditionCase(input) {
   return { domain: "dynamics_condition_multivariate", status: result.generalizes ? "candidate_frozen" : "uncertain", decoder: "multivariate_linear_condition", representation: "参数残差线性零空间", hypothesis: result.condition, complexity: result.parameterVariables.length + 1, complexityUnit: "parameter_plus_intercept", residual: result.generalizes ? 0 : 1, verification: result.status, fitResidualMax: result.fitResidualMax, holdoutResidualMax: result.holdoutResidualMax, limits: ["当前内置 sum_shift_y 参数族", "一次参数条件", "留出样本必须独立"] };
 }
 
+function machineRepresentationCase(input) {
+  const certificate = machineRepresentation.makeCertificate(input.graph);
+  const verification = machineRepresentation.verifyCertificate(certificate, input.graph);
+  return { domain: "machine_representation", status: verification.status === "verified_machine_representation" ? "candidate_frozen" : "uncertain", decoder: certificate.representation.kind, representation: "机器 WL-1 向量摘要", hypothesis: certificate.representation.vector, complexity: certificate.representation.vector.length, complexityUnit: "machine_feature_count", residual: verification.status === "verified_machine_representation" ? 0 : 1, verification: verification.status, readability: { machine: certificate.representation, human: certificate.representation.translation }, limits: ["当前内置 graph_wl1 表示", "机器向量摘要可验证，人类翻译可能丢失信息"] };
+}
+
 function generatedSequenceCase(input) {
   const searchResult = adaptiveSearch.adaptiveSynthesize(input.sequence, { splitSizes: input.splitSizes || [8, 10, 12], maxOrder: input.maxOrder || 2 });
   if (searchResult.status !== "candidate_frozen") return { domain: "sequence", status: "uncertain", decoder: null, complexity: null, residual: null, verification: "no_certificate", searchRounds: searchResult.rounds };
@@ -207,7 +214,8 @@ function decode(input) {
   if (input?.domain === "dynamics_parameterized") return parameterizedDynamicsCase(input);
   if (input?.domain === "noisy_sequence") return noisySequenceCase(input);
   if (input?.domain === "dynamics_condition_multivariate") return multivariateConditionCase(input);
+  if (input?.domain === "machine_representation") return machineRepresentationCase(input);
   throw new TypeError("协议输入必须声明受支持的 domain");
 }
 
-module.exports = { decode, sequenceCase, graphCase, equationCase, equationSystemCase, dynamicsCase, parameterizedDynamicsCase, noisySequenceCase, multivariateConditionCase };
+module.exports = { decode, sequenceCase, graphCase, equationCase, equationSystemCase, dynamicsCase, parameterizedDynamicsCase, noisySequenceCase, multivariateConditionCase, machineRepresentationCase };
