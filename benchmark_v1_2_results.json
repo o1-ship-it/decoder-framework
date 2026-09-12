@@ -9,16 +9,20 @@
       "expected": "verified",
       "actual": "verified_noisy_sequence",
       "verificationStrength": "verified",
-      "elapsedMs": 0.4105,
-      "stressSize": 2
+      "elapsedMs": 0.401,
+      "stressSize": 2,
+      "stressVerification": "uncertain_noisy_sequence",
+      "stressStrength": "unknown"
     },
     {
       "id": "noisy_break_v12",
       "expected": "unknown",
       "actual": "uncertain_noisy_sequence",
       "verificationStrength": "unknown",
-      "elapsedMs": 0.0353,
-      "stressSize": 2
+      "elapsedMs": 0.0368,
+      "stressSize": 2,
+      "stressVerification": "uncertain_noisy_sequence",
+      "stressStrength": "unknown"
     }
   ]
 }
