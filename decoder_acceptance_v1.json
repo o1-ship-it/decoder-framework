@@ -3,8 +3,8 @@
   "claim": "framework_acceptance",
   "passed": true,
   "counts": {
-    "total": 26,
-    "passed": 26,
+    "total": 28,
+    "passed": 28,
     "failed": 0
   },
   "results": [
@@ -831,7 +831,7 @@
                 "confidence": 1,
                 "candidateCount": 1,
                 "stressResidualMax": 7,
-                "elapsedMs": 0.5559
+                "elapsedMs": 0.5722
               }
             ],
             "summary": {
@@ -855,7 +855,7 @@
                 "confidence": 0.5,
                 "candidateCount": 3,
                 "stressResidualMax": 4,
-                "elapsedMs": 0.9663
+                "elapsedMs": 0.9807
               }
             ],
             "summary": {
@@ -1657,6 +1657,92 @@
           "校准与留出配置只检验已声明的生成族，不表示对未声明系统的泛化"
         ]
       }
+    },
+    {
+      "name": "piecewise_map_holdout",
+      "expected": "verified_piecewise_map_query_family",
+      "actual": "verified_piecewise_map_query_family",
+      "passed": true,
+      "result": {
+        "domain": "blackbox_piecewise_map_query_design",
+        "status": "candidate_frozen",
+        "decoder": "piecewise_map_query_design",
+        "representation": "二维分段整数映射→条件查询树",
+        "hypothesis": {
+          "family": "piecewise_origin_local_response",
+          "regionCount": 4,
+          "responseCount": 2,
+          "adaptiveDepth": 2,
+          "fixedDepth": 5,
+          "querySavings": 3,
+          "mapRule": "F_{r,s}(x,y)=[r,0] at (0,0); [s,0] at (r,1); [0,0] elsewhere"
+        },
+        "complexity": 40,
+        "complexityUnit": "candidate_times_query_count",
+        "residual": 0,
+        "verification": "verified_piecewise_map_query_family",
+        "certificateVerification": {
+          "status": "verified_piecewise_map_query_family",
+          "analysisStatus": "adaptive_strict_advantage",
+          "formulaMatches": true,
+          "adaptiveDepth": 2,
+          "fixedDepth": 5
+        },
+        "analysisStatus": "adaptive_strict_advantage",
+        "formulaMatches": true,
+        "candidateCount": 8,
+        "queryCount": 5,
+        "limits": [
+          "候选由二维分段整数映射规则生成，不直接以转移表作为输入",
+          "区域数不超过 8，局部响应数不超过 8",
+          "候选数不超过 16，查询数不超过 12",
+          "只比较无噪声最坏情况查询深度",
+          "结论不外推到未声明的分段边界、连续状态、噪声或通用动力系统"
+        ]
+      }
+    },
+    {
+      "name": "piecewise_map_control",
+      "expected": "verified_piecewise_map_query_family",
+      "actual": "verified_piecewise_map_query_family",
+      "passed": true,
+      "result": {
+        "domain": "blackbox_piecewise_map_query_design",
+        "status": "candidate_frozen",
+        "decoder": "piecewise_map_query_design",
+        "representation": "二维分段整数映射→条件查询树",
+        "hypothesis": {
+          "family": "piecewise_origin_local_response",
+          "regionCount": 4,
+          "responseCount": 1,
+          "adaptiveDepth": 1,
+          "fixedDepth": 1,
+          "querySavings": 0,
+          "mapRule": "F_{r,s}(x,y)=[r,0] at (0,0); [s,0] at (r,1); [0,0] elsewhere"
+        },
+        "complexity": 20,
+        "complexityUnit": "candidate_times_query_count",
+        "residual": 0,
+        "verification": "verified_piecewise_map_query_family",
+        "certificateVerification": {
+          "status": "verified_piecewise_map_query_family",
+          "analysisStatus": "no_adaptive_advantage",
+          "formulaMatches": true,
+          "adaptiveDepth": 1,
+          "fixedDepth": 1
+        },
+        "analysisStatus": "no_adaptive_advantage",
+        "formulaMatches": true,
+        "candidateCount": 4,
+        "queryCount": 5,
+        "limits": [
+          "候选由二维分段整数映射规则生成，不直接以转移表作为输入",
+          "区域数不超过 8，局部响应数不超过 8",
+          "候选数不超过 16，查询数不超过 12",
+          "只比较无噪声最坏情况查询深度",
+          "结论不外推到未声明的分段边界、连续状态、噪声或通用动力系统"
+        ]
+      }
     }
   ],
   "extensions": {
@@ -1670,21 +1756,21 @@
       "tasks": [
         {
           "name": "arithmetic_sequence",
-          "elapsedMs": 0.2964,
+          "elapsedMs": 0.3306,
           "status": "verified_on_supplied_observations",
           "candidateCount": null,
           "error": null
         },
         {
           "name": "random_uncertainty",
-          "elapsedMs": 0.1642,
+          "elapsedMs": 0.1797,
           "status": "no_certificate",
           "candidateCount": null,
           "error": null
         },
         {
           "name": "rotation_invariant",
-          "elapsedMs": 0.4051,
+          "elapsedMs": 0.5366,
           "status": "verified_dynamics_invariants",
           "candidateCount": 1,
           "error": null
@@ -2086,6 +2172,36 @@
         },
         "translationCoverage": null,
         "evidenceScope": null
+      },
+      {
+        "index": 26,
+        "domain": "blackbox_piecewise_map_query_design",
+        "status": "candidate_frozen",
+        "verification": "verified_piecewise_map_query_family",
+        "verificationStrength": "verified",
+        "residual": 0,
+        "complexity": 40,
+        "readability": {
+          "human": true,
+          "machine": true
+        },
+        "translationCoverage": null,
+        "evidenceScope": null
+      },
+      {
+        "index": 27,
+        "domain": "blackbox_piecewise_map_query_design",
+        "status": "candidate_frozen",
+        "verification": "verified_piecewise_map_query_family",
+        "verificationStrength": "verified",
+        "residual": 0,
+        "complexity": 20,
+        "readability": {
+          "human": true,
+          "machine": true
+        },
+        "translationCoverage": null,
+        "evidenceScope": null
       }
     ],
     "summary": [
@@ -2271,6 +2387,16 @@
       },
       {
         "domain": "blackbox_parametric_query_design",
+        "total": 2,
+        "verified": 2,
+        "refuted": 0,
+        "unknown": 0,
+        "verificationRate": 1,
+        "humanReadableRate": 1,
+        "machineReadableRate": 1
+      },
+      {
+        "domain": "blackbox_piecewise_map_query_design",
         "total": 2,
         "verified": 2,
         "refuted": 0,

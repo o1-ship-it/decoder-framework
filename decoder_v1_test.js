@@ -58,6 +58,9 @@ assert.equal(branchingQuery.hypothesis.fixedDepth, 3);
 const parametricQuery = v1.decodeObject({ domain: "blackbox_parametric_query_design", options: { branchCount: 3, variantCount: 3 } });
 assert.equal(parametricQuery.verification, "verified_parametric_branching_query_family");
 assert.equal(parametricQuery.hypothesis.fixedDepth, 4);
+const piecewiseQuery = v1.decodeObject({ domain: "blackbox_piecewise_map_query_design", options: { regionCount: 3, responseCount: 3 } });
+assert.equal(piecewiseQuery.verification, "verified_piecewise_map_query_family");
+assert.equal(piecewiseQuery.hypothesis.fixedDepth, 4);
 
 const batch = v1.decodeBatch([
   { domain: "graph", graph: graph.cycle(6) },

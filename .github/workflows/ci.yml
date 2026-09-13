@@ -28,3 +28,4 @@ jobs:
       - run: npm run benchmark:v3.2
       - run: npm run benchmark:v3.3
       - run: npm run benchmark:v3.4
+      - run: npm run benchmark:v3.5

@@ -49,5 +49,13 @@ const parametricControl = protocol.decode({ domain: "blackbox_parametric_query_d
 assert.equal(parametricControl.analysisStatus, "no_adaptive_advantage");
 assert.equal(parametricControl.hypothesis.querySavings, 0);
 
+const piecewiseResult = protocol.decode({ domain: "blackbox_piecewise_map_query_design", options: { regionCount: 4, responseCount: 2 } });
+assert.equal(piecewiseResult.verification, "verified_piecewise_map_query_family");
+assert.equal(piecewiseResult.analysisStatus, "adaptive_strict_advantage");
+assert.equal(piecewiseResult.hypothesis.adaptiveDepth, 2);
+assert.equal(piecewiseResult.hypothesis.fixedDepth, 5);
+const piecewiseControl = protocol.decode({ domain: "blackbox_piecewise_map_query_design", options: { regionCount: 4, responseCount: 1 } });
+assert.equal(piecewiseControl.analysisStatus, "no_adaptive_advantage");
+
 assert.throws(() => protocol.decode({ domain: "unknown" }), /domain/);
 console.log("decoder_protocol_test: passed");

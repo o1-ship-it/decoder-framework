@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "claim": "decoder_benchmark_run",
+  "benchmarkVersion": "3.5.0",
+  "evaluation": "frozen_piecewise_map_family_holdout",
+  "partitionPolicy": "分段映射规则、查询域和公式在运行前固定；calibration 与 holdout 只按映射参数划分。",
+  "passed": true,
+  "results": [
+    {
+      "id": "piecewise_map_calibration_2x2",
+      "partition": "calibration",
+      "expected": {
+        "status": "adaptive_strict_advantage",
+        "candidateCount": 4,
+        "queryCount": 3,
+        "adaptiveDepth": 2,
+        "fixedDepth": 3,
+        "formulaMatches": true
+      },
+      "actual": {
+        "status": "adaptive_strict_advantage",
+        "candidateCount": 4,
+        "queryCount": 3,
+        "adaptiveDepth": 2,
+        "fixedDepth": 3,
+        "formulaMatches": true
+      },
+      "passed": true
+    },
+    {
+      "id": "piecewise_map_calibration_3x2",
+      "partition": "calibration",
+      "expected": {
+        "status": "adaptive_strict_advantage",
+        "candidateCount": 6,
+        "queryCount": 4,
+        "adaptiveDepth": 2,
+        "fixedDepth": 4,
+        "formulaMatches": true
+      },
+      "actual": {
+        "status": "adaptive_strict_advantage",
+        "candidateCount": 6,
+        "queryCount": 4,
+        "adaptiveDepth": 2,
+        "fixedDepth": 4,
+        "formulaMatches": true
+      },
+      "passed": true
+    },
+    {
+      "id": "piecewise_map_holdout_4x2",
+      "partition": "holdout",
+      "expected": {
+        "status": "adaptive_strict_advantage",
+        "candidateCount": 8,
+        "queryCount": 5,
+        "adaptiveDepth": 2,
+        "fixedDepth": 5,
+        "formulaMatches": true
+      },
+      "actual": {
+        "status": "adaptive_strict_advantage",
+        "candidateCount": 8,
+        "queryCount": 5,
+        "adaptiveDepth": 2,
+        "fixedDepth": 5,
+        "formulaMatches": true
+      },
+      "passed": true
+    },
+    {
+      "id": "piecewise_map_holdout_3x3",
+      "partition": "holdout",
+      "expected": {
+        "status": "adaptive_strict_advantage",
+        "candidateCount": 9,
+        "queryCount": 4,
+        "adaptiveDepth": 2,
+        "fixedDepth": 4,
+        "formulaMatches": true
+      },
+      "actual": {
+        "status": "adaptive_strict_advantage",
+        "candidateCount": 9,
+        "queryCount": 4,
+        "adaptiveDepth": 2,
+        "fixedDepth": 4,
+        "formulaMatches": true
+      },
+      "passed": true
+    },
+    {
+      "id": "piecewise_map_holdout_control_4x1",
+      "partition": "holdout",
+      "expected": {
+        "status": "no_adaptive_advantage",
+        "candidateCount": 4,
+        "queryCount": 5,
+        "adaptiveDepth": 1,
+        "fixedDepth": 1,
+        "formulaMatches": true
+      },
+      "actual": {
+        "status": "no_adaptive_advantage",
+        "candidateCount": 4,
+        "queryCount": 5,
+        "adaptiveDepth": 1,
+        "fixedDepth": 1,
+        "formulaMatches": true
+      },
+      "passed": true
+    }
+  ],
+  "partitions": {
+    "calibration": {
+      "total": 2,
+      "passed": 2,
+      "strictAdvantages": 2,
+      "noAdvantages": 0,
+      "meanAdaptiveDepth": 2,
+      "meanFixedDepth": 3.5
+    },
+    "holdout": {
+      "total": 3,
+      "passed": 3,
+      "strictAdvantages": 2,
+      "noAdvantages": 1,
+      "meanAdaptiveDepth": 1.6666666666666667,
+      "meanFixedDepth": 3.3333333333333335
+    }
+  },
+  "exhaustive": {
+    "total": 33,
+    "formulaMatches": 33,
+    "strictAdvantages": 19,
+    "noAdvantages": 14
+  }
+}

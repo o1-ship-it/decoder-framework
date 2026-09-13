@@ -35,6 +35,7 @@ const blackboxDynamics = require("./decoder_blackbox_dynamics.js");
 const blackboxActiveDesign = require("./dynamics/blackbox_active_design.js");
 const branchingQueryDesign = require("./dynamics/branching_query_design.js");
 const parametricBranchingFamily = require("./dynamics/parametric_branching_family.js");
+const piecewiseMapFamily = require("./dynamics/piecewise_map_family.js");
 
 function sequenceCase(development, holdout) {
   if (!Array.isArray(holdout) || holdout.length === 0) throw new TypeError("序列验证需要非空留出数据");
@@ -266,6 +267,37 @@ function parametricBranchingQueryCase(input) {
     limits: result.limits,
   };
 }
+function piecewiseMapQueryCase(input) {
+  const certificate = piecewiseMapFamily.makeCertificate(input.options || {});
+  const certificateVerification = piecewiseMapFamily.verifyCertificate(certificate);
+  const result = certificate.result;
+  const verified = certificateVerification.status === "verified_piecewise_map_query_family" && result.formulaMatches && result.status !== "invalid_analysis";
+  return {
+    domain: "blackbox_piecewise_map_query_design",
+    status: verified ? "candidate_frozen" : "uncertain",
+    decoder: "piecewise_map_query_design",
+    representation: "二维分段整数映射→条件查询树",
+    hypothesis: {
+      family: result.family,
+      regionCount: result.options.regionCount,
+      responseCount: result.options.responseCount,
+      adaptiveDepth: result.exact.adaptive.depth,
+      fixedDepth: result.exact.fixed.depth,
+      querySavings: result.exact.fixed.depth - result.exact.adaptive.depth,
+      mapRule: result.mapRule,
+    },
+    complexity: result.exact.candidateCount * result.exact.queryCount,
+    complexityUnit: "candidate_times_query_count",
+    residual: verified ? 0 : 1,
+    verification: verified ? certificateVerification.status : "uncertain_formula_mismatch",
+    certificateVerification,
+    analysisStatus: result.status,
+    formulaMatches: result.formulaMatches,
+    candidateCount: result.exact.candidateCount,
+    queryCount: result.exact.queryCount,
+    limits: result.limits,
+  };
+}
 
 function generatedSequenceCase(input) {
   const searchResult = adaptiveSearch.adaptiveSynthesize(input.sequence, { splitSizes: input.splitSizes || [8, 10, 12], maxOrder: input.maxOrder || 2 });
@@ -317,7 +349,8 @@ function decode(input) {
   if (input?.domain === "blackbox_active_observation_design") return blackboxActiveDesignCase(input);
   if (input?.domain === "blackbox_branching_query_design") return branchingQueryDesignCase(input);
   if (input?.domain === "blackbox_parametric_query_design") return parametricBranchingQueryCase(input);
+  if (input?.domain === "blackbox_piecewise_map_query_design") return piecewiseMapQueryCase(input);
   throw new TypeError("协议输入必须声明受支持的 domain");
 }
 
-module.exports = { decode, sequenceCase, graphCase, equationCase, equationSystemCase, dynamicsCase, parameterizedDynamicsCase, noisySequenceCase, multivariateConditionCase, machineRepresentationCase, machineDecoderSearchCase, hiddenStructureCase, hiddenCompetitionCase, capabilityMatrixCase, identifiabilityCase, activeDesignCase, noisyActiveDesignCase, observationalEquivalenceCase, composedDynamicsCase, blackboxDynamicsCase, blackboxActiveDesignCase, branchingQueryDesignCase, parametricBranchingQueryCase };
+module.exports = { decode, sequenceCase, graphCase, equationCase, equationSystemCase, dynamicsCase, parameterizedDynamicsCase, noisySequenceCase, multivariateConditionCase, machineRepresentationCase, machineDecoderSearchCase, hiddenStructureCase, hiddenCompetitionCase, capabilityMatrixCase, identifiabilityCase, activeDesignCase, noisyActiveDesignCase, observationalEquivalenceCase, composedDynamicsCase, blackboxDynamicsCase, blackboxActiveDesignCase, branchingQueryDesignCase, parametricBranchingQueryCase, piecewiseMapQueryCase };

@@ -37,6 +37,8 @@ function run() {
     { name: "branching_query_strict_advantage", input: { domain: "blackbox_branching_query_design" }, expect: "verified_finite_blackbox_query_design" },
     { name: "parametric_branching_holdout", input: { domain: "blackbox_parametric_query_design", options: { branchCount: 4, variantCount: 2 } }, expect: "verified_parametric_branching_query_family" },
     { name: "parametric_branching_control", input: { domain: "blackbox_parametric_query_design", options: { branchCount: 4, variantCount: 1 } }, expect: "verified_parametric_branching_query_family" },
+    { name: "piecewise_map_holdout", input: { domain: "blackbox_piecewise_map_query_design", options: { regionCount: 4, responseCount: 2 } }, expect: "verified_piecewise_map_query_family" },
+    { name: "piecewise_map_control", input: { domain: "blackbox_piecewise_map_query_design", options: { regionCount: 4, responseCount: 1 } }, expect: "verified_piecewise_map_query_family" },
   ];
   const results = inputs.map(item => { const result = protocol.decode(item.input); return { name: item.name, expected: item.expect, actual: result.verification, passed: result.verification === item.expect, result }; });
   const condition = conditionExperiment.main();

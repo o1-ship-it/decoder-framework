@@ -1,14 +1,14 @@
-# Decoder Framework v3.4.0
+# Decoder Framework v3.5.0
 
 项目状态与路线见 [PROJECT_STATUS.md](PROJECT_STATUS.md)。
 当前工作摘要见 [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md)，代码地图见 [CODEBASE_MAP.md](CODEBASE_MAP.md)。
 项目北极星目标见 [PROJECT_NORTH_STAR.md](PROJECT_NORTH_STAR.md)。
 v3 研究策略见 [RESEARCH_STRATEGY_v3.md](RESEARCH_STRATEGY_v3.md)。
 历史材料索引见 [docs/HISTORY.md](docs/HISTORY.md)。
-最新研究反思见 [RESEARCH_REFLECTION_v3_4.md](RESEARCH_REFLECTION_v3_4.md)。
+最新研究反思见 [RESEARCH_REFLECTION_v3_5.md](RESEARCH_REFLECTION_v3_5.md)。
 v3.0 研究反思见 [RESEARCH_REFLECTION_v3_0.md](RESEARCH_REFLECTION_v3_0.md)。
 历史研究反思保留在 `RESEARCH_REFLECTION_v2_*.md`。
-旧版本发布说明保留在根目录，当前版本见 [RELEASE_NOTES_v3_4.md](RELEASE_NOTES_v3_4.md)。
+旧版本发布说明保留在根目录，当前版本见 [RELEASE_NOTES_v3_5.md](RELEASE_NOTES_v3_5.md)。
 升级路线见 [RESEARCH_ROADMAP.md](RESEARCH_ROADMAP.md)。
 
 这是一个把“表示—推理—反馈—验证”落实为实验系统的最小版本。
@@ -35,6 +35,7 @@ v3.0 研究反思见 [RESEARCH_REFLECTION_v3_0.md](RESEARCH_REFLECTION_v3_0.md)�
 - `blackbox_active_observation_design`：在有限黑箱映射版本空间中选择最能排除候选的下一状态。
 - `blackbox_branching_query_design`：比较有限黑箱候选族的条件查询树和最优固定查询集合。
 - `blackbox_parametric_query_design`：在参数化的运行区间—局部响应黑箱族中交叉验证条件查询优势。
+- `blackbox_piecewise_map_query_design`：从二维分段整数映射生成候选转移并验证条件查询优势。
 - `composed_dynamics`：有限坐标变换后的不变量搜索，用作表示变换是否提供额外能力的可复现对照。
 
 v1.2 发布说明见 [RELEASE_NOTES_v1_2.md](RELEASE_NOTES_v1_2.md)。
@@ -123,6 +124,7 @@ v3.1 发布说明见 [RELEASE_NOTES_v3_1.md](RELEASE_NOTES_v3_1.md)。
 v3.2.1 勘误见 [RELEASE_NOTES_v3_2_1.md](RELEASE_NOTES_v3_2_1.md)，完整说明见 [RELEASE_NOTES_v3_2.md](RELEASE_NOTES_v3_2.md)。
 v3.3 发布说明见 [RELEASE_NOTES_v3_3.md](RELEASE_NOTES_v3_3.md)。
 v3.4 发布说明见 [RELEASE_NOTES_v3_4.md](RELEASE_NOTES_v3_4.md)。
+v3.5 发布说明见 [RELEASE_NOTES_v3_5.md](RELEASE_NOTES_v3_5.md)。
 
 运行 `npm run benchmark:v1.6` 可复现隐藏结构发现基准。搜索范围内没有稳定候选时返回 `uncertain_hidden_structure`，不把有限样本拟合误报为定理。
 运行 `npm run benchmark:v1.7` 可复现多机制竞争基准。多个候选精确通过时返回 `ambiguous_hidden_structure`，避免把模型选择偏好误写成唯一解释。
@@ -136,4 +138,5 @@ v3.4 发布说明见 [RELEASE_NOTES_v3_4.md](RELEASE_NOTES_v3_4.md)。
 运行 `npm run benchmark:v3.2` 可复现线性查询最优性下界证明，说明当前任务的自适应下界为 2 次查询。
 运行 `npm run benchmark:v3.3` 可复现一个严格自适应优势的有限分支族及一个无优势对照；前者的最坏深度为 2 对 3，结论只覆盖显式枚举的候选和查询表。
 运行 `npm run benchmark:v3.4` 可复现参数化运行区间—局部响应族的校准与参数留出配置；留出优势是该生成族内的复现结果，不是从数据拟合出的通用性能估计。
+运行 `npm run benchmark:v3.5` 可复现二维分段整数映射族的校准、映射参数留出和无优势控制；候选转移由映射规则求值生成。
 dynamics_condition_multivariate 支持多参数一次条件推导与秩不足拒答。
