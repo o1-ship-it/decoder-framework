@@ -38,6 +38,8 @@ const active = v1.decodeObject({ domain: "active_observation_design", developmen
 assert.equal(active.verification, "active_disambiguation_plan");
 const noisyActive = v1.decodeObject({ domain: "noisy_active_observation_design", development: [1, 3, 5, 7, 9, 11, 13], holdout: [15, 17], options: { maxModulus: 24, tolerance: 1, horizon: 8 } });
 assert.equal(noisyActive.verification, "noise_robust_disambiguation_plan");
+const equivalence = v1.decodeObject({ domain: "observational_equivalence", development: [1, 3, 5, 7, 9, 11, 13], holdout: [15, 17], options: { maxModulus: 24, horizon: 8 } });
+assert.equal(equivalence.verification, "observationally_distinguishable");
 
 const batch = v1.decodeBatch([
   { domain: "graph", graph: graph.cycle(6) },

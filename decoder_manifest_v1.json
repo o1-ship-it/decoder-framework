@@ -4,11 +4,11 @@
   "files": [
     {
       "path": "decoder_v1.js",
-      "sha256": "6b1b4afa70e85bc8c18b36c7798dc8d32151132cb2020cfd57d63769c1d03953"
+      "sha256": "c1cc17c85414794ddb2190f04df47b2b36105a520e645ab759004da79ebcbfd0"
     },
     {
       "path": "decoder_protocol.js",
-      "sha256": "33b17a3c2b469aaf549d5d9d8e9ad30a6e7dde6c077a391a1ccda634b6e33061"
+      "sha256": "2374b670889cf691b913c29ce3225995f630b1a4a404161ac119da6c0d5a7d0f"
     },
     {
       "path": "decoder_report.js",
@@ -76,7 +76,7 @@
     },
     {
       "path": "decoder_acceptance_v1.json",
-      "sha256": "99f661c3567cf8e8e349e0033d0c838d36c0e9cc1adf388fe9dc00f3c1823c17"
+      "sha256": "337fbff48e1cfa55a478a0d7cbea4977e4c679b97b736b2a51011c333989c636"
     },
     {
       "path": "benchmark_v1_2_results.json",
@@ -143,12 +143,28 @@
       "sha256": "930637e8b7301bf22dcf19c812fd5f29bffc98412c4803b0da2f978217cc70a4"
     },
     {
+      "path": "benchmark_v2_4.json",
+      "sha256": "33a2dfe320c0452f0fdd51712eec52457da598957fb6457ddbec0829282baf5a"
+    },
+    {
+      "path": "benchmark_v2_4_results.json",
+      "sha256": "c83c1ec15a66af9559400a7b6f1898621eaed04bcf327af8b47e26eca8f9ec71"
+    },
+    {
+      "path": "decoder_observational_equivalence.js",
+      "sha256": "458e1a67bfa601d360dc6ba6707e4026e0a2b45fc98b9146691024c7fa875613"
+    },
+    {
       "path": "RESEARCH_REFLECTION_v2_2.md",
       "sha256": "b33e626a426078250f2649cb1d484e19f7cb099ef63c2314d19207244f97f4e9"
     },
     {
       "path": "RESEARCH_REFLECTION_v2_3.md",
       "sha256": "c665b9a8934cecca908e4ed5920bc4cf48de59b8030f6fdaa4244c325e597c98"
+    },
+    {
+      "path": "RESEARCH_REFLECTION_v2_4.md",
+      "sha256": "f6ce2e26911bad8b5c0cb01acfdc6c9d39d355aa2a42ab3b162a19ef68c12de5"
     }
   ]
 }

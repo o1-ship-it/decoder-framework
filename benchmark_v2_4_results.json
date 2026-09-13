@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "claim": "decoder_benchmark_run",
+  "benchmarkVersion": "2.4",
+  "seed": 20260914,
+  "results": [
+    {
+      "id": "equivalence_compressed_v24",
+      "expected": "observationally_distinguishable",
+      "actual": "observationally_distinguishable",
+      "mechanismCount": 13,
+      "predictiveClassCount": 8
+    },
+    {
+      "id": "equivalence_unique_v24",
+      "expected": "identified_hidden_structure",
+      "actual": "identified_hidden_structure",
+      "mechanismCount": 1,
+      "predictiveClassCount": 1
+    }
+  ]
+}

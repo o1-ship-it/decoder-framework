@@ -1,0 +1,14 @@
+const assert = require("node:assert/strict");
+const equivalence = require("./decoder_observational_equivalence.js");
+const arithmetic = equivalence.analyze([1, 3, 5, 7, 9, 11, 13], [15, 17], { maxModulus: 24, horizon: 8 });
+assert.equal(arithmetic.mechanismCount, 13);
+assert.ok(arithmetic.predictiveClassCount > 1);
+assert.equal(arithmetic.firstDistinguishingHorizon, 1);
+assert.ok(arithmetic.compressionRatio < 1);
+const certificate = equivalence.makeCertificate([1, 3, 5, 7, 9, 11, 13], [15, 17], { maxModulus: 24, horizon: 8 });
+assert.equal(equivalence.verifyCertificate(certificate).status, "observationally_distinguishable");
+const tampered = JSON.parse(JSON.stringify(certificate)); tampered.result.predictiveClassCount += 1;
+assert.equal(equivalence.verifyCertificate(tampered).status, "invalid_certificate");
+const unknown = equivalence.analyze([3, 1, 4, 1, 5, 9], [2, 6], { maxModulus: 8, horizon: 8 });
+assert.equal(unknown.status, "uncertain_no_candidate");
+console.log("decoder_observational_equivalence_test: passed");

@@ -3,8 +3,8 @@
   "claim": "framework_acceptance",
   "passed": true,
   "counts": {
-    "total": 18,
-    "passed": 18,
+    "total": 19,
+    "passed": 19,
     "failed": 0
   },
   "results": [
@@ -831,7 +831,7 @@
                 "confidence": 1,
                 "candidateCount": 1,
                 "stressResidualMax": 7,
-                "elapsedMs": 0.4687
+                "elapsedMs": 0.5083
               }
             ],
             "summary": {
@@ -855,7 +855,7 @@
                 "confidence": 0.5,
                 "candidateCount": 3,
                 "stressResidualMax": 4,
-                "elapsedMs": 0.8858
+                "elapsedMs": 0.9716
               }
             ],
             "summary": {
@@ -989,6 +989,275 @@
           "区间重叠是保守的最坏情况判据"
         ]
       }
+    },
+    {
+      "name": "observational_equivalence",
+      "expected": "observationally_distinguishable",
+      "actual": "observationally_distinguishable",
+      "passed": true,
+      "result": {
+        "domain": "observational_equivalence",
+        "status": "candidate_frozen",
+        "decoder": "observational_equivalence",
+        "representation": "未来预测轨迹等价类",
+        "hypothesis": [
+          {
+            "classId": 0,
+            "forecast": [
+              "19",
+              "21",
+              "23",
+              "25",
+              "27",
+              "29",
+              "31",
+              "33"
+            ],
+            "memberCount": 2,
+            "members": [
+              {
+                "id": "affine:{\"multiplier\":\"1\",\"offset\":\"2\"}",
+                "family": "affine",
+                "parameters": {
+                  "multiplier": "1",
+                  "offset": "2"
+                }
+              },
+              {
+                "id": "arithmetic:{\"difference\":\"2\"}",
+                "family": "arithmetic",
+                "parameters": {
+                  "difference": "2"
+                }
+              }
+            ]
+          },
+          {
+            "classId": 1,
+            "forecast": [
+              "1",
+              "3",
+              "5",
+              "7",
+              "9",
+              "11",
+              "13",
+              "15"
+            ],
+            "memberCount": 2,
+            "members": [
+              {
+                "id": "modular_affine:{\"modulus\":18,\"multiplier\":1,\"offset\":2}",
+                "family": "modular_affine",
+                "parameters": {
+                  "modulus": 18,
+                  "multiplier": 1,
+                  "offset": 2
+                }
+              },
+              {
+                "id": "modular_affine:{\"modulus\":18,\"multiplier\":10,\"offset\":11}",
+                "family": "modular_affine",
+                "parameters": {
+                  "modulus": 18,
+                  "multiplier": 10,
+                  "offset": 11
+                }
+              }
+            ]
+          },
+          {
+            "classId": 2,
+            "forecast": [
+              "0",
+              "2",
+              "4",
+              "6",
+              "8",
+              "10",
+              "12",
+              "14"
+            ],
+            "memberCount": 1,
+            "members": [
+              {
+                "id": "modular_affine:{\"modulus\":19,\"multiplier\":1,\"offset\":2}",
+                "family": "modular_affine",
+                "parameters": {
+                  "modulus": 19,
+                  "multiplier": 1,
+                  "offset": 2
+                }
+              }
+            ]
+          },
+          {
+            "classId": 3,
+            "forecast": [
+              "19",
+              "1",
+              "3",
+              "5",
+              "7",
+              "9",
+              "11",
+              "13"
+            ],
+            "memberCount": 2,
+            "members": [
+              {
+                "id": "modular_affine:{\"modulus\":20,\"multiplier\":1,\"offset\":2}",
+                "family": "modular_affine",
+                "parameters": {
+                  "modulus": 20,
+                  "multiplier": 1,
+                  "offset": 2
+                }
+              },
+              {
+                "id": "modular_affine:{\"modulus\":20,\"multiplier\":11,\"offset\":12}",
+                "family": "modular_affine",
+                "parameters": {
+                  "modulus": 20,
+                  "multiplier": 11,
+                  "offset": 12
+                }
+              }
+            ]
+          },
+          {
+            "classId": 4,
+            "forecast": [
+              "19",
+              "0",
+              "2",
+              "4",
+              "6",
+              "8",
+              "10",
+              "12"
+            ],
+            "memberCount": 1,
+            "members": [
+              {
+                "id": "modular_affine:{\"modulus\":21,\"multiplier\":1,\"offset\":2}",
+                "family": "modular_affine",
+                "parameters": {
+                  "modulus": 21,
+                  "multiplier": 1,
+                  "offset": 2
+                }
+              }
+            ]
+          },
+          {
+            "classId": 5,
+            "forecast": [
+              "19",
+              "21",
+              "1",
+              "3",
+              "5",
+              "7",
+              "9",
+              "11"
+            ],
+            "memberCount": 2,
+            "members": [
+              {
+                "id": "modular_affine:{\"modulus\":22,\"multiplier\":1,\"offset\":2}",
+                "family": "modular_affine",
+                "parameters": {
+                  "modulus": 22,
+                  "multiplier": 1,
+                  "offset": 2
+                }
+              },
+              {
+                "id": "modular_affine:{\"modulus\":22,\"multiplier\":12,\"offset\":13}",
+                "family": "modular_affine",
+                "parameters": {
+                  "modulus": 22,
+                  "multiplier": 12,
+                  "offset": 13
+                }
+              }
+            ]
+          },
+          {
+            "classId": 6,
+            "forecast": [
+              "19",
+              "21",
+              "0",
+              "2",
+              "4",
+              "6",
+              "8",
+              "10"
+            ],
+            "memberCount": 1,
+            "members": [
+              {
+                "id": "modular_affine:{\"modulus\":23,\"multiplier\":1,\"offset\":2}",
+                "family": "modular_affine",
+                "parameters": {
+                  "modulus": 23,
+                  "multiplier": 1,
+                  "offset": 2
+                }
+              }
+            ]
+          },
+          {
+            "classId": 7,
+            "forecast": [
+              "19",
+              "21",
+              "23",
+              "1",
+              "3",
+              "5",
+              "7",
+              "9"
+            ],
+            "memberCount": 2,
+            "members": [
+              {
+                "id": "modular_affine:{\"modulus\":24,\"multiplier\":1,\"offset\":2}",
+                "family": "modular_affine",
+                "parameters": {
+                  "modulus": 24,
+                  "multiplier": 1,
+                  "offset": 2
+                }
+              },
+              {
+                "id": "modular_affine:{\"modulus\":24,\"multiplier\":13,\"offset\":14}",
+                "family": "modular_affine",
+                "parameters": {
+                  "modulus": 24,
+                  "multiplier": 13,
+                  "offset": 14
+                }
+              }
+            ]
+          }
+        ],
+        "complexity": 8,
+        "complexityUnit": "predictive_class_count",
+        "residual": null,
+        "verification": "observationally_distinguishable",
+        "mechanismCount": 13,
+        "compressionRatio": 0.6153846153846154,
+        "firstDistinguishingHorizon": 1,
+        "fullIdentificationHorizon": null,
+        "limits": [
+          "机制候选由 arithmetic、periodic、affine、modular_affine 枚举",
+          "预测 horizon≤8",
+          "同一预测类中的机制在该 horizon 内不可由观测区分"
+        ]
+      }
     }
   ],
   "extensions": {
@@ -1002,21 +1271,21 @@
       "tasks": [
         {
           "name": "arithmetic_sequence",
-          "elapsedMs": 0.369,
+          "elapsedMs": 0.3274,
           "status": "verified_on_supplied_observations",
           "candidateCount": null,
           "error": null
         },
         {
           "name": "random_uncertainty",
-          "elapsedMs": 0.203,
+          "elapsedMs": 0.175,
           "status": "no_certificate",
           "candidateCount": null,
           "error": null
         },
         {
           "name": "rotation_invariant",
-          "elapsedMs": 0.4679,
+          "elapsedMs": 0.4589,
           "status": "verified_dynamics_invariants",
           "candidateCount": 1,
           "error": null
@@ -1298,6 +1567,21 @@
         },
         "translationCoverage": null,
         "evidenceScope": null
+      },
+      {
+        "index": 18,
+        "domain": "observational_equivalence",
+        "status": "candidate_frozen",
+        "verification": "observationally_distinguishable",
+        "verificationStrength": "candidate",
+        "residual": null,
+        "complexity": 8,
+        "readability": {
+          "human": true,
+          "machine": true
+        },
+        "translationCoverage": null,
+        "evidenceScope": null
       }
     ],
     "summary": [
@@ -1433,6 +1717,16 @@
       },
       {
         "domain": "noisy_active_observation_design",
+        "total": 1,
+        "verified": 0,
+        "refuted": 0,
+        "unknown": 1,
+        "verificationRate": 0,
+        "humanReadableRate": 1,
+        "machineReadableRate": 1
+      },
+      {
+        "domain": "observational_equivalence",
         "total": 1,
         "verified": 0,
         "refuted": 0,

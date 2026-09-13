@@ -2,6 +2,7 @@
 
 项目状态与路线见 [PROJECT_STATUS.md](PROJECT_STATUS.md)。
 项目阶段性审视见 [PROJECT_REVIEW_v1_7.md](PROJECT_REVIEW_v1_7.md)。
+最新研究反思见 [RESEARCH_REFLECTION_v2_4.md](RESEARCH_REFLECTION_v2_4.md)。
 研究反思见 [RESEARCH_REFLECTION_v2_2.md](RESEARCH_REFLECTION_v2_2.md)。
 第一版发布说明见 [RELEASE_NOTES_v1.md](RELEASE_NOTES_v1.md)。
 升级路线见 [RESEARCH_ROADMAP.md](RESEARCH_ROADMAP.md)。
@@ -107,6 +108,7 @@ v2.0 发布说明见 [RELEASE_NOTES_v2_0.md](RELEASE_NOTES_v2_0.md)。
 v2.1 发布说明见 [RELEASE_NOTES_v2_1.md](RELEASE_NOTES_v2_1.md)。
 v2.2 发布说明见 [RELEASE_NOTES_v2_2.md](RELEASE_NOTES_v2_2.md)。
 v2.3 发布说明见 [RELEASE_NOTES_v2_3.md](RELEASE_NOTES_v2_3.md)。
+v2.4 发布说明见 [RELEASE_NOTES_v2_4.md](RELEASE_NOTES_v2_4.md)。
 
 运行 `npm run benchmark:v1.6` 可复现隐藏结构发现基准。搜索范围内没有稳定候选时返回 `uncertain_hidden_structure`，不把有限样本拟合误报为定理。
 运行 `npm run benchmark:v1.7` 可复现多机制竞争基准。多个候选精确通过时返回 `ambiguous_hidden_structure`，避免把模型选择偏好误写成唯一解释。
@@ -114,4 +116,5 @@ v2.3 发布说明见 [RELEASE_NOTES_v2_3.md](RELEASE_NOTES_v2_3.md)。
 运行 `npm run benchmark:v2.1` 可复现可识别性前沿实验，报告候选机制最早分歧位置和建议新增观测数。
 运行 `npm run benchmark:v2.2` 可复现主动实验设计，选择最能减少候选歧义的下一观测位置。
 运行 `npm run benchmark:v2.3` 可复现有界噪声下的主动设计，按区间重叠给出保守的保证排除数。
+运行 `npm run benchmark:v2.4` 可复现观测等价类分析，区分机制候选数与可观测预测类数。
 dynamics_condition_multivariate 支持多参数一次条件推导与秩不足拒答。

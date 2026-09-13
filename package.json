@@ -1,6 +1,6 @@
 {
   "name": "decoder-framework",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "A verifiable framework for layered information decoding experiments.",
   "private": false,
   "type": "commonjs",
@@ -21,6 +21,7 @@
     ,"benchmark:v2.1": "node benchmark_v2_1_runner.js"
     ,"benchmark:v2.2": "node benchmark_v2_2_runner.js"
     ,"benchmark:v2.3": "node benchmark_v2_3_runner.js"
+    ,"benchmark:v2.4": "node benchmark_v2_4_runner.js"
   },
   "engines": {
     "node": ">=22"
