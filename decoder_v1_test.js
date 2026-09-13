@@ -47,6 +47,9 @@ assert.equal(blackboxDynamics.verification, "verified_blackbox_structure");
 const blackboxCounterexample = v1.decodeObject({ domain: "blackbox_dynamics", training: [{ state: [0, 0], next: [0, 0] }, { state: [1, 0], next: [0, 1] }, { state: [0, 1], next: [-1, 0] }], holdout: [{ state: [1, 1], next: [0, 0] }], options: { maxMapDegree: 1, maxInvariantDegree: 2 } });
 assert.equal(blackboxCounterexample.status, "counterexample_found");
 assert.equal(blackboxCounterexample.verification, "counterexample_found");
+const blackboxPlan = v1.decodeObject({ domain: "blackbox_active_observation_design", training: [{ state: [0, 0], next: [0, 0] }], options: { stateMin: -1, stateMax: 1 } });
+assert.equal(blackboxPlan.verification, "active_blackbox_observation_plan");
+assert.equal(blackboxPlan.recommendation.guaranteedEliminated, 72);
 
 const batch = v1.decodeBatch([
   { domain: "graph", graph: graph.cycle(6) },

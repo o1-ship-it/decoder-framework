@@ -1,0 +1,1 @@
+{"schemaVersion":1,"claim":"decoder_benchmark","version":"3.1","cases":[{"id":"blackbox_linear_census_v31","expected":{"targetCount":81,"activeMeanSteps":1.9506172839506173,"activeMaxSteps":2,"passiveMeanSteps":2.1146384479717812,"passiveMaxSteps":3,"fixedDiagonalMeanSteps":1.9506172839506173}}]}

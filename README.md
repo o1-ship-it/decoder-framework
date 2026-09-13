@@ -1,12 +1,13 @@
-# Decoder Framework v3.0
+# Decoder Framework v3.1
 
 项目状态与路线见 [PROJECT_STATUS.md](PROJECT_STATUS.md)。
+当前工作摘要见 [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md)，代码地图见 [CODEBASE_MAP.md](CODEBASE_MAP.md)。
 项目北极星目标见 [PROJECT_NORTH_STAR.md](PROJECT_NORTH_STAR.md)。
 v3 研究策略见 [RESEARCH_STRATEGY_v3.md](RESEARCH_STRATEGY_v3.md)。
 项目阶段性审视见 [PROJECT_REVIEW_v1_7.md](PROJECT_REVIEW_v1_7.md)。
-最新研究反思见 [RESEARCH_REFLECTION_v2_4.md](RESEARCH_REFLECTION_v2_4.md)。
+最新研究反思见 [RESEARCH_REFLECTION_v3_1.md](RESEARCH_REFLECTION_v3_1.md)。
 v3.0 研究反思见 [RESEARCH_REFLECTION_v3_0.md](RESEARCH_REFLECTION_v3_0.md)。
-研究反思见 [RESEARCH_REFLECTION_v2_2.md](RESEARCH_REFLECTION_v2_2.md)。
+历史研究反思保留在 `RESEARCH_REFLECTION_v2_*.md`。
 第一版发布说明见 [RELEASE_NOTES_v1.md](RELEASE_NOTES_v1.md)。
 升级路线见 [RESEARCH_ROADMAP.md](RESEARCH_ROADMAP.md)。
 
@@ -31,6 +32,7 @@ v3.0 研究反思见 [RESEARCH_REFLECTION_v3_0.md](RESEARCH_REFLECTION_v3_0.md)�
 - `noisy_active_observation_design`：按有界噪声区间的最坏重叠选择稳健观测。
 - `hidden_sequence`：从原始序列搜索模仿射递推，并用留出数据和证书重放验证隐藏生成机制。
 - `blackbox_dynamics`：从二维状态转移推断受限多项式映射，用留出转移验证后搜索可重放的不变量证书。
+- `blackbox_active_observation_design`：在有限黑箱映射版本空间中选择最能排除候选的下一状态。
 - `composed_dynamics`：有限坐标变换后的不变量搜索，用作表示变换是否提供额外能力的可复现对照。
 
 v1.2 发布说明见 [RELEASE_NOTES_v1_2.md](RELEASE_NOTES_v1_2.md)。
@@ -115,6 +117,7 @@ v2.2 发布说明见 [RELEASE_NOTES_v2_2.md](RELEASE_NOTES_v2_2.md)。
 v2.3 发布说明见 [RELEASE_NOTES_v2_3.md](RELEASE_NOTES_v2_3.md)。
 v2.4 发布说明见 [RELEASE_NOTES_v2_4.md](RELEASE_NOTES_v2_4.md)。
 v3.0 发布说明见 [RELEASE_NOTES_v3_0.md](RELEASE_NOTES_v3_0.md)。
+v3.1 发布说明见 [RELEASE_NOTES_v3_1.md](RELEASE_NOTES_v3_1.md)。
 
 运行 `npm run benchmark:v1.6` 可复现隐藏结构发现基准。搜索范围内没有稳定候选时返回 `uncertain_hidden_structure`，不把有限样本拟合误报为定理。
 运行 `npm run benchmark:v1.7` 可复现多机制竞争基准。多个候选精确通过时返回 `ambiguous_hidden_structure`，避免把模型选择偏好误写成唯一解释。
@@ -124,4 +127,5 @@ v3.0 发布说明见 [RELEASE_NOTES_v3_0.md](RELEASE_NOTES_v3_0.md)。
 运行 `npm run benchmark:v2.3` 可复现有界噪声下的主动设计，按区间重叠给出保守的保证排除数。
 运行 `npm run benchmark:v2.4` 可复现观测等价类分析，区分机制候选数与可观测预测类数。
 运行 `npm run benchmark:v3.0` 可复现黑箱动力系统基准；它包含两个受验证结构和一个留出反例，不把有限轨迹拟合包装成无条件结论。
+运行 `npm run benchmark:v3.1` 可复现黑箱主动观测的完整有限比较；它同时报告主动策略与强固定设计的平局。
 dynamics_condition_multivariate 支持多参数一次条件推导与秩不足拒答。

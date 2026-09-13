@@ -32,6 +32,8 @@ function run() {
     { name: "observational_equivalence", input: { domain: "observational_equivalence", development: [1, 3, 5, 7, 9, 11, 13], holdout: [15, 17], options: { maxModulus: 24, horizon: 8 } }, expect: "observationally_distinguishable" },
     { name: "blackbox_rotation_structure", input: { domain: "blackbox_dynamics", training: [{ state: [0, 0], next: [0, 0] }, { state: [1, 0], next: [0, 1] }, { state: [0, 1], next: [-1, 0] }], holdout: [{ state: [1, 1], next: [-1, 1] }, { state: [2, -1], next: [1, 2] }], options: { maxMapDegree: 1, maxInvariantDegree: 2 } }, expect: "verified_blackbox_structure" },
     { name: "blackbox_holdout_counterexample", input: { domain: "blackbox_dynamics", training: [{ state: [0, 0], next: [0, 0] }, { state: [1, 0], next: [0, 1] }, { state: [0, 1], next: [-1, 0] }], holdout: [{ state: [1, 1], next: [0, 0] }], options: { maxMapDegree: 1, maxInvariantDegree: 2 } }, expect: "counterexample_found" },
+    { name: "blackbox_active_observation_plan", input: { domain: "blackbox_active_observation_design", training: [{ state: [0, 0], next: [0, 0] }], options: { stateMin: -1, stateMax: 1, coefficientRange: 1 } }, expect: "active_blackbox_observation_plan" },
+    { name: "blackbox_active_counterexample", input: { domain: "blackbox_active_observation_design", training: [{ state: [0, 0], next: [2, 0] }], options: { stateMin: -1, stateMax: 1, coefficientRange: 1 } }, expect: "counterexample_found" },
   ];
   const results = inputs.map(item => { const result = protocol.decode(item.input); return { name: item.name, expected: item.expect, actual: result.verification, passed: result.verification === item.expect, result }; });
   const condition = conditionExperiment.main();
