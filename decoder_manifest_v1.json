@@ -7,6 +7,10 @@
       "sha256": "96247f6c78aac9ca5bafddea314d9f2fb7178d2f4c7cf1969c29766d179d0dec"
     },
     {
+      "path": "README.md",
+      "sha256": "1f2144c7ad772136b6bac54c9aaa386011c38260f563095881becc5a444a6b5b"
+    },
+    {
       "path": "PROJECT_CONTEXT.md",
       "sha256": "d9c40693396b9e64e08f9b40319bc5ec637fa60136ccca0f547164f105b8a696"
     },
@@ -108,7 +112,7 @@
     },
     {
       "path": "docs/README.md",
-      "sha256": "b139e6718ef9f92cf0a7220017ede283d1f632706f533821b54e0140294fa76f"
+      "sha256": "06f6bb3ee5e5f994519fc6ed26a23ec05d05c81e3f6e69378504c38d172f3b3a"
     },
     {
       "path": "docs/HISTORY.md",
@@ -220,7 +224,7 @@
     },
     {
       "path": "decoder_acceptance_v1.json",
-      "sha256": "0aae1d2c225dd8305084be32d407bd6fe84884683e9301aee94feefbe1357ec5"
+      "sha256": "2631812006d2bc5a7db79fe0318dbba99e1dffb4f57f903d3bd1de783d90d965"
     },
     {
       "path": "benchmark_v1_2_results.json",

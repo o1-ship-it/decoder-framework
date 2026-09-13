@@ -1,145 +1,58 @@
 # Decoder Framework v3.6.0
 
-项目状态与路线见 [PROJECT_STATUS.md](PROJECT_STATUS.md)。
-当前工作摘要见 [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md)，代码地图见 [CODEBASE_MAP.md](CODEBASE_MAP.md)。
-项目北极星目标见 [PROJECT_NORTH_STAR.md](PROJECT_NORTH_STAR.md)。
-v3 研究策略见 [RESEARCH_STRATEGY_v3.md](RESEARCH_STRATEGY_v3.md)。
-历史材料索引见 [docs/HISTORY.md](docs/HISTORY.md)。
-最新研究反思见 [RESEARCH_REFLECTION_v3_5.md](RESEARCH_REFLECTION_v3_5.md)。
-v3.0 研究反思见 [RESEARCH_REFLECTION_v3_0.md](RESEARCH_REFLECTION_v3_0.md)。
-历史研究反思保留在 `RESEARCH_REFLECTION_v2_*.md`。
-旧版本发布说明保留在根目录，当前版本见 [RELEASE_NOTES_v3_5.md](RELEASE_NOTES_v3_5.md)。
-升级路线见 [RESEARCH_ROADMAP.md](RESEARCH_ROADMAP.md)。
+这是一个把“表示—推理—反馈—验证”落实为实验系统的研究原型。北极星目标是：从有限观测发现数学结构，输出独立可验证证书，明确表达不可识别性，并主动选择下一条最有价值的证据。
 
-这是一个把“表示—推理—反馈—验证”落实为实验系统的最小版本。
+项目状态与路线见 [PROJECT_STATUS.md](PROJECT_STATUS.md)，当前上下文见 [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md)，代码地图见 [CODEBASE_MAP.md](CODEBASE_MAP.md)。研究目标见 [PROJECT_NORTH_STAR.md](PROJECT_NORTH_STAR.md)，v3 策略见 [RESEARCH_STRATEGY_v3.md](RESEARCH_STRATEGY_v3.md)。
+
+## 当前主线
+
+旗舰方向是黑箱二维离散动力系统：
+
+1. 从有限状态转移生成受限候选映射；
+2. 用训练数据筛选候选，并用独立留出数据淘汰错误映射；
+3. 对剩余候选计算不变量、可识别性和主动查询计划；
+4. 输出证书、反例、不可识别性和明确的适用边界。
+
+v3.6 已把二维分段映射的参数恢复、留出验证和条件查询连接成一条可重放管线。分段模板和参数边界仍是预先声明的有限空间，结果不外推到未知表示规则或通用动力系统。
 
 ## 统一入口
 
-`decoder_v1.js` 接受带 `domain` 的 JSON 对象，支持：
+`decoder_v1.js` 接受带 `domain` 的 JSON 对象，支持数列、图、方程、多项式、动力系统、隐藏机制和黑箱查询等实验域。当前黑箱主线域包括：
 
-- `sequence`：已有开发前缀和留出后缀；
-- `generated_sequence`：自动搜索表示变换和基础解码器；
-- `graph`：有限无向图不变量；
-- `equation`：整数线性方程规范化；
-- `equation_system`：精确有理数 RREF 和消元结论。
-- `polynomial`：稀疏整数多项式规范化与同类项合并。
-- `polynomial_factor`：低次数首一单变量多项式的整数根因式分解。
-- `polynomial_analysis`：变量支持、次数、齐次性和欧拉恒等式分析。
-- `dynamics`：二维多项式映射中的有限次数守恒量搜索。
-- `dynamics_parameterized`：带参数旋转缩放族的守恒量条件发现。
-- `noisy_sequence`：带有限加性噪声的鲁棒数列解码与拒答。
-- `active_observation_design`：在有限候选空间内选择最能减少歧义的下一观测。
-- `noisy_active_observation_design`：按有界噪声区间的最坏重叠选择稳健观测。
-- `hidden_sequence`：从原始序列搜索模仿射递推，并用留出数据和证书重放验证隐藏生成机制。
-- `blackbox_dynamics`：从二维状态转移推断受限多项式映射，用留出转移验证后搜索可重放的不变量证书。
-- `blackbox_active_observation_design`：在有限黑箱映射版本空间中选择最能排除候选的下一状态。
-- `blackbox_branching_query_design`：比较有限黑箱候选族的条件查询树和最优固定查询集合。
-- `blackbox_parametric_query_design`：在参数化的运行区间—局部响应黑箱族中交叉验证条件查询优势。
-- `blackbox_piecewise_map_query_design`：从二维分段整数映射生成候选转移并验证条件查询优势。
-- `blackbox_piecewise_map_inference`：从训练/留出状态转移恢复分段映射候选，并对剩余歧义规划条件查询。
-- `composed_dynamics`：有限坐标变换后的不变量搜索，用作表示变换是否提供额外能力的可复现对照。
+- `blackbox_dynamics`：从状态转移拟合受限多项式映射并验证不变量；
+- `blackbox_active_observation_design`：在有限映射版本空间中选择下一状态；
+- `blackbox_branching_query_design`：比较条件决策树与最优固定查询集合；
+- `blackbox_parametric_query_design`：验证参数化运行区间—局部响应族的查询优势；
+- `blackbox_piecewise_map_query_design`：由二维分段映射求值生成候选转移；
+- `blackbox_piecewise_map_inference`：从训练/留出转移恢复分段映射参数，并为剩余歧义规划查询。
 
-v1.2 发布说明见 [RELEASE_NOTES_v1_2.md](RELEASE_NOTES_v1_2.md)。
-
-动力系统结果通过 `dynamics_invariant_verifier.js` 独立重放搜索，并检查候选的符号恒等式和固定整数轨道点。支持 `method:"linear_nullspace"` 在给定次数空间内直接求解不变量线性空间，也保留 `method:"enumeration"` 作为有限系数对照。搜索范围内没有非平凡候选时返回“不确定”；这不表示整个函数空间不存在守恒量。
-
-程序会返回解码器、表示、候选结构、复杂度、残差、验证状态和适用边界。未知对象保留为不确定，不会强行输出规律。
-
-`conjecture_engine.js` 还可把已验证的守恒量转换成带搜索边界的有限猜想，并提供候选映射上的反例检查。
-
-动力系统结果还包含 `readability.machine` 和 `readability.human`：前者记录机器内部解码摘要，后者提供可沟通的规则文本。内部表示可以不透明，但必须能被验证器重算。
-
-## 运行
-
-单个对象：
+单个对象示例：
 
 ```text
 echo {"domain":"equation","equation":{"terms":{"x":6,"y":-3},"constant":9}} | node decoder_v1.js
 ```
 
-批量对象：把 JSON 数组传给同一入口，返回每项结果及汇总统计。
+## 验证与边界
 
-## 研究边界
+候选结果包含解码器、表示、复杂度、残差、验证状态和适用边界。未知对象、秩不足、冲突和反例会保留为不确定或反驳状态，不会被强行改写为成功。证书由独立验证器重放，篡改候选或结果会被拒绝。
 
-当前实现面向小型、无噪声、整数或有限图对象。复杂度是排序用的代理值；证书和验证结果支持有限样本假设，不自动构成无限数学定理。图规范化目前只适用于不超过 8 个顶点。
+当前实现面向小型、无噪声、整数或有限图对象。复杂度是任务相关的代理指标；有限样本验证不自动构成无限数学定理。机器内部表示可以不透明，但验证接口必须可重算，机器可读性和人类可读性分开报告。
 
-dynamics_family.js 可从多个参数样本中提取共同守恒量，并在新参数实例上验证迁移结果。
+## 可复现实验
 
-dynamics_condition_inference.js 可从参数样本上的守恒残差推导低阶参数方程，并在额外样本上检查拟合残差。
+```text
+npm test
+npm run acceptance
+npm run audit
+npm run manifest
+npm run benchmark:v3.6
+```
 
-参数条件推导要求至少 6 个拟合样本加 1 个留出样本，并分别报告拟合与留出残差。
+v3.0–v3.6 基准均可独立重放。v3.6 基准包含唯一恢复、部分恢复、主动查询、训练冲突和留出冲突，共 6 个冻结案例；4x2 参数留出中主动查询最坏深度为 2，固定基线为 5。
 
-参数条件模块还包含高阶扰动压力测试：拟合点全部正常、留出参数失效时，generalizes=false。
+## 文档
 
-参数条件证书会区分 verified_parameter_condition 与 overfit_candidate，并可由独立验证器在新参数样本上重算。
-
-参数条件推导支持多个状态点联合检查：只有满足参数条件的样本在所有状态点上都保持不变量，结果才可标记为已验证。
-
-decoder_report.js 为不同信息域生成分域评价报告，统一列出验证强度、残差、复杂度以及机器 / 人类可读性；不会把代理指标合并成虚假的总分。
-
-运行 `node decoder_acceptance.js` 可执行第一版端到端验收，结果写入 decoder_acceptance_v1.json。
-
-运行 `npm run benchmark:v1.2` 可执行 v1.2 带噪 benchmark。
-
-dynamics_condition_general.js 提供一参数一次条件推导原型，用于逐步扩展参数化解码器。
-
-dynamics_condition_general.js 现在支持单参数低阶多项式条件，例如从残差恢复 c^2-1=0，并要求留出样本验证。
-
-参数条件扩展还支持双参数一次关系，可从样本恢复 a+b-1=0 一类条件。
-
-参数条件结果还报告 fitResidualMax、holdoutResidualMax 和 identifiable，便于比较证据强度。
-
-单参数一次条件现在也遵循数据隔离：前 2 个样本拟合，后续样本留出验证。
-
-运行 `node dynamics_condition_experiment.js` 可复现参数条件拟合与高阶扰动压力测试，并生成 dynamics_condition_v0_1.json。
-
-总体验收报告现在同时包含参数条件扩展检查，并确认正常条件通过、高阶扰动被拒绝。
-
-运行 `node decoder_audit.js` 可独立审计验收报告中的未知、反例和已验证结果分类。
-
-审计器还会核对分域汇总与明细，能够发现统计摘要被篡改。
-
-decoder_manifest.js 为核心源码和验收报告生成 SHA-256 可复现清单，并支持完整性复核。
-
-decoder_resource_profile.js 可记录各解码器运行时间、状态和候选规模，为计算成本指标提供数据。
-
-总体验收还会记录前三个代表任务的资源剖面，并确认没有执行错误。
-
-公开基准：enchmark_v1.json；运行 
-ode benchmark_runner.js 生成 enchmark_v1_results.json。
-
-dynamics_condition_multivariate.js 支持任意命名参数的一次条件推导，并在样本秩不足时拒答。
-
-v1.3 发布说明见 [RELEASE_NOTES_v1_3.md](RELEASE_NOTES_v1_3.md)。
-v1.4 发布说明见 [RELEASE_NOTES_v1_4.md](RELEASE_NOTES_v1_4.md)。
-v1.5 发布说明见 [RELEASE_NOTES_v1_5.md](RELEASE_NOTES_v1_5.md)。
-v1.6 发布说明见 [RELEASE_NOTES_v1_6.md](RELEASE_NOTES_v1_6.md)。
-v1.7 发布说明见 [RELEASE_NOTES_v1_7.md](RELEASE_NOTES_v1_7.md)。
-v2.0 发布说明见 [RELEASE_NOTES_v2_0.md](RELEASE_NOTES_v2_0.md)。
-v2.1 发布说明见 [RELEASE_NOTES_v2_1.md](RELEASE_NOTES_v2_1.md)。
-v2.2 发布说明见 [RELEASE_NOTES_v2_2.md](RELEASE_NOTES_v2_2.md)。
-v2.3 发布说明见 [RELEASE_NOTES_v2_3.md](RELEASE_NOTES_v2_3.md)。
-v2.4 发布说明见 [RELEASE_NOTES_v2_4.md](RELEASE_NOTES_v2_4.md)。
-v3.0 发布说明见 [RELEASE_NOTES_v3_0.md](RELEASE_NOTES_v3_0.md)。
-v3.1 发布说明见 [RELEASE_NOTES_v3_1.md](RELEASE_NOTES_v3_1.md)。
-v3.2.1 勘误见 [RELEASE_NOTES_v3_2_1.md](RELEASE_NOTES_v3_2_1.md)，完整说明见 [RELEASE_NOTES_v3_2.md](RELEASE_NOTES_v3_2.md)。
-v3.3 发布说明见 [RELEASE_NOTES_v3_3.md](RELEASE_NOTES_v3_3.md)。
-v3.4 发布说明见 [RELEASE_NOTES_v3_4.md](RELEASE_NOTES_v3_4.md)。
-v3.5 发布说明见 [RELEASE_NOTES_v3_5.md](RELEASE_NOTES_v3_5.md)。
-v3.6 发布说明见 [RELEASE_NOTES_v3_6.md](RELEASE_NOTES_v3_6.md)。
-
-运行 `npm run benchmark:v1.6` 可复现隐藏结构发现基准。搜索范围内没有稳定候选时返回 `uncertain_hidden_structure`，不把有限样本拟合误报为定理。
-运行 `npm run benchmark:v1.7` 可复现多机制竞争基准。多个候选精确通过时返回 `ambiguous_hidden_structure`，避免把模型选择偏好误写成唯一解释。
-运行 `npm run benchmark:v2.0` 可复现能力矩阵。校准任务与测试任务分离，并报告覆盖率、选择性风险、标签准确率和 Brier 分数。
-运行 `npm run benchmark:v2.1` 可复现可识别性前沿实验，报告候选机制最早分歧位置和建议新增观测数。
-运行 `npm run benchmark:v2.2` 可复现主动实验设计，选择最能减少候选歧义的下一观测位置。
-运行 `npm run benchmark:v2.3` 可复现有界噪声下的主动设计，按区间重叠给出保守的保证排除数。
-运行 `npm run benchmark:v2.4` 可复现观测等价类分析，区分机制候选数与可观测预测类数。
-运行 `npm run benchmark:v3.0` 可复现黑箱动力系统基准；它包含两个受验证结构和一个留出反例，不把有限轨迹拟合包装成无条件结论。
-运行 `npm run benchmark:v3.1` 可复现黑箱主动观测的完整有限比较；它同时报告主动策略与强固定设计的平局。
-运行 `npm run benchmark:v3.2` 可复现线性查询最优性下界证明，说明当前任务的自适应下界为 2 次查询。
-运行 `npm run benchmark:v3.3` 可复现一个严格自适应优势的有限分支族及一个无优势对照；前者的最坏深度为 2 对 3，结论只覆盖显式枚举的候选和查询表。
-运行 `npm run benchmark:v3.4` 可复现参数化运行区间—局部响应族的校准与参数留出配置；留出优势是该生成族内的复现结果，不是从数据拟合出的通用性能估计。
-运行 `npm run benchmark:v3.5` 可复现二维分段整数映射族的校准、映射参数留出和无优势控制；候选转移由映射规则求值生成。
-运行 `npm run benchmark:v3.6` 可复现二维分段映射的训练恢复、留出淘汰、主动查询和冲突拒答；候选转移由映射规则求值生成。
-dynamics_condition_multivariate 支持多参数一次条件推导与秩不足拒答。
+- 当前发布：[RELEASE_NOTES_v3_6.md](RELEASE_NOTES_v3_6.md)
+- 最新反思：[RESEARCH_REFLECTION_v3_6.md](RESEARCH_REFLECTION_v3_6.md)
+- 历史索引：[docs/HISTORY.md](docs/HISTORY.md)
+- 后续路线：[RESEARCH_ROADMAP.md](RESEARCH_ROADMAP.md)
