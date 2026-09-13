@@ -30,5 +30,16 @@ const generatedResult = protocol.decode({
 assert.equal(generatedResult.status, "candidate_frozen");
 assert.equal(generatedResult.residual, 0);
 
+const branchingResult = protocol.decode({ domain: "blackbox_branching_query_design" });
+assert.equal(branchingResult.verification, "verified_finite_blackbox_query_design");
+assert.equal(branchingResult.analysisStatus, "adaptive_strict_advantage");
+const controlResult = protocol.decode({ domain: "blackbox_branching_query_design", models: [
+  { id: "C1", transitions: { first: [0, 0], second: [0, 0] } },
+  { id: "C2", transitions: { first: [0, 0], second: [1, 0] } },
+  { id: "C3", transitions: { first: [1, 0], second: [0, 0] } },
+  { id: "C4", transitions: { first: [1, 0], second: [1, 0] } },
+], queries: [{ id: "first", state: [0, 0] }, { id: "second", state: [1, 0] }] });
+assert.equal(controlResult.analysisStatus, "no_adaptive_advantage");
+
 assert.throws(() => protocol.decode({ domain: "unknown" }), /domain/);
 console.log("decoder_protocol_test: passed");

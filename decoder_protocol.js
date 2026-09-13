@@ -33,6 +33,7 @@ const observationalEquivalence = require("./decoder_observational_equivalence.js
 const dynamicsComposed = require("./dynamics_composed_search.js");
 const blackboxDynamics = require("./decoder_blackbox_dynamics.js");
 const blackboxActiveDesign = require("./dynamics/blackbox_active_design.js");
+const branchingQueryDesign = require("./dynamics/branching_query_design.js");
 
 function sequenceCase(development, holdout) {
   if (!Array.isArray(holdout) || holdout.length === 0) throw new TypeError("序列验证需要非空留出数据");
@@ -202,6 +203,38 @@ function observationalEquivalenceCase(input) { const certificate = observational
 function composedDynamicsCase(input) { const certificate = dynamicsComposed.makeCertificate(input.map, input.options || {}); const verification = dynamicsComposed.verifyCertificate(certificate, input.map); return { domain: "composed_dynamics", status: verification.status === "verified_composed_dynamics" ? "candidate_frozen" : "uncertain", decoder: "composed_dynamics_search", representation: "表示变换→不变量搜索", hypothesis: certificate.candidates, complexity: certificate.candidates.length, complexityUnit: "composed_candidate_count", residual: verification.status === "verified_composed_dynamics" ? 0 : 1, verification: verification.status, limits: certificate.limits }; }
 function blackboxDynamicsCase(input) { const certificate = blackboxDynamics.makeCertificate(input.training, input.holdout, input.options || {}); const verification = blackboxDynamics.verifyCertificate(certificate); return { domain: "blackbox_dynamics", status: verification.status === "verified_blackbox_structure" ? "candidate_frozen" : verification.status === "counterexample_found" ? "counterexample_found" : "uncertain", decoder: "blackbox_dynamics", representation: "轨迹→多项式映射→不变量", hypothesis: certificate.result.invariantCertificate?.invariants || null, complexity: certificate.result.invariantCertificate?.invariants.length || null, complexityUnit: "invariant_count", residual: verification.status === "verified_blackbox_structure" ? 0 : certificate.result.residual, verification: verification.status, inference: certificate.result.inference, holdoutChecks: certificate.result.holdoutChecks, limits: certificate.result.limits || [] }; }
 function blackboxActiveDesignCase(input) { const certificate = blackboxActiveDesign.makeCertificate(input.training, input.options || {}); const verification = blackboxActiveDesign.verifyCertificate(certificate); const result = certificate.result; const planned = verification.status === "active_blackbox_observation_plan"; const identified = verification.status === "identified_blackbox_map"; const recommendation = result.recommendation ? { state: result.recommendation.state, groupCount: result.recommendation.groupCount, largestGroup: result.recommendation.largestGroup, guaranteedEliminated: result.recommendation.guaranteedEliminated, expectedRemaining: result.recommendation.expectedRemaining, entropyBits: result.recommendation.entropyBits } : null; return { domain: "blackbox_active_observation_design", status: planned || identified ? "candidate_frozen" : verification.status === "counterexample_found" ? "counterexample_found" : "uncertain", decoder: "blackbox_active_observation_design", representation: "有限映射版本空间→预测分组→下一状态", hypothesis: result.inferredMap || { candidateCount: result.candidateCount, candidateDigest: result.candidateDigest }, complexity: result.candidateCount, complexityUnit: "surviving_map_count", residual: verification.status === "counterexample_found" ? 1 : identified ? 0 : null, verification: verification.status, candidateDigest: result.candidateDigest, recommendation, limits: result.limits || [] }; }
+function branchingQueryDesignCase(input) {
+  const hasModels = Object.hasOwn(input, "models");
+  const hasQueries = Object.hasOwn(input, "queries");
+  if (hasModels !== hasQueries) throw new TypeError("有限黑箱查询设计必须同时提供 models 和 queries");
+  const family = hasModels ? { models: input.models, queries: input.queries } : branchingQueryDesign.branchingFamily();
+  const certificate = branchingQueryDesign.makeCertificate(family.models, family.queries);
+  const certificateVerification = branchingQueryDesign.verifyCertificate(certificate);
+  const result = certificate.result;
+  const unresolved = result.status === "unresolved_finite_family";
+  const hypothesis = {
+    adaptiveDepth: result.adaptive.depth,
+    adaptiveRootQuery: result.adaptive.query?.id || null,
+    fixedDepth: result.fixed.depth,
+    fixedQueryIds: result.fixed.queries.map(query => query.id),
+  };
+  return {
+    domain: "blackbox_branching_query_design",
+    status: certificateVerification.status === "verified_finite_blackbox_query_design" && !unresolved ? "candidate_frozen" : "uncertain",
+    decoder: "finite_blackbox_query_design",
+    representation: "候选黑箱族→条件决策树与固定查询基线",
+    hypothesis,
+    complexity: result.candidateCount * result.queryCount,
+    complexityUnit: "candidate_times_query_count",
+    residual: unresolved ? null : certificateVerification.status === "verified_finite_blackbox_query_design" ? 0 : 1,
+    verification: unresolved ? "uncertain_finite_family" : certificateVerification.status,
+    certificateVerification,
+    analysisStatus: result.status,
+    candidateCount: result.candidateCount,
+    queryCount: result.queryCount,
+    limits: result.limits,
+  };
+}
 
 function generatedSequenceCase(input) {
   const searchResult = adaptiveSearch.adaptiveSynthesize(input.sequence, { splitSizes: input.splitSizes || [8, 10, 12], maxOrder: input.maxOrder || 2 });
@@ -251,7 +284,8 @@ function decode(input) {
   if (input?.domain === "composed_dynamics") return composedDynamicsCase(input);
   if (input?.domain === "blackbox_dynamics") return blackboxDynamicsCase(input);
   if (input?.domain === "blackbox_active_observation_design") return blackboxActiveDesignCase(input);
+  if (input?.domain === "blackbox_branching_query_design") return branchingQueryDesignCase(input);
   throw new TypeError("协议输入必须声明受支持的 domain");
 }
 
-module.exports = { decode, sequenceCase, graphCase, equationCase, equationSystemCase, dynamicsCase, parameterizedDynamicsCase, noisySequenceCase, multivariateConditionCase, machineRepresentationCase, machineDecoderSearchCase, hiddenStructureCase, hiddenCompetitionCase, capabilityMatrixCase, identifiabilityCase, activeDesignCase, noisyActiveDesignCase, observationalEquivalenceCase, composedDynamicsCase, blackboxDynamicsCase, blackboxActiveDesignCase };
+module.exports = { decode, sequenceCase, graphCase, equationCase, equationSystemCase, dynamicsCase, parameterizedDynamicsCase, noisySequenceCase, multivariateConditionCase, machineRepresentationCase, machineDecoderSearchCase, hiddenStructureCase, hiddenCompetitionCase, capabilityMatrixCase, identifiabilityCase, activeDesignCase, noisyActiveDesignCase, observationalEquivalenceCase, composedDynamicsCase, blackboxDynamicsCase, blackboxActiveDesignCase, branchingQueryDesignCase };

@@ -50,6 +50,11 @@ assert.equal(blackboxCounterexample.verification, "counterexample_found");
 const blackboxPlan = v1.decodeObject({ domain: "blackbox_active_observation_design", training: [{ state: [0, 0], next: [0, 0] }], options: { stateMin: -1, stateMax: 1 } });
 assert.equal(blackboxPlan.verification, "active_blackbox_observation_plan");
 assert.equal(blackboxPlan.recommendation.guaranteedEliminated, 72);
+const branchingQuery = v1.decodeObject({ domain: "blackbox_branching_query_design" });
+assert.equal(branchingQuery.verification, "verified_finite_blackbox_query_design");
+assert.equal(branchingQuery.analysisStatus, "adaptive_strict_advantage");
+assert.equal(branchingQuery.hypothesis.adaptiveDepth, 2);
+assert.equal(branchingQuery.hypothesis.fixedDepth, 3);
 
 const batch = v1.decodeBatch([
   { domain: "graph", graph: graph.cycle(6) },

@@ -1,11 +1,11 @@
 {
   "name": "decoder-framework",
-  "version": "3.2.1",
+  "version": "3.3.0",
   "description": "A verifiable framework for layered information decoding experiments.",
   "private": false,
   "type": "commonjs",
   "scripts": {
-    "test": "node -e \"const fs=require('fs'); const cp=require('child_process'); const files=fs.readdirSync('.').filter(f=>f.endsWith('_test.js')).sort(); for (const file of files) cp.execFileSync(process.execPath,[file],{stdio:'inherit'});\"",
+    "test": "node -e \"const fs=require('fs'); const path=require('path'); const cp=require('child_process'); const files=['.','dynamics'].flatMap(dir=>fs.readdirSync(dir).filter(f=>f.endsWith('_test.js')).map(f=>path.join(dir,f))).sort(); for (const file of files) cp.execFileSync(process.execPath,[file],{stdio:'inherit'});\"",
     "acceptance": "node decoder_acceptance.js",
     "audit": "node decoder_audit.js",
     "manifest": "node decoder_manifest.js",
@@ -24,7 +24,8 @@
     "benchmark:v2.4": "node benchmark_v2_4_runner.js",
     "benchmark:v3.0": "node benchmark_v3_0_runner.js",
     "benchmark:v3.1": "node benchmark_v3_1_runner.js",
-    "benchmark:v3.2": "node benchmark_v3_2_runner.js"
+    "benchmark:v3.2": "node benchmark_v3_2_runner.js",
+    "benchmark:v3.3": "node benchmark_v3_3_runner.js"
   },
   "engines": {
     "node": ">=22"

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "claim": "decoder_benchmark_run",
+  "benchmarkVersion": "3.3.0",
+  "evaluation": "finite_adaptive_decision_tree",
+  "passed": true,
+  "results": [
+    {
+      "id": "branching_blackbox_query_v33",
+      "family": "branching",
+      "expected": {
+        "status": "adaptive_strict_advantage",
+        "candidateCount": 4,
+        "adaptiveDepth": 2,
+        "fixedDepth": 3
+      },
+      "actual": {
+        "status": "adaptive_strict_advantage",
+        "candidateCount": 4,
+        "adaptiveDepth": 2,
+        "fixedDepth": 3
+      },
+      "passed": true
+    },
+    {
+      "id": "non_branching_control_v33",
+      "family": "non_branching",
+      "expected": {
+        "status": "no_adaptive_advantage",
+        "candidateCount": 4,
+        "adaptiveDepth": 2,
+        "fixedDepth": 2
+      },
+      "actual": {
+        "status": "no_adaptive_advantage",
+        "candidateCount": 4,
+        "adaptiveDepth": 2,
+        "fixedDepth": 2
+      },
+      "passed": true
+    }
+  ]
+}

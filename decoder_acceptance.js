@@ -34,6 +34,7 @@ function run() {
     { name: "blackbox_holdout_counterexample", input: { domain: "blackbox_dynamics", training: [{ state: [0, 0], next: [0, 0] }, { state: [1, 0], next: [0, 1] }, { state: [0, 1], next: [-1, 0] }], holdout: [{ state: [1, 1], next: [0, 0] }], options: { maxMapDegree: 1, maxInvariantDegree: 2 } }, expect: "counterexample_found" },
     { name: "blackbox_active_observation_plan", input: { domain: "blackbox_active_observation_design", training: [{ state: [0, 0], next: [0, 0] }], options: { stateMin: -1, stateMax: 1, coefficientRange: 1 } }, expect: "active_blackbox_observation_plan" },
     { name: "blackbox_active_counterexample", input: { domain: "blackbox_active_observation_design", training: [{ state: [0, 0], next: [2, 0] }], options: { stateMin: -1, stateMax: 1, coefficientRange: 1 } }, expect: "counterexample_found" },
+    { name: "branching_query_strict_advantage", input: { domain: "blackbox_branching_query_design" }, expect: "verified_finite_blackbox_query_design" },
   ];
   const results = inputs.map(item => { const result = protocol.decode(item.input); return { name: item.name, expected: item.expect, actual: result.verification, passed: result.verification === item.expect, result }; });
   const condition = conditionExperiment.main();
