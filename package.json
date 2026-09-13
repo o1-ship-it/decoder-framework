@@ -1,6 +1,6 @@
 {
   "name": "decoder-framework",
-  "version": "2.4.0",
+  "version": "3.0.0",
   "description": "A verifiable framework for layered information decoding experiments.",
   "private": false,
   "type": "commonjs",
@@ -8,20 +8,21 @@
     "test": "node -e \"const fs=require('fs'); const cp=require('child_process'); const files=fs.readdirSync('.').filter(f=>f.endsWith('_test.js')).sort(); for (const file of files) cp.execFileSync(process.execPath,[file],{stdio:'inherit'});\"",
     "acceptance": "node decoder_acceptance.js",
     "audit": "node decoder_audit.js",
-    "manifest": "node decoder_manifest.js"
-    ,"benchmark:v1.1": "node benchmark_v1_1_runner.js"
-    ,"ablation": "node -e \"const a=require('./decoder_ablation'); console.log(JSON.stringify(a.compareDynamics({x:[{coefficient:-1,powers:[0,1]}],y:[{coefficient:1,powers:[1,0]}]}),null,2))\""
-    ,"benchmark:v1.2": "node benchmark_v1_2_runner.js"
-    ,"benchmark:v1.3": "node benchmark_v1_3_runner.js"
-    ,"benchmark:v1.4": "node benchmark_v1_4_runner.js"
-    ,"benchmark:v1.5": "node benchmark_v1_5_runner.js"
-    ,"benchmark:v1.6": "node benchmark_v1_6_runner.js"
-    ,"benchmark:v1.7": "node benchmark_v1_7_runner.js"
-    ,"benchmark:v2.0": "node benchmark_v2_0_runner.js"
-    ,"benchmark:v2.1": "node benchmark_v2_1_runner.js"
-    ,"benchmark:v2.2": "node benchmark_v2_2_runner.js"
-    ,"benchmark:v2.3": "node benchmark_v2_3_runner.js"
-    ,"benchmark:v2.4": "node benchmark_v2_4_runner.js"
+    "manifest": "node decoder_manifest.js",
+    "benchmark:v1.1": "node benchmark_v1_1_runner.js",
+    "ablation": "node -e \"const a=require('./decoder_ablation'); console.log(JSON.stringify(a.compareDynamics({x:[{coefficient:-1,powers:[0,1]}],y:[{coefficient:1,powers:[1,0]}]}),null,2))\"",
+    "benchmark:v1.2": "node benchmark_v1_2_runner.js",
+    "benchmark:v1.3": "node benchmark_v1_3_runner.js",
+    "benchmark:v1.4": "node benchmark_v1_4_runner.js",
+    "benchmark:v1.5": "node benchmark_v1_5_runner.js",
+    "benchmark:v1.6": "node benchmark_v1_6_runner.js",
+    "benchmark:v1.7": "node benchmark_v1_7_runner.js",
+    "benchmark:v2.0": "node benchmark_v2_0_runner.js",
+    "benchmark:v2.1": "node benchmark_v2_1_runner.js",
+    "benchmark:v2.2": "node benchmark_v2_2_runner.js",
+    "benchmark:v2.3": "node benchmark_v2_3_runner.js",
+    "benchmark:v2.4": "node benchmark_v2_4_runner.js",
+    "benchmark:v3.0": "node benchmark_v3_0_runner.js"
   },
   "engines": {
     "node": ">=22"

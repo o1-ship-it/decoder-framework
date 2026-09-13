@@ -40,6 +40,13 @@ const noisyActive = v1.decodeObject({ domain: "noisy_active_observation_design",
 assert.equal(noisyActive.verification, "noise_robust_disambiguation_plan");
 const equivalence = v1.decodeObject({ domain: "observational_equivalence", development: [1, 3, 5, 7, 9, 11, 13], holdout: [15, 17], options: { maxModulus: 24, horizon: 8 } });
 assert.equal(equivalence.verification, "observationally_distinguishable");
+const composedDynamics = v1.decodeObject({ domain: "composed_dynamics", map: { x: [{ coefficient: -1, powers: [0, 1] }], y: [{ coefficient: 1, powers: [1, 0] }] }, options: { transforms: ["identity", "swap"], maxDegree: 2 } });
+assert.equal(composedDynamics.verification, "verified_composed_dynamics");
+const blackboxDynamics = v1.decodeObject({ domain: "blackbox_dynamics", training: [{ state: [0, 0], next: [0, 0] }, { state: [1, 0], next: [0, 1] }, { state: [0, 1], next: [-1, 0] }], holdout: [{ state: [1, 1], next: [-1, 1] }], options: { maxMapDegree: 1, maxInvariantDegree: 2 } });
+assert.equal(blackboxDynamics.verification, "verified_blackbox_structure");
+const blackboxCounterexample = v1.decodeObject({ domain: "blackbox_dynamics", training: [{ state: [0, 0], next: [0, 0] }, { state: [1, 0], next: [0, 1] }, { state: [0, 1], next: [-1, 0] }], holdout: [{ state: [1, 1], next: [0, 0] }], options: { maxMapDegree: 1, maxInvariantDegree: 2 } });
+assert.equal(blackboxCounterexample.status, "counterexample_found");
+assert.equal(blackboxCounterexample.verification, "counterexample_found");
 
 const batch = v1.decodeBatch([
   { domain: "graph", graph: graph.cycle(6) },

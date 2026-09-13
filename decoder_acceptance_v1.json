@@ -3,8 +3,8 @@
   "claim": "framework_acceptance",
   "passed": true,
   "counts": {
-    "total": 19,
-    "passed": 19,
+    "total": 21,
+    "passed": 21,
     "failed": 0
   },
   "results": [
@@ -831,7 +831,7 @@
                 "confidence": 1,
                 "candidateCount": 1,
                 "stressResidualMax": 7,
-                "elapsedMs": 0.5564
+                "elapsedMs": 0.5349
               }
             ],
             "summary": {
@@ -855,7 +855,7 @@
                 "confidence": 0.5,
                 "candidateCount": 3,
                 "stressResidualMax": 4,
-                "elapsedMs": 0.9284
+                "elapsedMs": 1.0739
               }
             ],
             "summary": {
@@ -1258,6 +1258,209 @@
           "同一预测类中的机制在该 horizon 内不可由观测区分"
         ]
       }
+    },
+    {
+      "name": "blackbox_rotation_structure",
+      "expected": "verified_blackbox_structure",
+      "actual": "verified_blackbox_structure",
+      "passed": true,
+      "result": {
+        "domain": "blackbox_dynamics",
+        "status": "candidate_frozen",
+        "decoder": "blackbox_dynamics",
+        "representation": "轨迹→多项式映射→不变量",
+        "hypothesis": [
+          {
+            "coefficients": [
+              0,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "polynomial": [
+              {
+                "coefficient": 1,
+                "powers": [
+                  0,
+                  2
+                ]
+              },
+              {
+                "coefficient": 1,
+                "powers": [
+                  2,
+                  0
+                ]
+              }
+            ],
+            "rule": "1x^0y^2 + 1x^2y^0"
+          }
+        ],
+        "complexity": 1,
+        "complexityUnit": "invariant_count",
+        "residual": 0,
+        "verification": "verified_blackbox_structure",
+        "inference": {
+          "status": "inferred_map",
+          "basis": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "map": {
+            "x": [
+              {
+                "coefficient": -1,
+                "powers": [
+                  0,
+                  1
+                ]
+              }
+            ],
+            "y": [
+              {
+                "coefficient": 1,
+                "powers": [
+                  1,
+                  0
+                ]
+              }
+            ]
+          }
+        },
+        "holdoutChecks": [
+          {
+            "state": [
+              1,
+              1
+            ],
+            "expected": [
+              -1,
+              1
+            ],
+            "predicted": [
+              -1,
+              1
+            ],
+            "residual": [
+              0,
+              0
+            ]
+          },
+          {
+            "state": [
+              2,
+              -1
+            ],
+            "expected": [
+              1,
+              2
+            ],
+            "predicted": [
+              1,
+              2
+            ],
+            "residual": [
+              0,
+              0
+            ]
+          }
+        ],
+        "limits": [
+          "黑箱映射限制为二维整数多项式",
+          "映射次数≤1",
+          "不变量次数≤2",
+          "有限转移验证不构成未知系统的无条件定理"
+        ]
+      }
+    },
+    {
+      "name": "blackbox_holdout_counterexample",
+      "expected": "counterexample_found",
+      "actual": "counterexample_found",
+      "passed": true,
+      "result": {
+        "domain": "blackbox_dynamics",
+        "status": "counterexample_found",
+        "decoder": "blackbox_dynamics",
+        "representation": "轨迹→多项式映射→不变量",
+        "hypothesis": null,
+        "complexity": null,
+        "complexityUnit": "invariant_count",
+        "residual": 1,
+        "verification": "counterexample_found",
+        "inference": {
+          "status": "inferred_map",
+          "basis": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "map": {
+            "x": [
+              {
+                "coefficient": -1,
+                "powers": [
+                  0,
+                  1
+                ]
+              }
+            ],
+            "y": [
+              {
+                "coefficient": 1,
+                "powers": [
+                  1,
+                  0
+                ]
+              }
+            ]
+          }
+        },
+        "holdoutChecks": [
+          {
+            "state": [
+              1,
+              1
+            ],
+            "expected": [
+              0,
+              0
+            ],
+            "predicted": [
+              -1,
+              1
+            ],
+            "residual": [
+              -1,
+              1
+            ]
+          }
+        ],
+        "limits": [
+          "留出轨迹拒绝训练阶段推断的映射"
+        ]
+      }
     }
   ],
   "extensions": {
@@ -1271,21 +1474,21 @@
       "tasks": [
         {
           "name": "arithmetic_sequence",
-          "elapsedMs": 0.5023,
+          "elapsedMs": 0.3121,
           "status": "verified_on_supplied_observations",
           "candidateCount": null,
           "error": null
         },
         {
           "name": "random_uncertainty",
-          "elapsedMs": 0.2824,
+          "elapsedMs": 0.1701,
           "status": "no_certificate",
           "candidateCount": null,
           "error": null
         },
         {
           "name": "rotation_invariant",
-          "elapsedMs": 0.7613,
+          "elapsedMs": 0.4221,
           "status": "verified_dynamics_invariants",
           "candidateCount": 1,
           "error": null
@@ -1582,6 +1785,36 @@
         },
         "translationCoverage": null,
         "evidenceScope": null
+      },
+      {
+        "index": 19,
+        "domain": "blackbox_dynamics",
+        "status": "candidate_frozen",
+        "verification": "verified_blackbox_structure",
+        "verificationStrength": "verified",
+        "residual": 0,
+        "complexity": 1,
+        "readability": {
+          "human": true,
+          "machine": true
+        },
+        "translationCoverage": null,
+        "evidenceScope": null
+      },
+      {
+        "index": 20,
+        "domain": "blackbox_dynamics",
+        "status": "counterexample_found",
+        "verification": "counterexample_found",
+        "verificationStrength": "refuted",
+        "residual": 1,
+        "complexity": null,
+        "readability": {
+          "human": true,
+          "machine": true
+        },
+        "translationCoverage": null,
+        "evidenceScope": null
       }
     ],
     "summary": [
@@ -1732,6 +1965,16 @@
         "refuted": 0,
         "unknown": 1,
         "verificationRate": 0,
+        "humanReadableRate": 1,
+        "machineReadableRate": 1
+      },
+      {
+        "domain": "blackbox_dynamics",
+        "total": 2,
+        "verified": 1,
+        "refuted": 1,
+        "unknown": 0,
+        "verificationRate": 0.5,
         "humanReadableRate": 1,
         "machineReadableRate": 1
       }

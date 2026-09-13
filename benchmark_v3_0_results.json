@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "claim": "decoder_benchmark_run",
+  "benchmarkVersion": "3.0",
+  "seed": 20260914,
+  "passed": true,
+  "results": [
+    {
+      "id": "blackbox_rotation_v30",
+      "expected": "verified_blackbox_structure",
+      "actual": "verified_blackbox_structure",
+      "invariantCount": 1
+    },
+    {
+      "id": "blackbox_nonlinear_drift_v30",
+      "expected": "verified_blackbox_structure",
+      "actual": "verified_blackbox_structure",
+      "invariantCount": 2
+    },
+    {
+      "id": "blackbox_counterexample_v30",
+      "expected": "counterexample_found",
+      "actual": "counterexample_found",
+      "invariantCount": null
+    }
+  ]
+}

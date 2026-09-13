@@ -30,6 +30,8 @@ function run() {
     { name: "active_observation_design", input: { domain: "active_observation_design", development: [1, 3, 5, 7, 9, 11, 13], holdout: [15, 17], options: { maxModulus: 24, horizon: 8 } }, expect: "active_disambiguation_plan" },
     { name: "noisy_active_observation_design", input: { domain: "noisy_active_observation_design", development: [1, 3, 5, 7, 9, 11, 13], holdout: [15, 17], options: { maxModulus: 24, tolerance: 1, horizon: 8 } }, expect: "noise_robust_disambiguation_plan" },
     { name: "observational_equivalence", input: { domain: "observational_equivalence", development: [1, 3, 5, 7, 9, 11, 13], holdout: [15, 17], options: { maxModulus: 24, horizon: 8 } }, expect: "observationally_distinguishable" },
+    { name: "blackbox_rotation_structure", input: { domain: "blackbox_dynamics", training: [{ state: [0, 0], next: [0, 0] }, { state: [1, 0], next: [0, 1] }, { state: [0, 1], next: [-1, 0] }], holdout: [{ state: [1, 1], next: [-1, 1] }, { state: [2, -1], next: [1, 2] }], options: { maxMapDegree: 1, maxInvariantDegree: 2 } }, expect: "verified_blackbox_structure" },
+    { name: "blackbox_holdout_counterexample", input: { domain: "blackbox_dynamics", training: [{ state: [0, 0], next: [0, 0] }, { state: [1, 0], next: [0, 1] }, { state: [0, 1], next: [-1, 0] }], holdout: [{ state: [1, 1], next: [0, 0] }], options: { maxMapDegree: 1, maxInvariantDegree: 2 } }, expect: "counterexample_found" },
   ];
   const results = inputs.map(item => { const result = protocol.decode(item.input); return { name: item.name, expected: item.expect, actual: result.verification, passed: result.verification === item.expect, result }; });
   const condition = conditionExperiment.main();

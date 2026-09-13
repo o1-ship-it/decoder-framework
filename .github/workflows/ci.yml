@@ -23,3 +23,4 @@ jobs:
       - run: npm run benchmark:v2.2
       - run: npm run benchmark:v2.3
       - run: npm run benchmark:v2.4
+      - run: npm run benchmark:v3.0
