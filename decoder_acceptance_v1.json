@@ -3,8 +3,8 @@
   "claim": "framework_acceptance",
   "passed": true,
   "counts": {
-    "total": 16,
-    "passed": 16,
+    "total": 17,
+    "passed": 17,
     "failed": 0
   },
   "results": [
@@ -831,7 +831,7 @@
                 "confidence": 1,
                 "candidateCount": 1,
                 "stressResidualMax": 7,
-                "elapsedMs": 0.4709
+                "elapsedMs": 0.4804
               }
             ],
             "summary": {
@@ -855,7 +855,7 @@
                 "confidence": 0.5,
                 "candidateCount": 3,
                 "stressResidualMax": 4,
-                "elapsedMs": 0.9291
+                "elapsedMs": 0.9379
               }
             ],
             "summary": {
@@ -915,6 +915,38 @@
           "可识别性结论不排除候选空间外的其他机制"
         ]
       }
+    },
+    {
+      "name": "active_observation_design",
+      "expected": "active_disambiguation_plan",
+      "actual": "active_disambiguation_plan",
+      "passed": true,
+      "result": {
+        "domain": "active_observation_design",
+        "status": "candidate_frozen",
+        "decoder": "active_observation_design",
+        "representation": "最大化候选切分的下一观测选择",
+        "hypothesis": {
+          "additionalObservations": 1,
+          "predictedValues": [
+            1,
+            19
+          ],
+          "groups": 2,
+          "largestGroup": 2,
+          "entropyBits": 0.9182958340544896,
+          "unresolvedWorstCase": 2
+        },
+        "complexity": 3,
+        "complexityUnit": "surviving_candidate_count",
+        "residual": null,
+        "verification": "active_disambiguation_plan",
+        "limits": [
+          "候选机制与预测范围有限",
+          "均匀候选先验仅用于排序实验，不是概率结论",
+          "观测值本身可能受噪声影响"
+        ]
+      }
     }
   ],
   "extensions": {
@@ -928,21 +960,21 @@
       "tasks": [
         {
           "name": "arithmetic_sequence",
-          "elapsedMs": 0.3142,
+          "elapsedMs": 0.3065,
           "status": "verified_on_supplied_observations",
           "candidateCount": null,
           "error": null
         },
         {
           "name": "random_uncertainty",
-          "elapsedMs": 0.2824,
+          "elapsedMs": 0.1657,
           "status": "no_certificate",
           "candidateCount": null,
           "error": null
         },
         {
           "name": "rotation_invariant",
-          "elapsedMs": 0.5672,
+          "elapsedMs": 0.426,
           "status": "verified_dynamics_invariants",
           "candidateCount": 1,
           "error": null
@@ -1194,6 +1226,21 @@
         },
         "translationCoverage": null,
         "evidenceScope": null
+      },
+      {
+        "index": 16,
+        "domain": "active_observation_design",
+        "status": "candidate_frozen",
+        "verification": "active_disambiguation_plan",
+        "verificationStrength": "candidate",
+        "residual": null,
+        "complexity": 3,
+        "readability": {
+          "human": true,
+          "machine": true
+        },
+        "translationCoverage": null,
+        "evidenceScope": null
       }
     ],
     "summary": [
@@ -1309,6 +1356,16 @@
       },
       {
         "domain": "hidden_identifiability",
+        "total": 1,
+        "verified": 0,
+        "refuted": 0,
+        "unknown": 1,
+        "verificationRate": 0,
+        "humanReadableRate": 1,
+        "machineReadableRate": 1
+      },
+      {
+        "domain": "active_observation_design",
         "total": 1,
         "verified": 0,
         "refuted": 0,

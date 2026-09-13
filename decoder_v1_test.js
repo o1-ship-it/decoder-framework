@@ -34,6 +34,8 @@ const competed = v1.decodeObject({ domain: "hidden_sequence_competition", develo
 assert.equal(competed.verification, "verified_unique_hidden_structure");
 const frontier = v1.decodeObject({ domain: "hidden_identifiability", development: [1, 3, 5, 7, 9, 11, 13], holdout: [15, 17], options: { maxModulus: 24, horizon: 16 } });
 assert.equal(frontier.verification, "ambiguous_within_horizon");
+const active = v1.decodeObject({ domain: "active_observation_design", development: [1, 3, 5, 7, 9, 11, 13], holdout: [15, 17], options: { maxModulus: 24, horizon: 8 } });
+assert.equal(active.verification, "active_disambiguation_plan");
 
 const batch = v1.decodeBatch([
   { domain: "graph", graph: graph.cycle(6) },

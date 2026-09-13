@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "claim": "decoder_benchmark_run",
+  "benchmarkVersion": "2.2",
+  "seed": 20260914,
+  "results": [
+    {
+      "id": "active_design_ambiguous_v22",
+      "expected": "active_disambiguation_plan",
+      "actual": "active_disambiguation_plan",
+      "recommendation": {
+        "additionalObservations": 1,
+        "predictedValues": [
+          1,
+          19
+        ],
+        "groups": 2,
+        "largestGroup": 2,
+        "entropyBits": 0.9182958340544896,
+        "unresolvedWorstCase": 2
+      }
+    },
+    {
+      "id": "active_design_identified_v22",
+      "expected": "already_identified",
+      "actual": "already_identified",
+      "recommendation": null
+    }
+  ]
+}
