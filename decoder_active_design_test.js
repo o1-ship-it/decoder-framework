@@ -2,7 +2,7 @@ const assert = require("node:assert/strict");
 const active = require("./decoder_active_design.js");
 const result = active.design([1, 3, 5, 7, 9, 11, 13], [15, 17], { maxModulus: 24, horizon: 8 });
 assert.equal(result.status, "active_disambiguation_plan");
-assert.equal(result.recommendation.additionalObservations, 1);
+assert.equal(result.recommendation.additionalObservations, 4);
 assert.ok(result.recommendation.entropyBits > 0);
 const certificate = active.makeCertificate([1, 3, 5, 7, 9, 11, 13], [15, 17], { maxModulus: 24, horizon: 8 });
 assert.equal(active.verifyCertificate(certificate).status, "active_disambiguation_plan");

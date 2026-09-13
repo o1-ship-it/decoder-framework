@@ -28,6 +28,7 @@ const hiddenCompetition = require("./decoder_hidden_competition.js");
 const capabilityMatrix = require("./decoder_capability_matrix.js");
 const identifiability = require("./decoder_identifiability.js");
 const activeDesign = require("./decoder_active_design.js");
+const noisyActiveDesign = require("./decoder_noisy_active_design.js");
 
 function sequenceCase(development, holdout) {
   if (!Array.isArray(holdout) || holdout.length === 0) throw new TypeError("序列验证需要非空留出数据");
@@ -192,6 +193,7 @@ function hiddenCompetitionCase(input) { const result = hiddenCompetition.compete
 function capabilityMatrixCase(input) { const certificate = capabilityMatrix.makeCertificate(input.tasks, input.options || {}); const verification = capabilityMatrix.verifyCertificate(certificate); return { domain: "capability_matrix", status: verification.status === "verified_capability_matrix" ? "candidate_frozen" : "uncertain", decoder: "decoder_capability_matrix", representation: "校准—测试—stress 能力矩阵", hypothesis: certificate.result, complexity: input.tasks.length, complexityUnit: "task_count", residual: verification.status === "verified_capability_matrix" ? 0 : 1, verification: verification.status, limits: certificate.result.limits }; }
 function identifiabilityCase(input) { const certificate = identifiability.makeCertificate(input.development, input.holdout || [], input.options || {}); const verification = identifiability.verifyCertificate(certificate); return { domain: "hidden_identifiability", status: verification.status === "identified_hidden_structure" ? "candidate_frozen" : "uncertain", decoder: "hidden_identifiability_frontier", representation: "候选机制分歧前沿", hypothesis: certificate.result.firstDistinguishingObservation, complexity: certificate.result.candidateCount, complexityUnit: "surviving_candidate_count", residual: verification.status === "invalid_certificate" ? 1 : null, verification: verification.status, recommendedAdditionalObservations: certificate.result.recommendedAdditionalObservations, limits: certificate.result.limits }; }
 function activeDesignCase(input) { const certificate = activeDesign.makeCertificate(input.development, input.holdout || [], input.options || {}); const verification = activeDesign.verifyCertificate(certificate); return { domain: "active_observation_design", status: verification.status === "active_disambiguation_plan" ? "candidate_frozen" : "uncertain", decoder: "active_observation_design", representation: "最大化候选切分的下一观测选择", hypothesis: certificate.result.recommendation, complexity: certificate.result.candidateCount, complexityUnit: "surviving_candidate_count", residual: verification.status === "invalid_certificate" ? 1 : null, verification: verification.status, limits: certificate.result.limits || certificate.result.frontier?.limits || [] }; }
+function noisyActiveDesignCase(input) { const certificate = noisyActiveDesign.makeCertificate(input.development, input.holdout || [], input.options || {}); const verification = noisyActiveDesign.verifyCertificate(certificate); return { domain: "noisy_active_observation_design", status: verification.status === "noise_robust_disambiguation_plan" ? "candidate_frozen" : "uncertain", decoder: "noisy_active_observation_design", representation: "有界噪声区间的最坏重叠选择", hypothesis: certificate.result.recommendation, complexity: certificate.result.candidateCount, complexityUnit: "surviving_candidate_count", residual: verification.status === "invalid_certificate" ? 1 : null, verification: verification.status, limits: certificate.result.limits || [] }; }
 
 function generatedSequenceCase(input) {
   const searchResult = adaptiveSearch.adaptiveSynthesize(input.sequence, { splitSizes: input.splitSizes || [8, 10, 12], maxOrder: input.maxOrder || 2 });
@@ -236,7 +238,8 @@ function decode(input) {
   if (input?.domain === "capability_matrix") return capabilityMatrixCase(input);
   if (input?.domain === "hidden_identifiability") return identifiabilityCase(input);
   if (input?.domain === "active_observation_design") return activeDesignCase(input);
+  if (input?.domain === "noisy_active_observation_design") return noisyActiveDesignCase(input);
   throw new TypeError("协议输入必须声明受支持的 domain");
 }
 
-module.exports = { decode, sequenceCase, graphCase, equationCase, equationSystemCase, dynamicsCase, parameterizedDynamicsCase, noisySequenceCase, multivariateConditionCase, machineRepresentationCase, machineDecoderSearchCase, hiddenStructureCase, hiddenCompetitionCase, capabilityMatrixCase, identifiabilityCase, activeDesignCase };
+module.exports = { decode, sequenceCase, graphCase, equationCase, equationSystemCase, dynamicsCase, parameterizedDynamicsCase, noisySequenceCase, multivariateConditionCase, machineRepresentationCase, machineDecoderSearchCase, hiddenStructureCase, hiddenCompetitionCase, capabilityMatrixCase, identifiabilityCase, activeDesignCase, noisyActiveDesignCase };

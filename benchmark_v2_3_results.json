@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "claim": "decoder_benchmark_run",
+  "benchmarkVersion": "2.3",
+  "seed": 20260914,
+  "results": [
+    {
+      "id": "noise_design_bounded_v23",
+      "expected": "noise_robust_disambiguation_plan",
+      "actual": "noise_robust_disambiguation_plan",
+      "recommendation": {
+        "additionalObservations": 3,
+        "candidateCount": 13,
+        "predictedValues": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "23"
+        ],
+        "worstCaseIntervalOverlap": 5,
+        "guaranteedEliminations": 8
+      }
+    },
+    {
+      "id": "noise_design_blocked_v23",
+      "expected": "noise_robust_disambiguation_plan",
+      "actual": "noise_robust_disambiguation_plan",
+      "recommendation": {
+        "additionalObservations": 1,
+        "candidateCount": 13,
+        "predictedValues": [
+          "0",
+          "1",
+          "19"
+        ],
+        "worstCaseIntervalOverlap": 13,
+        "guaranteedEliminations": 0
+      }
+    }
+  ]
+}

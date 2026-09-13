@@ -3,8 +3,8 @@
   "claim": "framework_acceptance",
   "passed": true,
   "counts": {
-    "total": 17,
-    "passed": 17,
+    "total": 18,
+    "passed": 18,
     "failed": 0
   },
   "results": [
@@ -831,7 +831,7 @@
                 "confidence": 1,
                 "candidateCount": 1,
                 "stressResidualMax": 7,
-                "elapsedMs": 0.4804
+                "elapsedMs": 0.4687
               }
             ],
             "summary": {
@@ -855,7 +855,7 @@
                 "confidence": 0.5,
                 "candidateCount": 3,
                 "stressResidualMax": 4,
-                "elapsedMs": 0.9379
+                "elapsedMs": 0.8858
               }
             ],
             "summary": {
@@ -899,20 +899,20 @@
         "hypothesis": {
           "horizon": 1,
           "absoluteIndex": 10,
-          "left": "modular_affine",
-          "right": "affine",
-          "leftValue": 1,
-          "rightValue": 19
+          "left": "affine:{\"multiplier\":\"1\",\"offset\":\"2\"}",
+          "right": "modular_affine:{\"modulus\":18,\"multiplier\":1,\"offset\":2}",
+          "leftValue": "19",
+          "rightValue": "1"
         },
-        "complexity": 3,
+        "complexity": 13,
         "complexityUnit": "surviving_candidate_count",
         "residual": null,
         "verification": "ambiguous_within_horizon",
         "recommendedAdditionalObservations": 1,
         "limits": [
-          "只比较当前显式候选族",
+          "完整候选空间仅限四类显式序列机制",
           "向前搜索16个观测",
-          "可识别性结论不排除候选空间外的其他机制"
+          "候选空间外的机制仍可能存在"
         ]
       }
     },
@@ -927,24 +927,66 @@
         "decoder": "active_observation_design",
         "representation": "最大化候选切分的下一观测选择",
         "hypothesis": {
-          "additionalObservations": 1,
+          "additionalObservations": 4,
           "predictedValues": [
-            1,
-            19
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "25"
           ],
-          "groups": 2,
+          "groups": 8,
           "largestGroup": 2,
-          "entropyBits": 0.9182958340544896,
+          "entropyBits": 2.9312089489103235,
           "unresolvedWorstCase": 2
         },
-        "complexity": 3,
+        "complexity": 13,
         "complexityUnit": "surviving_candidate_count",
         "residual": null,
         "verification": "active_disambiguation_plan",
         "limits": [
-          "候选机制与预测范围有限",
-          "均匀候选先验仅用于排序实验，不是概率结论",
-          "观测值本身可能受噪声影响"
+          "完整候选空间仅限 arithmetic、periodic、affine、modular_affine",
+          "预测 horizon≤8",
+          "均匀候选只用于选择观测，不是概率结论"
+        ]
+      }
+    },
+    {
+      "name": "noisy_active_observation_design",
+      "expected": "noise_robust_disambiguation_plan",
+      "actual": "noise_robust_disambiguation_plan",
+      "passed": true,
+      "result": {
+        "domain": "noisy_active_observation_design",
+        "status": "candidate_frozen",
+        "decoder": "noisy_active_observation_design",
+        "representation": "有界噪声区间的最坏重叠选择",
+        "hypothesis": {
+          "additionalObservations": 3,
+          "candidateCount": 13,
+          "predictedValues": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "23"
+          ],
+          "worstCaseIntervalOverlap": 5,
+          "guaranteedEliminations": 8
+        },
+        "complexity": 13,
+        "complexityUnit": "surviving_candidate_count",
+        "residual": null,
+        "verification": "noise_robust_disambiguation_plan",
+        "limits": [
+          "候选由完整有限版本空间枚举",
+          "有界加性噪声≤1",
+          "区间重叠是保守的最坏情况判据"
         ]
       }
     }
@@ -960,21 +1002,21 @@
       "tasks": [
         {
           "name": "arithmetic_sequence",
-          "elapsedMs": 0.3065,
+          "elapsedMs": 0.369,
           "status": "verified_on_supplied_observations",
           "candidateCount": null,
           "error": null
         },
         {
           "name": "random_uncertainty",
-          "elapsedMs": 0.1657,
+          "elapsedMs": 0.203,
           "status": "no_certificate",
           "candidateCount": null,
           "error": null
         },
         {
           "name": "rotation_invariant",
-          "elapsedMs": 0.426,
+          "elapsedMs": 0.4679,
           "status": "verified_dynamics_invariants",
           "candidateCount": 1,
           "error": null
@@ -1219,7 +1261,7 @@
         "verification": "ambiguous_within_horizon",
         "verificationStrength": "candidate",
         "residual": null,
-        "complexity": 3,
+        "complexity": 13,
         "readability": {
           "human": true,
           "machine": true
@@ -1234,7 +1276,22 @@
         "verification": "active_disambiguation_plan",
         "verificationStrength": "candidate",
         "residual": null,
-        "complexity": 3,
+        "complexity": 13,
+        "readability": {
+          "human": true,
+          "machine": true
+        },
+        "translationCoverage": null,
+        "evidenceScope": null
+      },
+      {
+        "index": 17,
+        "domain": "noisy_active_observation_design",
+        "status": "candidate_frozen",
+        "verification": "noise_robust_disambiguation_plan",
+        "verificationStrength": "candidate",
+        "residual": null,
+        "complexity": 13,
         "readability": {
           "human": true,
           "machine": true
@@ -1366,6 +1423,16 @@
       },
       {
         "domain": "active_observation_design",
+        "total": 1,
+        "verified": 0,
+        "refuted": 0,
+        "unknown": 1,
+        "verificationRate": 0,
+        "humanReadableRate": 1,
+        "machineReadableRate": 1
+      },
+      {
+        "domain": "noisy_active_observation_design",
         "total": 1,
         "verified": 0,
         "refuted": 0,

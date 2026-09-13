@@ -23,6 +23,8 @@
 - `dynamics`：二维多项式映射中的有限次数守恒量搜索。
 - `dynamics_parameterized`：带参数旋转缩放族的守恒量条件发现。
 - `noisy_sequence`：带有限加性噪声的鲁棒数列解码与拒答。
+- `active_observation_design`：在有限候选空间内选择最能减少歧义的下一观测。
+- `noisy_active_observation_design`：按有界噪声区间的最坏重叠选择稳健观测。
 - `hidden_sequence`：从原始序列搜索模仿射递推，并用留出数据和证书重放验证隐藏生成机制。
 
 v1.2 发布说明见 [RELEASE_NOTES_v1_2.md](RELEASE_NOTES_v1_2.md)。
@@ -104,10 +106,12 @@ v1.7 发布说明见 [RELEASE_NOTES_v1_7.md](RELEASE_NOTES_v1_7.md)。
 v2.0 发布说明见 [RELEASE_NOTES_v2_0.md](RELEASE_NOTES_v2_0.md)。
 v2.1 发布说明见 [RELEASE_NOTES_v2_1.md](RELEASE_NOTES_v2_1.md)。
 v2.2 发布说明见 [RELEASE_NOTES_v2_2.md](RELEASE_NOTES_v2_2.md)。
+v2.3 发布说明见 [RELEASE_NOTES_v2_3.md](RELEASE_NOTES_v2_3.md)。
 
 运行 `npm run benchmark:v1.6` 可复现隐藏结构发现基准。搜索范围内没有稳定候选时返回 `uncertain_hidden_structure`，不把有限样本拟合误报为定理。
 运行 `npm run benchmark:v1.7` 可复现多机制竞争基准。多个候选精确通过时返回 `ambiguous_hidden_structure`，避免把模型选择偏好误写成唯一解释。
 运行 `npm run benchmark:v2.0` 可复现能力矩阵。校准任务与测试任务分离，并报告覆盖率、选择性风险、标签准确率和 Brier 分数。
 运行 `npm run benchmark:v2.1` 可复现可识别性前沿实验，报告候选机制最早分歧位置和建议新增观测数。
 运行 `npm run benchmark:v2.2` 可复现主动实验设计，选择最能减少候选歧义的下一观测位置。
+运行 `npm run benchmark:v2.3` 可复现有界噪声下的主动设计，按区间重叠给出保守的保证排除数。
 dynamics_condition_multivariate 支持多参数一次条件推导与秩不足拒答。

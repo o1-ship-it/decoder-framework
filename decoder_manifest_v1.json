@@ -4,11 +4,11 @@
   "files": [
     {
       "path": "decoder_v1.js",
-      "sha256": "9d8708e321c6c5b321d206d6c4f8f6c2251726012ae9585fb9cdaa437ef602b6"
+      "sha256": "6b1b4afa70e85bc8c18b36c7798dc8d32151132cb2020cfd57d63769c1d03953"
     },
     {
       "path": "decoder_protocol.js",
-      "sha256": "f6f20a42593000c4ca82d9a62b9b96b7f529180fe122271c0cbf11997a817970"
+      "sha256": "33b17a3c2b469aaf549d5d9d8e9ad30a6e7dde6c077a391a1ccda634b6e33061"
     },
     {
       "path": "decoder_report.js",
@@ -60,15 +60,23 @@
     },
     {
       "path": "decoder_identifiability.js",
-      "sha256": "151403e40101af779d4ff64d76cb1b77bd9b2ec63ce60ebc55b8befb655cab77"
+      "sha256": "cb30a6581c337a0e031eeeafa7c5f72d211ffa28d02e06322fa9f7175ab2351c"
     },
     {
       "path": "decoder_active_design.js",
-      "sha256": "44af88880babfff4b098470975fe57dd335a797938095e5f6758f0932963b610"
+      "sha256": "1378e68bb46c5fe4663416cc2b89df7abd764eaebd913f96dda65824431e9373"
+    },
+    {
+      "path": "decoder_noisy_active_design.js",
+      "sha256": "a3611df76ca44a676fe9d8881e68ea35597c71025fcfefcd089ed37c992d8e97"
+    },
+    {
+      "path": "decoder_candidate_bank.js",
+      "sha256": "d3539611e64dc95123733afb61b7ea18a1a572eaa046c61a40eaf5f0a45aab25"
     },
     {
       "path": "decoder_acceptance_v1.json",
-      "sha256": "435733de23859b9dddd3745c7a0ab694497ddd2a6dde88873447c73420b49fc5"
+      "sha256": "99f661c3567cf8e8e349e0033d0c838d36c0e9cc1adf388fe9dc00f3c1823c17"
     },
     {
       "path": "benchmark_v1_2_results.json",
@@ -127,8 +135,20 @@
       "sha256": "b424fd05e0b4054410a2734c2ae8005d7c6e745b413fdcd60f41222573b63134"
     },
     {
+      "path": "benchmark_v2_3.json",
+      "sha256": "c8e4cb0f083e9d5625b499b7e54c8889a476a5fa37c74305ab6d5f042ecf6fa6"
+    },
+    {
+      "path": "benchmark_v2_3_results.json",
+      "sha256": "930637e8b7301bf22dcf19c812fd5f29bffc98412c4803b0da2f978217cc70a4"
+    },
+    {
       "path": "RESEARCH_REFLECTION_v2_2.md",
       "sha256": "b33e626a426078250f2649cb1d484e19f7cb099ef63c2314d19207244f97f4e9"
+    },
+    {
+      "path": "RESEARCH_REFLECTION_v2_3.md",
+      "sha256": "c665b9a8934cecca908e4ed5920bc4cf48de59b8030f6fdaa4244c325e597c98"
     }
   ]
 }
