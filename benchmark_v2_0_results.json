@@ -1,0 +1,80 @@
+{
+  "benchmarkVersion": "2.0",
+  "seed": 20260913,
+  "schemaVersion": 1,
+  "claim": "decoder_capability_matrix",
+  "taskDigest": "79bb4bceb34272e155aea5f2545bb6245e2beaf9517470582725a1fdbeab163c",
+  "calibration": {
+    "rows": [
+      {
+        "id": "calibration_modular_v20",
+        "partition": "calibration",
+        "expected": "verified_unique_hidden_structure",
+        "actual": "verified_unique_hidden_structure",
+        "confidence": 1,
+        "candidateCount": 1,
+        "stressResidualMax": 7,
+        "elapsedMs": 1.6144
+      },
+      {
+        "id": "calibration_unknown_v20",
+        "partition": "calibration",
+        "expected": "uncertain_hidden_structure",
+        "actual": "uncertain_hidden_structure",
+        "confidence": 0,
+        "candidateCount": 0,
+        "stressResidualMax": 2,
+        "elapsedMs": 0.5104
+      }
+    ],
+    "summary": {
+      "total": 2,
+      "verified": 1,
+      "ambiguous": 0,
+      "uncertain": 1,
+      "coverage": 0.5,
+      "selectiveRisk": 0,
+      "exactLabelRate": 1,
+      "brierScore": 0
+    }
+  },
+  "test": {
+    "rows": [
+      {
+        "id": "test_ambiguous_v20",
+        "partition": "test",
+        "expected": "ambiguous_hidden_structure",
+        "actual": "ambiguous_hidden_structure",
+        "confidence": 0.5,
+        "candidateCount": 3,
+        "stressResidualMax": 4,
+        "elapsedMs": 1.2632
+      },
+      {
+        "id": "test_modular_transfer_v20",
+        "partition": "test",
+        "expected": "verified_unique_hidden_structure",
+        "actual": "verified_unique_hidden_structure",
+        "confidence": 1,
+        "candidateCount": 1,
+        "stressResidualMax": 8,
+        "elapsedMs": 0.7259
+      }
+    ],
+    "summary": {
+      "total": 2,
+      "verified": 1,
+      "ambiguous": 1,
+      "uncertain": 0,
+      "coverage": 1,
+      "selectiveRisk": 0,
+      "exactLabelRate": 1,
+      "brierScore": 0.125
+    }
+  },
+  "limits": [
+    "能力分数只适用于声明的候选族和任务生成分布",
+    "confidence 是状态映射，不是概率定理",
+    "test 任务未用于候选选择"
+  ]
+}

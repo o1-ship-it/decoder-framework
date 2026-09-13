@@ -25,6 +25,7 @@ const machineRepresentation = require("./machine_representation.js");
 const machineDecoderSearch = require("./machine_decoder_search.js");
 const hiddenStructure = require("./decoder_hidden_structure.js");
 const hiddenCompetition = require("./decoder_hidden_competition.js");
+const capabilityMatrix = require("./decoder_capability_matrix.js");
 
 function sequenceCase(development, holdout) {
   if (!Array.isArray(holdout) || holdout.length === 0) throw new TypeError("序列验证需要非空留出数据");
@@ -186,6 +187,7 @@ function machineDecoderSearchCase(input) {
 }
 function hiddenStructureCase(input) { const result = hiddenStructure.discover(input.development, input.holdout || [], input.options || {}); return { domain: "hidden_sequence", status: result.status === "verified_hidden_structure" ? "candidate_frozen" : "uncertain", decoder: result.decoder, representation: "模仿射递推", hypothesis: result.winner, complexity: result.winner ? 3 : null, complexityUnit: "modulus_multiplier_offset", residual: result.residual, verification: result.status, candidateCount: result.candidateCount, limits: result.limits }; }
 function hiddenCompetitionCase(input) { const result = hiddenCompetition.compete(input.development, input.holdout || [], input.stress || [], input.options || {}); return { domain: "hidden_sequence_competition", status: result.status === "verified_unique_hidden_structure" ? "candidate_frozen" : "uncertain", decoder: result.decoder, representation: "多机制候选竞争", hypothesis: result.winners, complexity: result.winners.length ? result.winners[0].complexity : null, complexityUnit: "candidate_complexity_proxy", residual: result.residual, verification: result.status, candidateCount: result.exactCandidateCount, candidates: result.candidates, limits: result.limits }; }
+function capabilityMatrixCase(input) { const certificate = capabilityMatrix.makeCertificate(input.tasks, input.options || {}); const verification = capabilityMatrix.verifyCertificate(certificate); return { domain: "capability_matrix", status: verification.status === "verified_capability_matrix" ? "candidate_frozen" : "uncertain", decoder: "decoder_capability_matrix", representation: "校准—测试—stress 能力矩阵", hypothesis: certificate.result, complexity: input.tasks.length, complexityUnit: "task_count", residual: verification.status === "verified_capability_matrix" ? 0 : 1, verification: verification.status, limits: certificate.result.limits }; }
 
 function generatedSequenceCase(input) {
   const searchResult = adaptiveSearch.adaptiveSynthesize(input.sequence, { splitSizes: input.splitSizes || [8, 10, 12], maxOrder: input.maxOrder || 2 });
@@ -227,7 +229,8 @@ function decode(input) {
   if (input?.domain === "machine_decoder_search") return machineDecoderSearchCase(input);
   if (input?.domain === "hidden_sequence") return hiddenStructureCase(input);
   if (input?.domain === "hidden_sequence_competition") return hiddenCompetitionCase(input);
+  if (input?.domain === "capability_matrix") return capabilityMatrixCase(input);
   throw new TypeError("协议输入必须声明受支持的 domain");
 }
 
-module.exports = { decode, sequenceCase, graphCase, equationCase, equationSystemCase, dynamicsCase, parameterizedDynamicsCase, noisySequenceCase, multivariateConditionCase, machineRepresentationCase, machineDecoderSearchCase, hiddenStructureCase, hiddenCompetitionCase };
+module.exports = { decode, sequenceCase, graphCase, equationCase, equationSystemCase, dynamicsCase, parameterizedDynamicsCase, noisySequenceCase, multivariateConditionCase, machineRepresentationCase, machineDecoderSearchCase, hiddenStructureCase, hiddenCompetitionCase, capabilityMatrixCase };

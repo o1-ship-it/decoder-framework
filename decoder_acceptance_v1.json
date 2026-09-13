@@ -3,8 +3,8 @@
   "claim": "framework_acceptance",
   "passed": true,
   "counts": {
-    "total": 14,
-    "passed": 14,
+    "total": 15,
+    "passed": 15,
     "failed": 0
   },
   "results": [
@@ -806,6 +806,85 @@
           "有限候选族与有限留出数据不构成唯一生成定理"
         ]
       }
+    },
+    {
+      "name": "capability_matrix",
+      "expected": "verified_capability_matrix",
+      "actual": "verified_capability_matrix",
+      "passed": true,
+      "result": {
+        "domain": "capability_matrix",
+        "status": "candidate_frozen",
+        "decoder": "decoder_capability_matrix",
+        "representation": "校准—测试—stress 能力矩阵",
+        "hypothesis": {
+          "schemaVersion": 1,
+          "claim": "decoder_capability_matrix",
+          "taskDigest": "3095a1e9ce0d036ed4f0135f882a8bf883340c3e696838964c875723a2f69239",
+          "calibration": {
+            "rows": [
+              {
+                "id": "accept_modular",
+                "partition": "calibration",
+                "expected": null,
+                "actual": "verified_unique_hidden_structure",
+                "confidence": 1,
+                "candidateCount": 1,
+                "stressResidualMax": 7,
+                "elapsedMs": 0.4665
+              }
+            ],
+            "summary": {
+              "total": 1,
+              "verified": 1,
+              "ambiguous": 0,
+              "uncertain": 0,
+              "coverage": 1,
+              "selectiveRisk": 1,
+              "exactLabelRate": null,
+              "brierScore": 0
+            }
+          },
+          "test": {
+            "rows": [
+              {
+                "id": "accept_ambiguous",
+                "partition": "test",
+                "expected": null,
+                "actual": "ambiguous_hidden_structure",
+                "confidence": 0.5,
+                "candidateCount": 3,
+                "stressResidualMax": 4,
+                "elapsedMs": 0.9847
+              }
+            ],
+            "summary": {
+              "total": 1,
+              "verified": 0,
+              "ambiguous": 1,
+              "uncertain": 0,
+              "coverage": 1,
+              "selectiveRisk": 1,
+              "exactLabelRate": null,
+              "brierScore": 0.25
+            }
+          },
+          "limits": [
+            "能力分数只适用于声明的候选族和任务生成分布",
+            "confidence 是状态映射，不是概率定理",
+            "test 任务未用于候选选择"
+          ]
+        },
+        "complexity": 2,
+        "complexityUnit": "task_count",
+        "residual": 0,
+        "verification": "verified_capability_matrix",
+        "limits": [
+          "能力分数只适用于声明的候选族和任务生成分布",
+          "confidence 是状态映射，不是概率定理",
+          "test 任务未用于候选选择"
+        ]
+      }
     }
   ],
   "extensions": {
@@ -819,21 +898,21 @@
       "tasks": [
         {
           "name": "arithmetic_sequence",
-          "elapsedMs": 0.3579,
+          "elapsedMs": 0.3706,
           "status": "verified_on_supplied_observations",
           "candidateCount": null,
           "error": null
         },
         {
           "name": "random_uncertainty",
-          "elapsedMs": 0.1932,
+          "elapsedMs": 0.2008,
           "status": "no_certificate",
           "candidateCount": null,
           "error": null
         },
         {
           "name": "rotation_invariant",
-          "elapsedMs": 0.6411,
+          "elapsedMs": 0.6961,
           "status": "verified_dynamics_invariants",
           "candidateCount": 1,
           "error": null
@@ -1055,6 +1134,21 @@
         },
         "translationCoverage": null,
         "evidenceScope": null
+      },
+      {
+        "index": 14,
+        "domain": "capability_matrix",
+        "status": "candidate_frozen",
+        "verification": "verified_capability_matrix",
+        "verificationStrength": "verified",
+        "residual": 0,
+        "complexity": 2,
+        "readability": {
+          "human": true,
+          "machine": true
+        },
+        "translationCoverage": null,
+        "evidenceScope": null
       }
     ],
     "summary": [
@@ -1155,6 +1249,16 @@
         "refuted": 0,
         "unknown": 1,
         "verificationRate": 0.5,
+        "humanReadableRate": 1,
+        "machineReadableRate": 1
+      },
+      {
+        "domain": "capability_matrix",
+        "total": 1,
+        "verified": 1,
+        "refuted": 0,
+        "unknown": 0,
+        "verificationRate": 1,
         "humanReadableRate": 1,
         "machineReadableRate": 1
       }
