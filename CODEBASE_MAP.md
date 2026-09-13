@@ -19,6 +19,7 @@
 
 - `benchmark_v3_0*`：v3.0 黑箱结构发现基准；
 - `benchmark_v3_1*`：v3.1 主动观测基准；
+- `benchmark_v3_2*`：v3.2 线性查询最优性下界基准；
 - `decoder_acceptance.js`：统一端到端验收；
 - `decoder_audit.js`：结果分类和汇总审计；
 - `decoder_manifest.js`：支持根目录和子目录路径的完整性清单。

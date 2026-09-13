@@ -1,0 +1,1 @@
+{"schemaVersion":1,"claim":"decoder_benchmark","version":"3.2","cases":[{"id":"linear_query_optimality_v32","options":{"coefficientRange":1},"expected":{"candidateCount":81,"maxOneQueryOutputs":9,"lowerBoundQueries":2,"upperBoundQueries":2,"optimalQueryCount":2,"adaptiveLowerBound":2}}]}
