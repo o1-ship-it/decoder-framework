@@ -12,20 +12,20 @@
 
 ## 当前版本
 
-v3.2 已完成。v3.1 已完成；v3.0 已完成并推送，提交为 `03654da`。当前边界是二维整数、低次、无噪声映射，不代表通用系统识别。
+v3.2.1 已完成。v3.2 的查询下界仅适用于 v3.1 的 8 个允许格点；v3.1 已完成。当前边界是二维整数、低次、无噪声映射，不代表通用系统识别。
 
 ## 当前模块
 
 - `decoder_blackbox_dynamics.js`：从转移拟合映射并验证不变量；
 - `dynamics/blackbox_active_design.js`：枚举有限映射版本空间，选择最大化最坏排除数的状态；
 - `dynamics/blackbox_active_experiment.js`：固定合成任务上的主动与被动采样比较；
-- `dynamics/linear_query_lower_bound.js`：证明当前线性映射族需要至少两次查询且轴向查询达到该下界；
+- `dynamics/linear_query_lower_bound.js`：在 v3.1 的允许格点中证明线性映射族至少需要两次查询，轴向查询达到下界；
 - `decoder_protocol.js`：统一协议入口；
 - `decoder_manifest.js`：源码和结果的 SHA-256 可复现清单。
 
 ## 当前证据
 
-所有测试、端到端验收、v3.0 基准、审计和清单均已通过。v3.1 证明了随机采样的效率差异，但与合适固定设计平局；v3.2 正在把这一点形式化为查询下界，避免把线性代数问题误判成主动学习优势。
+所有测试、端到端验收、v3.0 基准、审计和清单均已通过。v3.1 证明了随机采样的效率差异，但与合适固定设计平局；v3.2.1 枚举实际允许的查询格点，证明该受限空间内的查询下界为 2。
 
 ## 工作规则
 
@@ -36,5 +36,5 @@ v3.2 已完成。v3.1 已完成；v3.0 已完成并推送，提交为 `03654da`�
 - 目标：`PROJECT_NORTH_STAR.md`
 - 当前状态与下一阶段：`PROJECT_STATUS.md`
 - v3 策略：`RESEARCH_STRATEGY_v3.md`
-- 版本研究反思：`RESEARCH_REFLECTION_v3_0.md`
+- 最新版本研究反思：`RESEARCH_REFLECTION_v3_2.md`
 - 代码与测试地图：`CODEBASE_MAP.md`

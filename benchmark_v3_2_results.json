@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "claim": "decoder_benchmark_run",
-  "benchmarkVersion": "3.2",
+  "benchmarkVersion": "3.2.1",
   "evaluation": "finite_lower_bound_certificate",
   "passed": true,
   "results": [
@@ -9,7 +9,7 @@
       "id": "linear_query_optimality_v32",
       "expected": {
         "candidateCount": 81,
-        "maxOneQueryOutputs": 9,
+        "maxOneQueryOutputs": 25,
         "lowerBoundQueries": 2,
         "upperBoundQueries": 2,
         "optimalQueryCount": 2,
@@ -17,7 +17,7 @@
       },
       "actual": {
         "candidateCount": 81,
-        "maxOneQueryOutputs": 9,
+        "maxOneQueryOutputs": 25,
         "lowerBoundQueries": 2,
         "upperBoundQueries": 2,
         "optimalQueryCount": 2,

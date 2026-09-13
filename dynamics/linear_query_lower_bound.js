@@ -1,7 +1,5 @@
 // Finite certificate that two queries are optimal for a bounded linear map family.
 
-const active = require("./blackbox_active_design.js");
-
 function normalizeOptions(options = {}) {
   const coefficientRange = options.coefficientRange ?? 1;
   if (!Number.isSafeInteger(coefficientRange) || coefficientRange < 1 || coefficientRange > 2) throw new RangeError("系数范围必须在 1..2");
@@ -25,12 +23,17 @@ function distinguishesAll(candidates, queries) { return new Set(candidates.map(c
 function candidateOutputCount(candidates, state) { return new Set(candidates.map(candidate => observe(candidate, state).join(","))).size; }
 
 function axes() { return [[1, 0], [0, 1]]; }
+function queryStates() {
+  const states = [];
+  for (let x = -1; x <= 1; x += 1) for (let y = -1; y <= 1; y += 1) if (x || y) states.push([x, y]);
+  return states;
+}
 
 function prove(options = {}) {
   const normalized = normalizeOptions(options);
   const candidates = coefficientVectors(normalized.coefficientRange);
   const candidateCount = candidates.length;
-  const oneQuery = axes().map(state => ({ state, distinctOutputs: candidateOutputCount(candidates, state) }));
+  const oneQuery = queryStates().map(state => ({ state, distinctOutputs: candidateOutputCount(candidates, state) }));
   const maxOneQueryOutputs = Math.max(...oneQuery.map(item => item.distinctOutputs));
   const upperBoundQueries = distinguishesAll(candidates, axes()) ? 2 : null;
   const lowerBoundQueries = maxOneQueryOutputs < candidateCount ? 2 : 1;
@@ -40,6 +43,7 @@ function prove(options = {}) {
     family: "bounded_integer_linear_2x2",
     options: normalized,
     candidateCount,
+    allowedQueryStates: queryStates(),
     oneQuery,
     maxOneQueryOutputs,
     lowerBoundQueries,
@@ -47,7 +51,7 @@ function prove(options = {}) {
     upperBoundQueries,
     optimalQueryCount: lowerBoundQueries === upperBoundQueries ? lowerBoundQueries : null,
     adaptiveLowerBound: lowerBoundQueries,
-    limits: ["有限系数候选族；不含平移项", "查询状态为整数向量且输出无噪声", "自适应下界只使用单次查询的最大输出分辨率", "结论不外推到非线性、噪声或候选族外系统"],
+    limits: ["有限系数候选族；不含平移项", "允许查询仅为 {-1,0,1}^2 中的 8 个非零状态，且输出无噪声", "下界枚举全部允许的单次查询；每种首次输出仍保留多个候选", "结论不外推到更大状态、非线性、噪声或候选族外系统"],
   };
 }
 
@@ -59,4 +63,4 @@ function verify(proof) {
   } catch (error) { return { status: "invalid_certificate", reason: error.message }; }
 }
 
-module.exports = { normalizeOptions, coefficientVectors, observe, signature, distinguishesAll, candidateOutputCount, axes, prove, verify };
+module.exports = { normalizeOptions, coefficientVectors, observe, signature, distinguishesAll, candidateOutputCount, axes, queryStates, prove, verify };

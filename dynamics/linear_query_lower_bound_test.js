@@ -3,6 +3,8 @@ const lowerBound = require("./linear_query_lower_bound.js");
 
 const proof = lowerBound.prove({ coefficientRange: 1 });
 assert.equal(proof.candidateCount, 81);
+assert.equal(proof.allowedQueryStates.length, 8);
+assert.equal(proof.maxOneQueryOutputs, 25);
 assert.ok(proof.maxOneQueryOutputs < proof.candidateCount);
 assert.equal(proof.lowerBoundQueries, 2);
 assert.equal(proof.upperBoundQueries, 2);

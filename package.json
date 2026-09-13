@@ -1,6 +1,6 @@
 {
   "name": "decoder-framework",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "A verifiable framework for layered information decoding experiments.",
   "private": false,
   "type": "commonjs",

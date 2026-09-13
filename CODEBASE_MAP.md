@@ -13,6 +13,7 @@
 - `dynamics_invariant_verifier.js`：独立重放不变量证书；
 - `dynamics/blackbox_active_design.js`：有限一次映射版本空间和下一状态推荐；
 - `dynamics/blackbox_active_experiment.js`：主动/被动采样实验；
+- `dynamics/linear_query_lower_bound.js`：对 v3.1 的允许状态格点枚举单次查询并证明两次查询下界；
 - `dynamics_composed_search.js`：坐标变换负对照，不是当前能力主张。
 
 ## 证据与发布

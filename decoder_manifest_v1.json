@@ -8,11 +8,11 @@
     },
     {
       "path": "PROJECT_CONTEXT.md",
-      "sha256": "4b8164250b38e7a0c0169e1a5ee6c79185ff115bf97daca4b52d4ec58db2436e"
+      "sha256": "c9cca1c4744dc7651c4c17a9c0d73ba7bdd46a4ccba9512b78008932c59f87ec"
     },
     {
       "path": "CODEBASE_MAP.md",
-      "sha256": "f1e9acfcc443a1d858200650f3f890d4e236af35ad12c2bc1553ea88eb145461"
+      "sha256": "59a1acd5d7c44854015a6adda1e0bfaec16d27b5f065a71c070728671efdb492"
     },
     {
       "path": "decoder_v1.js",
@@ -108,7 +108,7 @@
     },
     {
       "path": "docs/README.md",
-      "sha256": "30c5ea00c206b21e4513d47c2bfcf2f874288bbbd31052090ba97821b744576c"
+      "sha256": "df7ee6164fa9b9ee443f54135051cfe32487045f6ac0949fc30fe33bd22dc9a9"
     },
     {
       "path": "docs/HISTORY.md",
@@ -116,27 +116,31 @@
     },
     {
       "path": "dynamics/linear_query_lower_bound.js",
-      "sha256": "a3ef2955a91d2b8c182424b677518d6ac0d74e1a8793001072bf506a598d3cad"
+      "sha256": "bd3478fac6abfae653372e4162a7c1b642bfdf609ad3d11e582e0527ffb61367"
     },
     {
       "path": "benchmark_v3_2.json",
-      "sha256": "c9457f0184fe48ad96404634fc9843cbf739ad87eb8c8cafb74a13b9804def72"
+      "sha256": "30e5e7c7603b03ba695f14ca4600c8da3ad50f48089480dbb29452e84e0e5266"
     },
     {
       "path": "benchmark_v3_2_results.json",
-      "sha256": "c4767db47199140ac05a7d90405ee9954282e710114cec7571edfebd49334127"
+      "sha256": "b2973636bb93c5998fe2d87c635a839b69764f7a6181217752b5cc2384d13db5"
     },
     {
       "path": "RELEASE_NOTES_v3_2.md",
-      "sha256": "511c5c62ad7ad0d9cce04fec26c4a490b5ee0b257eb8e4ce373da2a59975199d"
+      "sha256": "31318f485615cc2e9c6b46048247612d587b5a9330f46d54d83999b15110888e"
+    },
+    {
+      "path": "RELEASE_NOTES_v3_2_1.md",
+      "sha256": "07fc7f42dade49d8ac314368809a06b554a95e521b9e6b6b9070b0e8dd215a78"
     },
     {
       "path": "RESEARCH_REFLECTION_v3_2.md",
-      "sha256": "64a8e71799837d3c7608c59cef38cfdc0667a1c8c7025b569502b698a220775e"
+      "sha256": "4932e13b70fc9b0052b9055e97f7c5ca689247026a359746117967f2ee0eab94"
     },
     {
       "path": "decoder_acceptance_v1.json",
-      "sha256": "adffb5bd3bed00cff923b3af3e3f033deddc35bf18b977880bb9438fcc22094c"
+      "sha256": "6f371ca6f9630b4b2da92a916b68a9a902dcb7681d43405c4ff866573287fd42"
     },
     {
       "path": "benchmark_v1_2_results.json",

@@ -1,4 +1,4 @@
-# Decoder Framework v3.1
+# Decoder Framework v3.2.1
 
 项目状态与路线见 [PROJECT_STATUS.md](PROJECT_STATUS.md)。
 当前工作摘要见 [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md)，代码地图见 [CODEBASE_MAP.md](CODEBASE_MAP.md)。
@@ -118,7 +118,7 @@ v2.3 发布说明见 [RELEASE_NOTES_v2_3.md](RELEASE_NOTES_v2_3.md)。
 v2.4 发布说明见 [RELEASE_NOTES_v2_4.md](RELEASE_NOTES_v2_4.md)。
 v3.0 发布说明见 [RELEASE_NOTES_v3_0.md](RELEASE_NOTES_v3_0.md)。
 v3.1 发布说明见 [RELEASE_NOTES_v3_1.md](RELEASE_NOTES_v3_1.md)。
-v3.2 发布说明见 [RELEASE_NOTES_v3_2.md](RELEASE_NOTES_v3_2.md)。
+v3.2.1 勘误见 [RELEASE_NOTES_v3_2_1.md](RELEASE_NOTES_v3_2_1.md)，完整说明见 [RELEASE_NOTES_v3_2.md](RELEASE_NOTES_v3_2.md)。
 
 运行 `npm run benchmark:v1.6` 可复现隐藏结构发现基准。搜索范围内没有稳定候选时返回 `uncertain_hidden_structure`，不把有限样本拟合误报为定理。
 运行 `npm run benchmark:v1.7` 可复现多机制竞争基准。多个候选精确通过时返回 `ambiguous_hidden_structure`，避免把模型选择偏好误写成唯一解释。
