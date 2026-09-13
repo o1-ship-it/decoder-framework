@@ -2,7 +2,7 @@
 
 const protocol = require("./decoder_protocol.js");
 
-const DOMAINS = new Set(["sequence", "generated_sequence", "graph", "equation", "equation_system", "polynomial", "polynomial_factor", "polynomial_analysis", "dynamics", "dynamics_parameterized", "noisy_sequence", "dynamics_condition_multivariate", "machine_representation", "machine_decoder_search", "hidden_sequence", "hidden_sequence_competition", "capability_matrix", "hidden_identifiability", "active_observation_design", "noisy_active_observation_design", "observational_equivalence", "composed_dynamics", "blackbox_dynamics", "blackbox_active_observation_design", "blackbox_branching_query_design"]);
+const DOMAINS = new Set(["sequence", "generated_sequence", "graph", "equation", "equation_system", "polynomial", "polynomial_factor", "polynomial_analysis", "dynamics", "dynamics_parameterized", "noisy_sequence", "dynamics_condition_multivariate", "machine_representation", "machine_decoder_search", "hidden_sequence", "hidden_sequence_competition", "capability_matrix", "hidden_identifiability", "active_observation_design", "noisy_active_observation_design", "observational_equivalence", "composed_dynamics", "blackbox_dynamics", "blackbox_active_observation_design", "blackbox_branching_query_design", "blackbox_parametric_query_design"]);
 
 function decodeObject(input) {
   if (!input || typeof input !== "object" || Array.isArray(input)) throw new TypeError("输入必须是对象");

@@ -41,5 +41,13 @@ const controlResult = protocol.decode({ domain: "blackbox_branching_query_design
 ], queries: [{ id: "first", state: [0, 0] }, { id: "second", state: [1, 0] }] });
 assert.equal(controlResult.analysisStatus, "no_adaptive_advantage");
 
+const parametricResult = protocol.decode({ domain: "blackbox_parametric_query_design", options: { branchCount: 4, variantCount: 2 } });
+assert.equal(parametricResult.verification, "verified_parametric_branching_query_family");
+assert.equal(parametricResult.analysisStatus, "adaptive_strict_advantage");
+assert.deepEqual(parametricResult.hypothesis, { family: "regime_selected_local_response", branchCount: 4, variantCount: 2, adaptiveDepth: 2, fixedDepth: 5, querySavings: 3 });
+const parametricControl = protocol.decode({ domain: "blackbox_parametric_query_design", options: { branchCount: 4, variantCount: 1 } });
+assert.equal(parametricControl.analysisStatus, "no_adaptive_advantage");
+assert.equal(parametricControl.hypothesis.querySavings, 0);
+
 assert.throws(() => protocol.decode({ domain: "unknown" }), /domain/);
 console.log("decoder_protocol_test: passed");

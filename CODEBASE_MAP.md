@@ -15,6 +15,7 @@
 - `dynamics/blackbox_active_experiment.js`：主动/被动采样实验；
 - `dynamics/linear_query_lower_bound.js`：对 v3.1 的允许状态格点枚举单次查询并证明两次查询下界；
 - `dynamics/branching_query_design.js`：精确比较有限黑箱候选族的自适应条件决策树和最优固定查询集合；
+- `dynamics/parametric_branching_family.js`：参数化运行区间—局部响应黑箱族及其公式—穷举交叉验证；
 - `dynamics_composed_search.js`：坐标变换负对照，不是当前能力主张。
 
 ## 证据与发布
@@ -23,6 +24,7 @@
 - `benchmark_v3_1*`：v3.1 主动观测基准；
 - `benchmark_v3_2*`：v3.2 线性查询最优性下界基准；
 - `benchmark_v3_3*`：v3.3 分支查询优势与无优势对照基准；
+- `benchmark_v3_4*`：v3.4 参数化族的校准/参数留出比较基准；
 - `decoder_acceptance.js`：统一端到端验收；
 - `decoder_audit.js`：结果分类和汇总审计；
 - `decoder_manifest.js`：支持根目录和子目录路径的完整性清单。

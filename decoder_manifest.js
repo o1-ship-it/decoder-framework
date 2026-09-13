@@ -31,6 +31,7 @@ function main() {
   names.splice(names.indexOf("decoder_acceptance_v1.json"), 0, "docs/HISTORY.md");
   names.splice(names.indexOf("decoder_acceptance_v1.json"), 0, "dynamics/linear_query_lower_bound.js", "benchmark_v3_2.json", "benchmark_v3_2_results.json", "RELEASE_NOTES_v3_2.md", "RELEASE_NOTES_v3_2_1.md", "RESEARCH_REFLECTION_v3_2.md");
   names.splice(names.indexOf("decoder_acceptance_v1.json"), 0, "dynamics/branching_query_design.js", "benchmark_v3_3.json", "benchmark_v3_3_results.json", "RELEASE_NOTES_v3_3.md", "RESEARCH_REFLECTION_v3_3.md");
+  names.splice(names.indexOf("decoder_acceptance_v1.json"), 0, "dynamics/parametric_branching_family.js", "benchmark_v3_4.json", "benchmark_v3_4_results.json", "RELEASE_NOTES_v3_4.md", "RESEARCH_REFLECTION_v3_4.md");
   const manifest = createManifest(names.map(name => path.join(__dirname, name))); fs.writeFileSync(path.join(__dirname, "decoder_manifest_v1.json"), JSON.stringify(manifest, null, 2), "utf8"); console.log(`清单：${manifest.files.length} 个文件，${verifyManifest(manifest).status}`); return manifest;
 }
 if (require.main === module) main();

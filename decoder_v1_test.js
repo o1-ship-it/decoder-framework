@@ -55,6 +55,9 @@ assert.equal(branchingQuery.verification, "verified_finite_blackbox_query_design
 assert.equal(branchingQuery.analysisStatus, "adaptive_strict_advantage");
 assert.equal(branchingQuery.hypothesis.adaptiveDepth, 2);
 assert.equal(branchingQuery.hypothesis.fixedDepth, 3);
+const parametricQuery = v1.decodeObject({ domain: "blackbox_parametric_query_design", options: { branchCount: 3, variantCount: 3 } });
+assert.equal(parametricQuery.verification, "verified_parametric_branching_query_family");
+assert.equal(parametricQuery.hypothesis.fixedDepth, 4);
 
 const batch = v1.decodeBatch([
   { domain: "graph", graph: graph.cycle(6) },

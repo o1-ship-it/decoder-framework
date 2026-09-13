@@ -3,8 +3,8 @@
   "claim": "framework_acceptance",
   "passed": true,
   "counts": {
-    "total": 24,
-    "passed": 24,
+    "total": 26,
+    "passed": 26,
     "failed": 0
   },
   "results": [
@@ -831,7 +831,7 @@
                 "confidence": 1,
                 "candidateCount": 1,
                 "stressResidualMax": 7,
-                "elapsedMs": 0.5345
+                "elapsedMs": 0.5559
               }
             ],
             "summary": {
@@ -855,7 +855,7 @@
                 "confidence": 0.5,
                 "candidateCount": 3,
                 "stressResidualMax": 4,
-                "elapsedMs": 0.9824
+                "elapsedMs": 0.9663
               }
             ],
             "summary": {
@@ -1573,6 +1573,90 @@
           "结论不外推到未枚举的候选系统或查询状态"
         ]
       }
+    },
+    {
+      "name": "parametric_branching_holdout",
+      "expected": "verified_parametric_branching_query_family",
+      "actual": "verified_parametric_branching_query_family",
+      "passed": true,
+      "result": {
+        "domain": "blackbox_parametric_query_design",
+        "status": "candidate_frozen",
+        "decoder": "parametric_branching_query_design",
+        "representation": "运行区间→局部响应→条件查询树",
+        "hypothesis": {
+          "family": "regime_selected_local_response",
+          "branchCount": 4,
+          "variantCount": 2,
+          "adaptiveDepth": 2,
+          "fixedDepth": 5,
+          "querySavings": 3
+        },
+        "complexity": 40,
+        "complexityUnit": "candidate_times_query_count",
+        "residual": 0,
+        "verification": "verified_parametric_branching_query_family",
+        "certificateVerification": {
+          "status": "verified_parametric_branching_query_family",
+          "analysisStatus": "adaptive_strict_advantage",
+          "formulaMatches": true,
+          "adaptiveDepth": 2,
+          "fixedDepth": 5
+        },
+        "analysisStatus": "adaptive_strict_advantage",
+        "formulaMatches": true,
+        "candidateCount": 8,
+        "queryCount": 5,
+        "limits": [
+          "黑箱由有限运行区间和有限局部响应生成",
+          "运行区间数不超过 8，局部响应数不超过 8",
+          "候选数不超过 16，查询数不超过 12",
+          "只比较无噪声最坏情况查询深度",
+          "校准与留出配置只检验已声明的生成族，不表示对未声明系统的泛化"
+        ]
+      }
+    },
+    {
+      "name": "parametric_branching_control",
+      "expected": "verified_parametric_branching_query_family",
+      "actual": "verified_parametric_branching_query_family",
+      "passed": true,
+      "result": {
+        "domain": "blackbox_parametric_query_design",
+        "status": "candidate_frozen",
+        "decoder": "parametric_branching_query_design",
+        "representation": "运行区间→局部响应→条件查询树",
+        "hypothesis": {
+          "family": "regime_selected_local_response",
+          "branchCount": 4,
+          "variantCount": 1,
+          "adaptiveDepth": 1,
+          "fixedDepth": 1,
+          "querySavings": 0
+        },
+        "complexity": 20,
+        "complexityUnit": "candidate_times_query_count",
+        "residual": 0,
+        "verification": "verified_parametric_branching_query_family",
+        "certificateVerification": {
+          "status": "verified_parametric_branching_query_family",
+          "analysisStatus": "no_adaptive_advantage",
+          "formulaMatches": true,
+          "adaptiveDepth": 1,
+          "fixedDepth": 1
+        },
+        "analysisStatus": "no_adaptive_advantage",
+        "formulaMatches": true,
+        "candidateCount": 4,
+        "queryCount": 5,
+        "limits": [
+          "黑箱由有限运行区间和有限局部响应生成",
+          "运行区间数不超过 8，局部响应数不超过 8",
+          "候选数不超过 16，查询数不超过 12",
+          "只比较无噪声最坏情况查询深度",
+          "校准与留出配置只检验已声明的生成族，不表示对未声明系统的泛化"
+        ]
+      }
     }
   ],
   "extensions": {
@@ -1586,21 +1670,21 @@
       "tasks": [
         {
           "name": "arithmetic_sequence",
-          "elapsedMs": 0.3261,
+          "elapsedMs": 0.2964,
           "status": "verified_on_supplied_observations",
           "candidateCount": null,
           "error": null
         },
         {
           "name": "random_uncertainty",
-          "elapsedMs": 0.1801,
+          "elapsedMs": 0.1642,
           "status": "no_certificate",
           "candidateCount": null,
           "error": null
         },
         {
           "name": "rotation_invariant",
-          "elapsedMs": 0.5413,
+          "elapsedMs": 0.4051,
           "status": "verified_dynamics_invariants",
           "candidateCount": 1,
           "error": null
@@ -1972,6 +2056,36 @@
         },
         "translationCoverage": null,
         "evidenceScope": null
+      },
+      {
+        "index": 24,
+        "domain": "blackbox_parametric_query_design",
+        "status": "candidate_frozen",
+        "verification": "verified_parametric_branching_query_family",
+        "verificationStrength": "verified",
+        "residual": 0,
+        "complexity": 40,
+        "readability": {
+          "human": true,
+          "machine": true
+        },
+        "translationCoverage": null,
+        "evidenceScope": null
+      },
+      {
+        "index": 25,
+        "domain": "blackbox_parametric_query_design",
+        "status": "candidate_frozen",
+        "verification": "verified_parametric_branching_query_family",
+        "verificationStrength": "verified",
+        "residual": 0,
+        "complexity": 20,
+        "readability": {
+          "human": true,
+          "machine": true
+        },
+        "translationCoverage": null,
+        "evidenceScope": null
       }
     ],
     "summary": [
@@ -2149,6 +2263,16 @@
         "domain": "blackbox_branching_query_design",
         "total": 1,
         "verified": 1,
+        "refuted": 0,
+        "unknown": 0,
+        "verificationRate": 1,
+        "humanReadableRate": 1,
+        "machineReadableRate": 1
+      },
+      {
+        "domain": "blackbox_parametric_query_design",
+        "total": 2,
+        "verified": 2,
         "refuted": 0,
         "unknown": 0,
         "verificationRate": 1,
