@@ -7,6 +7,8 @@
 - v3 策略：[研究策略](../RESEARCH_STRATEGY_v3.md)
 - 最新反思：[v3.5 研究反思](../RESEARCH_REFLECTION_v3_5.md)
 - 当前发布：[v3.5 发布说明](../RELEASE_NOTES_v3_5.md)
+- v3.6 反思：[v3.6 研究反思](../RESEARCH_REFLECTION_v3_6.md)
+- v3.6 发布：[v3.6 发布说明](../RELEASE_NOTES_v3_6.md)
 - v3.2.1 勘误：[查询范围修正](../RELEASE_NOTES_v3_2_1.md)
 - 历史材料：[历史索引](HISTORY.md)
 

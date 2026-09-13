@@ -1,4 +1,4 @@
-# Decoder Framework v3.5.0
+# Decoder Framework v3.6.0
 
 项目状态与路线见 [PROJECT_STATUS.md](PROJECT_STATUS.md)。
 当前工作摘要见 [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md)，代码地图见 [CODEBASE_MAP.md](CODEBASE_MAP.md)。
@@ -36,6 +36,7 @@ v3.0 研究反思见 [RESEARCH_REFLECTION_v3_0.md](RESEARCH_REFLECTION_v3_0.md)�
 - `blackbox_branching_query_design`：比较有限黑箱候选族的条件查询树和最优固定查询集合。
 - `blackbox_parametric_query_design`：在参数化的运行区间—局部响应黑箱族中交叉验证条件查询优势。
 - `blackbox_piecewise_map_query_design`：从二维分段整数映射生成候选转移并验证条件查询优势。
+- `blackbox_piecewise_map_inference`：从训练/留出状态转移恢复分段映射候选，并对剩余歧义规划条件查询。
 - `composed_dynamics`：有限坐标变换后的不变量搜索，用作表示变换是否提供额外能力的可复现对照。
 
 v1.2 发布说明见 [RELEASE_NOTES_v1_2.md](RELEASE_NOTES_v1_2.md)。
@@ -125,6 +126,7 @@ v3.2.1 勘误见 [RELEASE_NOTES_v3_2_1.md](RELEASE_NOTES_v3_2_1.md)，完整说�
 v3.3 发布说明见 [RELEASE_NOTES_v3_3.md](RELEASE_NOTES_v3_3.md)。
 v3.4 发布说明见 [RELEASE_NOTES_v3_4.md](RELEASE_NOTES_v3_4.md)。
 v3.5 发布说明见 [RELEASE_NOTES_v3_5.md](RELEASE_NOTES_v3_5.md)。
+v3.6 发布说明见 [RELEASE_NOTES_v3_6.md](RELEASE_NOTES_v3_6.md)。
 
 运行 `npm run benchmark:v1.6` 可复现隐藏结构发现基准。搜索范围内没有稳定候选时返回 `uncertain_hidden_structure`，不把有限样本拟合误报为定理。
 运行 `npm run benchmark:v1.7` 可复现多机制竞争基准。多个候选精确通过时返回 `ambiguous_hidden_structure`，避免把模型选择偏好误写成唯一解释。
@@ -139,4 +141,5 @@ v3.5 发布说明见 [RELEASE_NOTES_v3_5.md](RELEASE_NOTES_v3_5.md)。
 运行 `npm run benchmark:v3.3` 可复现一个严格自适应优势的有限分支族及一个无优势对照；前者的最坏深度为 2 对 3，结论只覆盖显式枚举的候选和查询表。
 运行 `npm run benchmark:v3.4` 可复现参数化运行区间—局部响应族的校准与参数留出配置；留出优势是该生成族内的复现结果，不是从数据拟合出的通用性能估计。
 运行 `npm run benchmark:v3.5` 可复现二维分段整数映射族的校准、映射参数留出和无优势控制；候选转移由映射规则求值生成。
+运行 `npm run benchmark:v3.6` 可复现二维分段映射的训练恢复、留出淘汰、主动查询和冲突拒答；候选转移由映射规则求值生成。
 dynamics_condition_multivariate 支持多参数一次条件推导与秩不足拒答。

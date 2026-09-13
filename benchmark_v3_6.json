@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "claim": "decoder_benchmark",
+  "version": "3.6.0",
+  "family": "piecewise_origin_local_response",
+  "partitionPolicy": "候选映射族、参数边界、训练/留出格式和查询搜索在运行前冻结；calibration 只用于确定管线，holdout 覆盖未用于校准的区域数、参数恢复情形和冲突路径。",
+  "cases": [
+    {
+      "id": "inference_calibration_unique_2x2",
+      "partition": "calibration",
+      "input": {
+        "options": { "regionCount": 2, "responseCount": 2 },
+        "training": [{ "state": [0, 0], "next": [1, 0] }],
+        "holdout": [{ "state": [1, 1], "next": [1, 0] }]
+      },
+      "expected": { "status": "candidate_frozen", "failureStage": null, "initialCandidateCount": 4, "trainingCandidateCount": 2, "holdoutCandidateCount": 1, "recoveredRegion": 1, "recoveredResponse": 1, "activeStatus": null, "adaptiveDepth": null, "fixedDepth": null }
+    },
+    {
+      "id": "inference_calibration_active_2x2",
+      "partition": "calibration",
+      "input": {
+        "options": { "regionCount": 2, "responseCount": 2 },
+        "training": [{ "state": [7, 7], "next": [0, 0] }],
+        "holdout": [{ "state": [-2, 4], "next": [0, 0] }]
+      },
+      "expected": { "status": "ambiguous_with_active_plan", "failureStage": null, "initialCandidateCount": 4, "trainingCandidateCount": 4, "holdoutCandidateCount": 4, "recoveredRegion": null, "recoveredResponse": null, "activeStatus": "adaptive_strict_advantage", "adaptiveDepth": 2, "fixedDepth": 3 }
+    },
+    {
+      "id": "inference_holdout_partial_recovery_4x2",
+      "partition": "holdout",
+      "input": {
+        "options": { "regionCount": 4, "responseCount": 2 },
+        "training": [{ "state": [0, 0], "next": [3, 0] }],
+        "holdout": [{ "state": [9, 9], "next": [0, 0] }]
+      },
+      "expected": { "status": "ambiguous_with_active_plan", "failureStage": null, "initialCandidateCount": 8, "trainingCandidateCount": 2, "holdoutCandidateCount": 2, "recoveredRegion": 3, "recoveredResponse": null, "activeStatus": "no_adaptive_advantage", "adaptiveDepth": 1, "fixedDepth": 1 }
+    },
+    {
+      "id": "inference_holdout_active_4x2",
+      "partition": "holdout",
+      "input": {
+        "options": { "regionCount": 4, "responseCount": 2 },
+        "training": [{ "state": [8, 8], "next": [0, 0] }],
+        "holdout": [{ "state": [-4, 9], "next": [0, 0] }]
+      },
+      "expected": { "status": "ambiguous_with_active_plan", "failureStage": null, "initialCandidateCount": 8, "trainingCandidateCount": 8, "holdoutCandidateCount": 8, "recoveredRegion": null, "recoveredResponse": null, "activeStatus": "adaptive_strict_advantage", "adaptiveDepth": 2, "fixedDepth": 5 }
+    },
+    {
+      "id": "inference_holdout_rejection_3x2",
+      "partition": "holdout",
+      "input": {
+        "options": { "regionCount": 3, "responseCount": 2 },
+        "training": [{ "state": [0, 0], "next": [2, 0] }],
+        "holdout": [{ "state": [2, 1], "next": [9, 0] }]
+      },
+      "expected": { "status": "counterexample_found", "failureStage": "holdout", "initialCandidateCount": 6, "trainingCandidateCount": 2, "holdoutCandidateCount": 0, "recoveredRegion": null, "recoveredResponse": null, "activeStatus": null, "adaptiveDepth": null, "fixedDepth": null }
+    },
+    {
+      "id": "inference_holdout_training_rejection_3x2",
+      "partition": "holdout",
+      "input": {
+        "options": { "regionCount": 3, "responseCount": 2 },
+        "training": [{ "state": [0, 0], "next": [7, 0] }],
+        "holdout": [{ "state": [7, 7], "next": [0, 0] }]
+      },
+      "expected": { "status": "counterexample_found", "failureStage": "training", "initialCandidateCount": 6, "trainingCandidateCount": 0, "holdoutCandidateCount": 0, "recoveredRegion": null, "recoveredResponse": null, "activeStatus": null, "adaptiveDepth": null, "fixedDepth": null }
+    }
+  ]
+}

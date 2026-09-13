@@ -3,8 +3,8 @@
   "claim": "framework_acceptance",
   "passed": true,
   "counts": {
-    "total": 28,
-    "passed": 28,
+    "total": 31,
+    "passed": 31,
     "failed": 0
   },
   "results": [
@@ -831,7 +831,7 @@
                 "confidence": 1,
                 "candidateCount": 1,
                 "stressResidualMax": 7,
-                "elapsedMs": 0.5722
+                "elapsedMs": 0.0689
               }
             ],
             "summary": {
@@ -855,7 +855,7 @@
                 "confidence": 0.5,
                 "candidateCount": 3,
                 "stressResidualMax": 4,
-                "elapsedMs": 0.9807
+                "elapsedMs": 0.1238
               }
             ],
             "summary": {
@@ -1743,6 +1743,155 @@
           "结论不外推到未声明的分段边界、连续状态、噪声或通用动力系统"
         ]
       }
+    },
+    {
+      "name": "piecewise_inference_unique",
+      "expected": "verified_piecewise_map_inference",
+      "actual": "verified_piecewise_map_inference",
+      "passed": true,
+      "result": {
+        "domain": "blackbox_piecewise_map_inference",
+        "status": "candidate_frozen",
+        "decoder": "piecewise_map_inference",
+        "representation": "二维分段映射候选→训练筛选→留出淘汰→剩余候选条件查询",
+        "hypothesis": {
+          "family": "piecewise_origin_local_response",
+          "region": 1,
+          "response": 1,
+          "remainingCandidates": 1,
+          "activeStatus": null,
+          "adaptiveDepth": null,
+          "fixedDepth": null
+        },
+        "complexity": 8,
+        "complexityUnit": "candidate_times_observation_and_query_count",
+        "residual": 0,
+        "evidenceScope": "declared_piecewise_map_family_with_train_holdout_split",
+        "verification": "verified_piecewise_map_inference",
+        "certificateVerification": {
+          "status": "verified_piecewise_map_inference",
+          "analysisStatus": "candidate_frozen",
+          "initialCandidateCount": 4,
+          "trainingCandidateCount": 2,
+          "holdoutCandidateCount": 1,
+          "activeStatus": null
+        },
+        "analysisStatus": "candidate_frozen",
+        "failure": null,
+        "initialCandidateCount": 4,
+        "trainingCandidateCount": 2,
+        "holdoutCandidateCount": 1,
+        "activeDesign": null,
+        "limits": [
+          "区域语义、分段映射形式和候选参数边界由研究者预先声明",
+          "候选数不超过 16，查询数不超过 12",
+          "训练和留出转移各不超过 12 条，且均为无噪声二维整数转移",
+          "主动设计只在通过已观测转移的剩余有限候选上计算最坏情况深度",
+          "候选唯一只表示在声明的映射族和有限观测内冻结，不外推到未知分段边界、噪声或通用动力系统"
+        ]
+      }
+    },
+    {
+      "name": "piecewise_inference_ambiguous_active",
+      "expected": "uncertain_piecewise_map_inference",
+      "actual": "uncertain_piecewise_map_inference",
+      "passed": true,
+      "result": {
+        "domain": "blackbox_piecewise_map_inference",
+        "status": "uncertain",
+        "decoder": "piecewise_map_inference",
+        "representation": "二维分段映射候选→训练筛选→留出淘汰→剩余候选条件查询",
+        "hypothesis": {
+          "family": "piecewise_origin_local_response",
+          "region": null,
+          "response": null,
+          "remainingCandidates": 8,
+          "activeStatus": "adaptive_strict_advantage",
+          "adaptiveDepth": 2,
+          "fixedDepth": 5
+        },
+        "complexity": 56,
+        "complexityUnit": "candidate_times_observation_and_query_count",
+        "residual": null,
+        "evidenceScope": "declared_piecewise_map_family_with_train_holdout_split",
+        "verification": "uncertain_piecewise_map_inference",
+        "certificateVerification": {
+          "status": "verified_piecewise_map_inference",
+          "analysisStatus": "ambiguous_with_active_plan",
+          "initialCandidateCount": 8,
+          "trainingCandidateCount": 8,
+          "holdoutCandidateCount": 8,
+          "activeStatus": "adaptive_strict_advantage"
+        },
+        "analysisStatus": "ambiguous_with_active_plan",
+        "failure": null,
+        "initialCandidateCount": 8,
+        "trainingCandidateCount": 8,
+        "holdoutCandidateCount": 8,
+        "activeDesign": {
+          "status": "adaptive_strict_advantage",
+          "adaptiveDepth": 2,
+          "fixedDepth": 5,
+          "rootQueryId": "origin"
+        },
+        "limits": [
+          "区域语义、分段映射形式和候选参数边界由研究者预先声明",
+          "候选数不超过 16，查询数不超过 12",
+          "训练和留出转移各不超过 12 条，且均为无噪声二维整数转移",
+          "主动设计只在通过已观测转移的剩余有限候选上计算最坏情况深度",
+          "候选唯一只表示在声明的映射族和有限观测内冻结，不外推到未知分段边界、噪声或通用动力系统"
+        ]
+      }
+    },
+    {
+      "name": "piecewise_inference_counterexample",
+      "expected": "counterexample_found",
+      "actual": "counterexample_found",
+      "passed": true,
+      "result": {
+        "domain": "blackbox_piecewise_map_inference",
+        "status": "counterexample_found",
+        "decoder": "piecewise_map_inference",
+        "representation": "二维分段映射候选→训练筛选→留出淘汰→剩余候选条件查询",
+        "hypothesis": {
+          "family": "piecewise_origin_local_response",
+          "region": null,
+          "response": null,
+          "remainingCandidates": 0,
+          "activeStatus": null,
+          "adaptiveDepth": null,
+          "fixedDepth": null
+        },
+        "complexity": 8,
+        "complexityUnit": "candidate_times_observation_and_query_count",
+        "residual": 1,
+        "evidenceScope": "declared_piecewise_map_family_with_train_holdout_split",
+        "verification": "counterexample_found",
+        "certificateVerification": {
+          "status": "verified_piecewise_map_inference",
+          "analysisStatus": "counterexample_found",
+          "initialCandidateCount": 4,
+          "trainingCandidateCount": 2,
+          "holdoutCandidateCount": 0,
+          "activeStatus": null
+        },
+        "analysisStatus": "counterexample_found",
+        "failure": {
+          "stage": "holdout",
+          "reason": "training_consistent_maps_fail_holdout"
+        },
+        "initialCandidateCount": 4,
+        "trainingCandidateCount": 2,
+        "holdoutCandidateCount": 0,
+        "activeDesign": null,
+        "limits": [
+          "区域语义、分段映射形式和候选参数边界由研究者预先声明",
+          "候选数不超过 16，查询数不超过 12",
+          "训练和留出转移各不超过 12 条，且均为无噪声二维整数转移",
+          "主动设计只在通过已观测转移的剩余有限候选上计算最坏情况深度",
+          "候选唯一只表示在声明的映射族和有限观测内冻结，不外推到未知分段边界、噪声或通用动力系统"
+        ]
+      }
     }
   ],
   "extensions": {
@@ -1756,21 +1905,21 @@
       "tasks": [
         {
           "name": "arithmetic_sequence",
-          "elapsedMs": 0.3306,
+          "elapsedMs": 0.2826,
           "status": "verified_on_supplied_observations",
           "candidateCount": null,
           "error": null
         },
         {
           "name": "random_uncertainty",
-          "elapsedMs": 0.1797,
+          "elapsedMs": 0.2583,
           "status": "no_certificate",
           "candidateCount": null,
           "error": null
         },
         {
           "name": "rotation_invariant",
-          "elapsedMs": 0.5366,
+          "elapsedMs": 0.6352,
           "status": "verified_dynamics_invariants",
           "candidateCount": 1,
           "error": null
@@ -2202,6 +2351,51 @@
         },
         "translationCoverage": null,
         "evidenceScope": null
+      },
+      {
+        "index": 28,
+        "domain": "blackbox_piecewise_map_inference",
+        "status": "candidate_frozen",
+        "verification": "verified_piecewise_map_inference",
+        "verificationStrength": "verified",
+        "residual": 0,
+        "complexity": 8,
+        "readability": {
+          "human": true,
+          "machine": true
+        },
+        "translationCoverage": null,
+        "evidenceScope": "declared_piecewise_map_family_with_train_holdout_split"
+      },
+      {
+        "index": 29,
+        "domain": "blackbox_piecewise_map_inference",
+        "status": "uncertain",
+        "verification": "uncertain_piecewise_map_inference",
+        "verificationStrength": "unknown",
+        "residual": null,
+        "complexity": 56,
+        "readability": {
+          "human": true,
+          "machine": true
+        },
+        "translationCoverage": null,
+        "evidenceScope": "declared_piecewise_map_family_with_train_holdout_split"
+      },
+      {
+        "index": 30,
+        "domain": "blackbox_piecewise_map_inference",
+        "status": "counterexample_found",
+        "verification": "counterexample_found",
+        "verificationStrength": "refuted",
+        "residual": 1,
+        "complexity": 8,
+        "readability": {
+          "human": true,
+          "machine": true
+        },
+        "translationCoverage": null,
+        "evidenceScope": "declared_piecewise_map_family_with_train_holdout_split"
       }
     ],
     "summary": [
@@ -2402,6 +2596,16 @@
         "refuted": 0,
         "unknown": 0,
         "verificationRate": 1,
+        "humanReadableRate": 1,
+        "machineReadableRate": 1
+      },
+      {
+        "domain": "blackbox_piecewise_map_inference",
+        "total": 3,
+        "verified": 1,
+        "refuted": 1,
+        "unknown": 1,
+        "verificationRate": 0.3333333333333333,
         "humanReadableRate": 1,
         "machineReadableRate": 1
       }

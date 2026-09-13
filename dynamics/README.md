@@ -8,4 +8,6 @@
 
 `piecewise_map_family.js` 进一步把候选表示为二维分段整数映射：原点区域编码运行区间，匹配的局部区域编码响应，其余状态落入背景区域。查询设计引擎只接收映射求值后的转移，v3.5 基准用于检验该表示是否保留反馈优势。
 
+`piecewise_map_inference.js` 在该映射族上枚举候选参数，从训练状态转移筛选，再用留出转移淘汰错误候选；若仍有歧义，则把剩余候选交给条件查询设计。它明确区分唯一恢复、可主动消歧和训练/留出冲突。
+
 根目录的 `dynamics_invariant.js`、`dynamics_invariant_verifier.js` 和 `decoder_blackbox_dynamics.js` 是此目录模块依赖的稳定基础。`dynamics_composed_search.js` 是负对照。

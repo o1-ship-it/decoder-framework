@@ -39,6 +39,9 @@ function run() {
     { name: "parametric_branching_control", input: { domain: "blackbox_parametric_query_design", options: { branchCount: 4, variantCount: 1 } }, expect: "verified_parametric_branching_query_family" },
     { name: "piecewise_map_holdout", input: { domain: "blackbox_piecewise_map_query_design", options: { regionCount: 4, responseCount: 2 } }, expect: "verified_piecewise_map_query_family" },
     { name: "piecewise_map_control", input: { domain: "blackbox_piecewise_map_query_design", options: { regionCount: 4, responseCount: 1 } }, expect: "verified_piecewise_map_query_family" },
+    { name: "piecewise_inference_unique", input: { domain: "blackbox_piecewise_map_inference", options: { regionCount: 2, responseCount: 2 }, training: [{ state: [0, 0], next: [1, 0] }], holdout: [{ state: [1, 1], next: [1, 0] }] }, expect: "verified_piecewise_map_inference" },
+    { name: "piecewise_inference_ambiguous_active", input: { domain: "blackbox_piecewise_map_inference", options: { regionCount: 4, responseCount: 2 }, training: [{ state: [8, 8], next: [0, 0] }], holdout: [{ state: [-4, 9], next: [0, 0] }] }, expect: "uncertain_piecewise_map_inference" },
+    { name: "piecewise_inference_counterexample", input: { domain: "blackbox_piecewise_map_inference", options: { regionCount: 2, responseCount: 2 }, training: [{ state: [0, 0], next: [1, 0] }], holdout: [{ state: [1, 1], next: [7, 0] }] }, expect: "counterexample_found" },
   ];
   const results = inputs.map(item => { const result = protocol.decode(item.input); return { name: item.name, expected: item.expect, actual: result.verification, passed: result.verification === item.expect, result }; });
   const condition = conditionExperiment.main();

@@ -57,5 +57,12 @@ assert.equal(piecewiseResult.hypothesis.fixedDepth, 5);
 const piecewiseControl = protocol.decode({ domain: "blackbox_piecewise_map_query_design", options: { regionCount: 4, responseCount: 1 } });
 assert.equal(piecewiseControl.analysisStatus, "no_adaptive_advantage");
 
+const piecewiseInference = protocol.decode({ domain: "blackbox_piecewise_map_inference", options: { regionCount: 2, responseCount: 2 }, training: [{ state: [0, 0], next: [1, 0] }], holdout: [{ state: [1, 1], next: [1, 0] }] });
+assert.equal(piecewiseInference.verification, "verified_piecewise_map_inference");
+assert.equal(piecewiseInference.hypothesis.region, 1);
+assert.equal(piecewiseInference.hypothesis.response, 1);
+const piecewiseInferenceCounterexample = protocol.decode({ domain: "blackbox_piecewise_map_inference", options: { regionCount: 2, responseCount: 2 }, training: [{ state: [0, 0], next: [1, 0] }], holdout: [{ state: [1, 1], next: [7, 0] }] });
+assert.equal(piecewiseInferenceCounterexample.verification, "counterexample_found");
+
 assert.throws(() => protocol.decode({ domain: "unknown" }), /domain/);
 console.log("decoder_protocol_test: passed");

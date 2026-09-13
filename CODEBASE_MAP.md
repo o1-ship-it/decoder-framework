@@ -17,6 +17,7 @@
 - `dynamics/branching_query_design.js`：精确比较有限黑箱候选族的自适应条件决策树和最优固定查询集合；
 - `dynamics/parametric_branching_family.js`：参数化运行区间—局部响应黑箱族及其公式—穷举交叉验证；
 - `dynamics/piecewise_map_family.js`：二维分段整数映射、区域求值和条件查询设计交叉验证；
+- `dynamics/piecewise_map_inference.js`：从训练/留出状态转移恢复分段映射参数，并连接条件查询设计；
 - `dynamics_composed_search.js`：坐标变换负对照，不是当前能力主张。
 
 ## 证据与发布
@@ -27,6 +28,7 @@
 - `benchmark_v3_3*`：v3.3 分支查询优势与无优势对照基准；
 - `benchmark_v3_4*`：v3.4 参数化族的校准/参数留出比较基准；
 - `benchmark_v3_5*`：v3.5 分段映射族的校准/映射参数留出比较基准；
+- `benchmark_v3_6*`：v3.6 分段映射参数恢复、留出淘汰和主动查询基准；
 - `decoder_acceptance.js`：统一端到端验收；
 - `decoder_audit.js`：结果分类和汇总审计；
 - `decoder_manifest.js`：支持根目录和子目录路径的完整性清单。

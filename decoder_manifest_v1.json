@@ -8,19 +8,19 @@
     },
     {
       "path": "PROJECT_CONTEXT.md",
-      "sha256": "fe7089ae75572a7cfef42d223f50b523a7d82ba2e657ac3278176b807c23eedb"
+      "sha256": "d9c40693396b9e64e08f9b40319bc5ec637fa60136ccca0f547164f105b8a696"
     },
     {
       "path": "CODEBASE_MAP.md",
-      "sha256": "86ce7bade5034cb488d35071751d5c78212f5868f351247e36ac7e778c21f71b"
+      "sha256": "0d73dba2b171b429c90c66abf0389f2f17a74712a82d015742439bc13ddad9e6"
     },
     {
       "path": "decoder_v1.js",
-      "sha256": "4a38912cc93fe67e968e309315527db29add6b865e4b655aba743120be50d963"
+      "sha256": "54f745cb1f70e35590a76698cb6af2713cd23807fbfa2405e8771240f97dd104"
     },
     {
       "path": "decoder_protocol.js",
-      "sha256": "539ef557d215cbb7fa4d3a1d58f2300f9ec173f37c070baef21f2d56b6725e67"
+      "sha256": "00972ba52089f2ee02b82614884be63b9b193a0bf4658d6d3e5d1a74e5508951"
     },
     {
       "path": "decoder_report.js",
@@ -104,11 +104,11 @@
     },
     {
       "path": "dynamics/README.md",
-      "sha256": "a865987ad3dbc777f6c29da49740b7a160ffcbde690fa6ea85b7b116b9ec7c37"
+      "sha256": "d47a72c327726399662aa0baaaa9325ccb5ec22abe77b2e634492fc885123999"
     },
     {
       "path": "docs/README.md",
-      "sha256": "497bc97d28884c6c7b1cec5640aeecc52b0c47cfbf360d28a46201cda64ab4c6"
+      "sha256": "b139e6718ef9f92cf0a7220017ede283d1f632706f533821b54e0140294fa76f"
     },
     {
       "path": "docs/HISTORY.md",
@@ -199,8 +199,28 @@
       "sha256": "512de45d375c6f950833274ed519aaf0d5fa2798209f3aa790f7d8009d15908f"
     },
     {
+      "path": "dynamics/piecewise_map_inference.js",
+      "sha256": "f874c517012ca680684ec26ec7de77c7877774d0ac99b6d1687f0ab2d657ccb0"
+    },
+    {
+      "path": "benchmark_v3_6.json",
+      "sha256": "ba489024167e0239c67328d3706caa8d991871d168ac037819e9e8ac5ced5352"
+    },
+    {
+      "path": "benchmark_v3_6_results.json",
+      "sha256": "a8acb01629981b993fc8b87cc8dd3040d80ad21f637f35f7082a27f0f38de8ba"
+    },
+    {
+      "path": "RELEASE_NOTES_v3_6.md",
+      "sha256": "cb6e655162668c118fb36617047d12cd1911dac994a1c12e4f4df4c764408a1b"
+    },
+    {
+      "path": "RESEARCH_REFLECTION_v3_6.md",
+      "sha256": "b7571d83f323c21c6e1d41e6a6d18b872bb23127731318282beb3b6763a281fe"
+    },
+    {
       "path": "decoder_acceptance_v1.json",
-      "sha256": "e272520bf72d9aa66c0913cb00b5fa314d691b14e730a990152f8d8a85f0fa65"
+      "sha256": "0aae1d2c225dd8305084be32d407bd6fe84884683e9301aee94feefbe1357ec5"
     },
     {
       "path": "benchmark_v1_2_results.json",

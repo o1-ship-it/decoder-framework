@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "claim": "decoder_audit",
   "passed": true,
-  "checked": 28,
+  "checked": 31,
   "violations": [],
   "rule": "unknown 不计入 verified；refuted 必须保留反例残差"
 }

@@ -36,6 +36,7 @@ const blackboxActiveDesign = require("./dynamics/blackbox_active_design.js");
 const branchingQueryDesign = require("./dynamics/branching_query_design.js");
 const parametricBranchingFamily = require("./dynamics/parametric_branching_family.js");
 const piecewiseMapFamily = require("./dynamics/piecewise_map_family.js");
+const piecewiseMapInference = require("./dynamics/piecewise_map_inference.js");
 
 function sequenceCase(development, holdout) {
   if (!Array.isArray(holdout) || holdout.length === 0) throw new TypeError("序列验证需要非空留出数据");
@@ -298,6 +299,44 @@ function piecewiseMapQueryCase(input) {
     limits: result.limits,
   };
 }
+function piecewiseMapInferenceCase(input) {
+  const certificate = piecewiseMapInference.makeCertificate({ options: input.options || {}, training: input.training, holdout: input.holdout });
+  const certificateVerification = piecewiseMapInference.verifyCertificate(certificate);
+  const result = certificate.result;
+  const certificateValid = certificateVerification.status === "verified_piecewise_map_inference";
+  const frozen = certificateValid && result.status === "candidate_frozen";
+  const counterexample = certificateValid && result.status === "counterexample_found";
+  const recovery = result.stages.holdout;
+  const active = result.activeDesign;
+  return {
+    domain: "blackbox_piecewise_map_inference",
+    status: frozen ? "candidate_frozen" : counterexample ? "counterexample_found" : "uncertain",
+    decoder: "piecewise_map_inference",
+    representation: "二维分段映射候选→训练筛选→留出淘汰→剩余候选条件查询",
+    hypothesis: {
+      family: result.family,
+      region: recovery.region,
+      response: recovery.response,
+      remainingCandidates: recovery.candidateCount,
+      activeStatus: active?.status || null,
+      adaptiveDepth: active?.adaptive.depth ?? null,
+      fixedDepth: active?.fixed.depth ?? null,
+    },
+    complexity: result.initialCandidateCount * (result.input.training.length + result.input.holdout.length + (active?.queryCount || 0)),
+    complexityUnit: "candidate_times_observation_and_query_count",
+    residual: frozen ? 0 : counterexample ? 1 : null,
+    evidenceScope: "declared_piecewise_map_family_with_train_holdout_split",
+    verification: frozen ? "verified_piecewise_map_inference" : counterexample ? "counterexample_found" : "uncertain_piecewise_map_inference",
+    certificateVerification,
+    analysisStatus: result.status,
+    failure: result.failure || null,
+    initialCandidateCount: result.initialCandidateCount,
+    trainingCandidateCount: result.stages.training.candidateCount,
+    holdoutCandidateCount: recovery.candidateCount,
+    activeDesign: active ? { status: active.status, adaptiveDepth: active.adaptive.depth, fixedDepth: active.fixed.depth, rootQueryId: active.adaptive.query?.id || null } : null,
+    limits: result.limits,
+  };
+}
 
 function generatedSequenceCase(input) {
   const searchResult = adaptiveSearch.adaptiveSynthesize(input.sequence, { splitSizes: input.splitSizes || [8, 10, 12], maxOrder: input.maxOrder || 2 });
@@ -350,7 +389,8 @@ function decode(input) {
   if (input?.domain === "blackbox_branching_query_design") return branchingQueryDesignCase(input);
   if (input?.domain === "blackbox_parametric_query_design") return parametricBranchingQueryCase(input);
   if (input?.domain === "blackbox_piecewise_map_query_design") return piecewiseMapQueryCase(input);
+  if (input?.domain === "blackbox_piecewise_map_inference") return piecewiseMapInferenceCase(input);
   throw new TypeError("协议输入必须声明受支持的 domain");
 }
 
-module.exports = { decode, sequenceCase, graphCase, equationCase, equationSystemCase, dynamicsCase, parameterizedDynamicsCase, noisySequenceCase, multivariateConditionCase, machineRepresentationCase, machineDecoderSearchCase, hiddenStructureCase, hiddenCompetitionCase, capabilityMatrixCase, identifiabilityCase, activeDesignCase, noisyActiveDesignCase, observationalEquivalenceCase, composedDynamicsCase, blackboxDynamicsCase, blackboxActiveDesignCase, branchingQueryDesignCase, parametricBranchingQueryCase, piecewiseMapQueryCase };
+module.exports = { decode, sequenceCase, graphCase, equationCase, equationSystemCase, dynamicsCase, parameterizedDynamicsCase, noisySequenceCase, multivariateConditionCase, machineRepresentationCase, machineDecoderSearchCase, hiddenStructureCase, hiddenCompetitionCase, capabilityMatrixCase, identifiabilityCase, activeDesignCase, noisyActiveDesignCase, observationalEquivalenceCase, composedDynamicsCase, blackboxDynamicsCase, blackboxActiveDesignCase, branchingQueryDesignCase, parametricBranchingQueryCase, piecewiseMapQueryCase, piecewiseMapInferenceCase };
