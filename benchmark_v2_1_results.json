@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "claim": "decoder_benchmark_run",
+  "benchmarkVersion": "2.1",
+  "seed": 20260913,
+  "results": [
+    {
+      "id": "frontier_ambiguous_v21",
+      "expected": "ambiguous_within_horizon",
+      "actual": "ambiguous_within_horizon",
+      "recommendedAdditionalObservations": 1
+    },
+    {
+      "id": "frontier_unique_v21",
+      "expected": "identified_hidden_structure",
+      "actual": "identified_hidden_structure",
+      "recommendedAdditionalObservations": null
+    }
+  ]
+}

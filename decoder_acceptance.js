@@ -26,6 +26,7 @@ function run() {
     { name: "hidden_competition_unique", input: { domain: "hidden_sequence_competition", development: [3, 16, 13, 15, 8, 7, 2, 11], holdout: [5, 9], stress: [12, 10], options: { maxModulus: 20 } }, expect: "verified_unique_hidden_structure" },
     { name: "hidden_competition_ambiguous", input: { domain: "hidden_sequence_competition", development: [1, 3, 5, 7, 9, 11, 13], holdout: [15, 17], stress: [19, 21], options: { maxModulus: 24 } }, expect: "ambiguous_hidden_structure" },
     { name: "capability_matrix", input: { domain: "capability_matrix", tasks: [{ id: "accept_modular", partition: "calibration", train: [3, 16, 13, 15, 8, 7, 2, 11], test: [5, 9], stress: [12, 10], options: { maxModulus: 20 } }, { id: "accept_ambiguous", partition: "test", train: [1, 3, 5, 7, 9, 11, 13], test: [15, 17], stress: [19, 21], options: { maxModulus: 24 } }] }, expect: "verified_capability_matrix" },
+    { name: "identifiability_frontier", input: { domain: "hidden_identifiability", development: [1, 3, 5, 7, 9, 11, 13], holdout: [15, 17], options: { maxModulus: 24, horizon: 16 } }, expect: "ambiguous_within_horizon" },
   ];
   const results = inputs.map(item => { const result = protocol.decode(item.input); return { name: item.name, expected: item.expect, actual: result.verification, passed: result.verification === item.expect, result }; });
   const condition = conditionExperiment.main();

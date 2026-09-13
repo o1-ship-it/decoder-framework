@@ -3,8 +3,8 @@
   "claim": "framework_acceptance",
   "passed": true,
   "counts": {
-    "total": 15,
-    "passed": 15,
+    "total": 16,
+    "passed": 16,
     "failed": 0
   },
   "results": [
@@ -831,7 +831,7 @@
                 "confidence": 1,
                 "candidateCount": 1,
                 "stressResidualMax": 7,
-                "elapsedMs": 0.4665
+                "elapsedMs": 0.4709
               }
             ],
             "summary": {
@@ -855,7 +855,7 @@
                 "confidence": 0.5,
                 "candidateCount": 3,
                 "stressResidualMax": 4,
-                "elapsedMs": 0.9847
+                "elapsedMs": 0.9291
               }
             ],
             "summary": {
@@ -885,6 +885,36 @@
           "test 任务未用于候选选择"
         ]
       }
+    },
+    {
+      "name": "identifiability_frontier",
+      "expected": "ambiguous_within_horizon",
+      "actual": "ambiguous_within_horizon",
+      "passed": true,
+      "result": {
+        "domain": "hidden_identifiability",
+        "status": "uncertain",
+        "decoder": "hidden_identifiability_frontier",
+        "representation": "候选机制分歧前沿",
+        "hypothesis": {
+          "horizon": 1,
+          "absoluteIndex": 10,
+          "left": "modular_affine",
+          "right": "affine",
+          "leftValue": 1,
+          "rightValue": 19
+        },
+        "complexity": 3,
+        "complexityUnit": "surviving_candidate_count",
+        "residual": null,
+        "verification": "ambiguous_within_horizon",
+        "recommendedAdditionalObservations": 1,
+        "limits": [
+          "只比较当前显式候选族",
+          "向前搜索16个观测",
+          "可识别性结论不排除候选空间外的其他机制"
+        ]
+      }
     }
   ],
   "extensions": {
@@ -898,21 +928,21 @@
       "tasks": [
         {
           "name": "arithmetic_sequence",
-          "elapsedMs": 0.3706,
+          "elapsedMs": 0.3142,
           "status": "verified_on_supplied_observations",
           "candidateCount": null,
           "error": null
         },
         {
           "name": "random_uncertainty",
-          "elapsedMs": 0.2008,
+          "elapsedMs": 0.2824,
           "status": "no_certificate",
           "candidateCount": null,
           "error": null
         },
         {
           "name": "rotation_invariant",
-          "elapsedMs": 0.6961,
+          "elapsedMs": 0.5672,
           "status": "verified_dynamics_invariants",
           "candidateCount": 1,
           "error": null
@@ -1149,6 +1179,21 @@
         },
         "translationCoverage": null,
         "evidenceScope": null
+      },
+      {
+        "index": 15,
+        "domain": "hidden_identifiability",
+        "status": "uncertain",
+        "verification": "ambiguous_within_horizon",
+        "verificationStrength": "candidate",
+        "residual": null,
+        "complexity": 3,
+        "readability": {
+          "human": true,
+          "machine": true
+        },
+        "translationCoverage": null,
+        "evidenceScope": null
       }
     ],
     "summary": [
@@ -1259,6 +1304,16 @@
         "refuted": 0,
         "unknown": 0,
         "verificationRate": 1,
+        "humanReadableRate": 1,
+        "machineReadableRate": 1
+      },
+      {
+        "domain": "hidden_identifiability",
+        "total": 1,
+        "verified": 0,
+        "refuted": 0,
+        "unknown": 1,
+        "verificationRate": 0,
         "humanReadableRate": 1,
         "machineReadableRate": 1
       }

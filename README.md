@@ -101,8 +101,10 @@ v1.5 发布说明见 [RELEASE_NOTES_v1_5.md](RELEASE_NOTES_v1_5.md)。
 v1.6 发布说明见 [RELEASE_NOTES_v1_6.md](RELEASE_NOTES_v1_6.md)。
 v1.7 发布说明见 [RELEASE_NOTES_v1_7.md](RELEASE_NOTES_v1_7.md)。
 v2.0 发布说明见 [RELEASE_NOTES_v2_0.md](RELEASE_NOTES_v2_0.md)。
+v2.1 发布说明见 [RELEASE_NOTES_v2_1.md](RELEASE_NOTES_v2_1.md)。
 
 运行 `npm run benchmark:v1.6` 可复现隐藏结构发现基准。搜索范围内没有稳定候选时返回 `uncertain_hidden_structure`，不把有限样本拟合误报为定理。
 运行 `npm run benchmark:v1.7` 可复现多机制竞争基准。多个候选精确通过时返回 `ambiguous_hidden_structure`，避免把模型选择偏好误写成唯一解释。
 运行 `npm run benchmark:v2.0` 可复现能力矩阵。校准任务与测试任务分离，并报告覆盖率、选择性风险、标签准确率和 Brier 分数。
+运行 `npm run benchmark:v2.1` 可复现可识别性前沿实验，报告候选机制最早分歧位置和建议新增观测数。
 dynamics_condition_multivariate 支持多参数一次条件推导与秩不足拒答。

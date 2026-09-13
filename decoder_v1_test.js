@@ -32,6 +32,8 @@ const hidden = v1.decodeObject({ domain: "hidden_sequence", development: [3, 16,
 assert.equal(hidden.verification, "verified_hidden_structure");
 const competed = v1.decodeObject({ domain: "hidden_sequence_competition", development: [3, 16, 13, 15, 8, 7, 2, 11], holdout: [5, 9], options: { maxModulus: 20 } });
 assert.equal(competed.verification, "verified_unique_hidden_structure");
+const frontier = v1.decodeObject({ domain: "hidden_identifiability", development: [1, 3, 5, 7, 9, 11, 13], holdout: [15, 17], options: { maxModulus: 24, horizon: 16 } });
+assert.equal(frontier.verification, "ambiguous_within_horizon");
 
 const batch = v1.decodeBatch([
   { domain: "graph", graph: graph.cycle(6) },
