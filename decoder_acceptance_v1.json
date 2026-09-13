@@ -831,7 +831,7 @@
                 "confidence": 1,
                 "candidateCount": 1,
                 "stressResidualMax": 7,
-                "elapsedMs": 0.6549
+                "elapsedMs": 0.5571
               }
             ],
             "summary": {
@@ -855,7 +855,7 @@
                 "confidence": 0.5,
                 "candidateCount": 3,
                 "stressResidualMax": 4,
-                "elapsedMs": 1.1328
+                "elapsedMs": 0.9912
               }
             ],
             "summary": {
@@ -1544,21 +1544,21 @@
       "tasks": [
         {
           "name": "arithmetic_sequence",
-          "elapsedMs": 0.2909,
+          "elapsedMs": 0.3059,
           "status": "verified_on_supplied_observations",
           "candidateCount": null,
           "error": null
         },
         {
           "name": "random_uncertainty",
-          "elapsedMs": 0.1616,
+          "elapsedMs": 0.1641,
           "status": "no_certificate",
           "candidateCount": null,
           "error": null
         },
         {
           "name": "rotation_invariant",
-          "elapsedMs": 0.4752,
+          "elapsedMs": 0.4182,
           "status": "verified_dynamics_invariants",
           "candidateCount": 1,
           "error": null

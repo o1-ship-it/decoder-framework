@@ -4,11 +4,11 @@
 当前工作摘要见 [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md)，代码地图见 [CODEBASE_MAP.md](CODEBASE_MAP.md)。
 项目北极星目标见 [PROJECT_NORTH_STAR.md](PROJECT_NORTH_STAR.md)。
 v3 研究策略见 [RESEARCH_STRATEGY_v3.md](RESEARCH_STRATEGY_v3.md)。
-项目阶段性审视见 [PROJECT_REVIEW_v1_7.md](PROJECT_REVIEW_v1_7.md)。
+历史材料索引见 [docs/HISTORY.md](docs/HISTORY.md)。
 最新研究反思见 [RESEARCH_REFLECTION_v3_1.md](RESEARCH_REFLECTION_v3_1.md)。
 v3.0 研究反思见 [RESEARCH_REFLECTION_v3_0.md](RESEARCH_REFLECTION_v3_0.md)。
 历史研究反思保留在 `RESEARCH_REFLECTION_v2_*.md`。
-第一版发布说明见 [RELEASE_NOTES_v1.md](RELEASE_NOTES_v1.md)。
+旧版本发布说明保留在根目录，当前版本见 [RELEASE_NOTES_v3_1.md](RELEASE_NOTES_v3_1.md)。
 升级路线见 [RESEARCH_ROADMAP.md](RESEARCH_ROADMAP.md)。
 
 这是一个把“表示—推理—反馈—验证”落实为实验系统的最小版本。

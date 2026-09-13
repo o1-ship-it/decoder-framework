@@ -12,7 +12,7 @@
     },
     {
       "path": "CODEBASE_MAP.md",
-      "sha256": "24b900f10ef9ebce8c495ab665ba15b0979f95c683fe95ffa43021ff65646a1b"
+      "sha256": "00e0cd117decdc8b7dec927819e55142cadc0f8d02ade6c1e454cdea3dcb400c"
     },
     {
       "path": "decoder_v1.js",
@@ -108,11 +108,15 @@
     },
     {
       "path": "docs/README.md",
-      "sha256": "035d204480d2fb6c2d5ae805f5e6b3a721019781221f59078f13e17fecb572bc"
+      "sha256": "30c5ea00c206b21e4513d47c2bfcf2f874288bbbd31052090ba97821b744576c"
+    },
+    {
+      "path": "docs/HISTORY.md",
+      "sha256": "4daa1fc70841985f62fdb2f246d6378e065326471b3ee69e35253f74bfd93c0e"
     },
     {
       "path": "decoder_acceptance_v1.json",
-      "sha256": "e8f5c920a76c1bd7e32afce959acab3e49ece776696ff1bd92edde6417760291"
+      "sha256": "a6f1bb502f9c69c643dde3ac24e08cef6fb0fc17f7836e1a8a02bc102315ee81"
     },
     {
       "path": "benchmark_v1_2_results.json",

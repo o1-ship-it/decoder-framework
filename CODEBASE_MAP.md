@@ -23,6 +23,13 @@
 - `decoder_audit.js`：结果分类和汇总审计；
 - `decoder_manifest.js`：支持根目录和子目录路径的完整性清单。
 
+## 文档与上下文
+
+- `PROJECT_CONTEXT.md`：短上下文，优先读取；
+- `CODEBASE_MAP.md`：本文件，按模块定位代码；
+- `docs/README.md`：文档入口；
+- `docs/HISTORY.md`：历史材料说明。
+
 ## 旧模块
 
 数列、图、方程、多项式、参数族和 v1/v2 benchmark 继续作为基线、消融和迁移测试。它们不属于 v3.1 的新功能面。
