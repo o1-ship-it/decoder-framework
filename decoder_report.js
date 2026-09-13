@@ -1,7 +1,7 @@
 // Uniform, non-pooled reporting for heterogeneous decoder results.
 
 function verificationStrength(result) {
-  if (!result || result.verification === "no_certificate" || result.verification === "no_nontrivial_invariant" || String(result.verification).startsWith("uncertain")) return "unknown";
+  if (!result || result.verification === "no_certificate" || result.verification === "no_nontrivial_invariant" || result.verification === "ambiguous_hidden_structure" || String(result.verification).startsWith("uncertain")) return "unknown";
   if (result.verification === "counterexample_found" || result.residual > 0) return "refuted";
   if (String(result.verification).startsWith("verified")) return "verified";
   return "candidate";

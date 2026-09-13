@@ -30,6 +30,8 @@ const machineSearch = v1.decodeObject({ domain: "machine_decoder_search", exampl
 assert.equal(machineSearch.verification, "verified_machine_decoder");
 const hidden = v1.decodeObject({ domain: "hidden_sequence", development: [3, 16, 13, 15, 8, 7, 2, 11], holdout: [5, 9], options: { maxModulus: 20 } });
 assert.equal(hidden.verification, "verified_hidden_structure");
+const competed = v1.decodeObject({ domain: "hidden_sequence_competition", development: [3, 16, 13, 15, 8, 7, 2, 11], holdout: [5, 9], options: { maxModulus: 20 } });
+assert.equal(competed.verification, "verified_unique_hidden_structure");
 
 const batch = v1.decodeBatch([
   { domain: "graph", graph: graph.cycle(6) },

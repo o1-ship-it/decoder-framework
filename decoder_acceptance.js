@@ -23,6 +23,8 @@ function run() {
     { name: "machine_representation", input: { domain: "machine_representation", graph: { n: 3, edges: [[0, 1], [1, 2], [0, 2]] } }, expect: "verified_machine_representation" },
     { name: "machine_decoder_search", input: { domain: "machine_decoder_search", examples: [{ graph: { n: 3, edges: [[0, 1], [1, 2], [2, 0]] }, label: "cycle" }, { graph: { n: 4, edges: [[0, 1], [1, 2], [2, 3], [3, 0]] }, label: "cycle" }], holdout: [{ graph: { n: 5, edges: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0]] }, label: "cycle" }] }, expect: "verified_machine_decoder" },
     { name: "hidden_modular_affine", input: { domain: "hidden_sequence", development: [3, 16, 13, 15, 8, 7, 2, 11], holdout: [5, 9], options: { maxModulus: 20 } }, expect: "verified_hidden_structure" },
+    { name: "hidden_competition_unique", input: { domain: "hidden_sequence_competition", development: [3, 16, 13, 15, 8, 7, 2, 11], holdout: [5, 9], stress: [12, 10], options: { maxModulus: 20 } }, expect: "verified_unique_hidden_structure" },
+    { name: "hidden_competition_ambiguous", input: { domain: "hidden_sequence_competition", development: [1, 3, 5, 7, 9, 11, 13], holdout: [15, 17], stress: [19, 21], options: { maxModulus: 24 } }, expect: "ambiguous_hidden_structure" },
   ];
   const results = inputs.map(item => { const result = protocol.decode(item.input); return { name: item.name, expected: item.expect, actual: result.verification, passed: result.verification === item.expect, result }; });
   const condition = conditionExperiment.main();

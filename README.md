@@ -1,6 +1,7 @@
 # Decoder Framework v1.0
 
 项目状态与路线见 [PROJECT_STATUS.md](PROJECT_STATUS.md)。
+项目阶段性审视见 [PROJECT_REVIEW_v1_7.md](PROJECT_REVIEW_v1_7.md)。
 第一版发布说明见 [RELEASE_NOTES_v1.md](RELEASE_NOTES_v1.md)。
 升级路线见 [RESEARCH_ROADMAP.md](RESEARCH_ROADMAP.md)。
 
@@ -98,6 +99,8 @@ v1.3 发布说明见 [RELEASE_NOTES_v1_3.md](RELEASE_NOTES_v1_3.md)。
 v1.4 发布说明见 [RELEASE_NOTES_v1_4.md](RELEASE_NOTES_v1_4.md)。
 v1.5 发布说明见 [RELEASE_NOTES_v1_5.md](RELEASE_NOTES_v1_5.md)。
 v1.6 发布说明见 [RELEASE_NOTES_v1_6.md](RELEASE_NOTES_v1_6.md)。
+v1.7 发布说明见 [RELEASE_NOTES_v1_7.md](RELEASE_NOTES_v1_7.md)。
 
 运行 `npm run benchmark:v1.6` 可复现隐藏结构发现基准。搜索范围内没有稳定候选时返回 `uncertain_hidden_structure`，不把有限样本拟合误报为定理。
+运行 `npm run benchmark:v1.7` 可复现多机制竞争基准。多个候选精确通过时返回 `ambiguous_hidden_structure`，避免把模型选择偏好误写成唯一解释。
 dynamics_condition_multivariate 支持多参数一次条件推导与秩不足拒答。

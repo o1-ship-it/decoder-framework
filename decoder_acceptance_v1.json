@@ -3,8 +3,8 @@
   "claim": "framework_acceptance",
   "passed": true,
   "counts": {
-    "total": 12,
-    "passed": 12,
+    "total": 14,
+    "passed": 14,
     "failed": 0
   },
   "results": [
@@ -594,6 +594,218 @@
           "有限参数搜索不代表不存在其他生成机制"
         ]
       }
+    },
+    {
+      "name": "hidden_competition_unique",
+      "expected": "verified_unique_hidden_structure",
+      "actual": "verified_unique_hidden_structure",
+      "passed": true,
+      "result": {
+        "domain": "hidden_sequence_competition",
+        "status": "candidate_frozen",
+        "decoder": "hidden_structure_competition",
+        "representation": "多机制候选竞争",
+        "hypothesis": [
+          {
+            "family": "modular_affine",
+            "model": {
+              "modulus": 17,
+              "multiplier": 5,
+              "offset": 1,
+              "forecast": [
+                5,
+                9
+              ],
+              "holdoutResidualMax": 0
+            },
+            "complexity": 3,
+            "fitsDevelopment": true,
+            "holdoutForecast": [
+              5,
+              9
+            ],
+            "holdoutResidualMax": 0,
+            "stressForecast": [
+              5,
+              9
+            ],
+            "stressResidualMax": 7,
+            "exactHoldout": true,
+            "candidateCount": 1
+          }
+        ],
+        "complexity": 3,
+        "complexityUnit": "candidate_complexity_proxy",
+        "residual": 0,
+        "verification": "verified_unique_hidden_structure",
+        "candidateCount": 1,
+        "candidates": [
+          {
+            "family": "modular_affine",
+            "model": {
+              "modulus": 17,
+              "multiplier": 5,
+              "offset": 1,
+              "forecast": [
+                5,
+                9
+              ],
+              "holdoutResidualMax": 0
+            },
+            "complexity": 3,
+            "fitsDevelopment": true,
+            "holdoutForecast": [
+              5,
+              9
+            ],
+            "holdoutResidualMax": 0,
+            "stressForecast": [
+              5,
+              9
+            ],
+            "stressResidualMax": 7,
+            "exactHoldout": true,
+            "candidateCount": 1
+          },
+          {
+            "family": "arithmetic",
+            "model": {
+              "difference": 13
+            },
+            "complexity": 1,
+            "fitsDevelopment": false,
+            "holdoutForecast": [
+              24,
+              37
+            ],
+            "holdoutResidualMax": 28,
+            "stressForecast": [
+              24,
+              37
+            ],
+            "stressResidualMax": 27,
+            "exactHoldout": false
+          }
+        ],
+        "limits": [
+          "周期4以内",
+          "仿射系数±8",
+          "模数范围由 options 控制",
+          "有限候选族与有限留出数据不构成唯一生成定理"
+        ]
+      }
+    },
+    {
+      "name": "hidden_competition_ambiguous",
+      "expected": "ambiguous_hidden_structure",
+      "actual": "ambiguous_hidden_structure",
+      "passed": true,
+      "result": {
+        "domain": "hidden_sequence_competition",
+        "status": "uncertain",
+        "decoder": "hidden_structure_competition",
+        "representation": "多机制候选竞争",
+        "hypothesis": [
+          {
+            "family": "arithmetic",
+            "model": {
+              "difference": 2
+            },
+            "complexity": 1,
+            "fitsDevelopment": true,
+            "holdoutForecast": [
+              15,
+              17
+            ],
+            "holdoutResidualMax": 0,
+            "stressForecast": [
+              15,
+              17
+            ],
+            "stressResidualMax": 4,
+            "exactHoldout": true
+          }
+        ],
+        "complexity": 1,
+        "complexityUnit": "candidate_complexity_proxy",
+        "residual": null,
+        "verification": "ambiguous_hidden_structure",
+        "candidateCount": 3,
+        "candidates": [
+          {
+            "family": "arithmetic",
+            "model": {
+              "difference": 2
+            },
+            "complexity": 1,
+            "fitsDevelopment": true,
+            "holdoutForecast": [
+              15,
+              17
+            ],
+            "holdoutResidualMax": 0,
+            "stressForecast": [
+              15,
+              17
+            ],
+            "stressResidualMax": 4,
+            "exactHoldout": true
+          },
+          {
+            "family": "modular_affine",
+            "model": {
+              "modulus": 18,
+              "multiplier": 1,
+              "offset": 2,
+              "forecast": [
+                15,
+                17
+              ],
+              "holdoutResidualMax": 0
+            },
+            "complexity": 3,
+            "fitsDevelopment": true,
+            "holdoutForecast": [
+              15,
+              17
+            ],
+            "holdoutResidualMax": 0,
+            "stressForecast": [
+              15,
+              17
+            ],
+            "stressResidualMax": 4,
+            "exactHoldout": true,
+            "candidateCount": 17
+          },
+          {
+            "family": "affine",
+            "model": {
+              "multiplier": 1,
+              "offset": 2
+            },
+            "complexity": 5,
+            "fitsDevelopment": true,
+            "holdoutForecast": [
+              15,
+              17
+            ],
+            "holdoutResidualMax": 0,
+            "stressForecast": [
+              15,
+              17
+            ],
+            "stressResidualMax": 4,
+            "exactHoldout": true
+          }
+        ],
+        "limits": [
+          "周期4以内",
+          "仿射系数±8",
+          "模数范围由 options 控制",
+          "有限候选族与有限留出数据不构成唯一生成定理"
+        ]
+      }
     }
   ],
   "extensions": {
@@ -607,21 +819,21 @@
       "tasks": [
         {
           "name": "arithmetic_sequence",
-          "elapsedMs": 0.5417,
+          "elapsedMs": 0.3579,
           "status": "verified_on_supplied_observations",
           "candidateCount": null,
           "error": null
         },
         {
           "name": "random_uncertainty",
-          "elapsedMs": 0.1632,
+          "elapsedMs": 0.1932,
           "status": "no_certificate",
           "candidateCount": null,
           "error": null
         },
         {
           "name": "rotation_invariant",
-          "elapsedMs": 0.4276,
+          "elapsedMs": 0.6411,
           "status": "verified_dynamics_invariants",
           "candidateCount": 1,
           "error": null
@@ -813,6 +1025,36 @@
         },
         "translationCoverage": null,
         "evidenceScope": null
+      },
+      {
+        "index": 12,
+        "domain": "hidden_sequence_competition",
+        "status": "candidate_frozen",
+        "verification": "verified_unique_hidden_structure",
+        "verificationStrength": "verified",
+        "residual": 0,
+        "complexity": 3,
+        "readability": {
+          "human": true,
+          "machine": true
+        },
+        "translationCoverage": null,
+        "evidenceScope": null
+      },
+      {
+        "index": 13,
+        "domain": "hidden_sequence_competition",
+        "status": "uncertain",
+        "verification": "ambiguous_hidden_structure",
+        "verificationStrength": "unknown",
+        "residual": null,
+        "complexity": 1,
+        "readability": {
+          "human": true,
+          "machine": true
+        },
+        "translationCoverage": null,
+        "evidenceScope": null
       }
     ],
     "summary": [
@@ -903,6 +1145,16 @@
         "refuted": 0,
         "unknown": 0,
         "verificationRate": 1,
+        "humanReadableRate": 1,
+        "machineReadableRate": 1
+      },
+      {
+        "domain": "hidden_sequence_competition",
+        "total": 2,
+        "verified": 1,
+        "refuted": 0,
+        "unknown": 1,
+        "verificationRate": 0.5,
         "humanReadableRate": 1,
         "machineReadableRate": 1
       }

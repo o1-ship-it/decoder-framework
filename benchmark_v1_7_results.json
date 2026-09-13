@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "claim": "decoder_benchmark_run",
+  "benchmarkVersion": "1.7",
+  "seed": 20260913,
+  "results": [
+    {
+      "id": "competition_unique_modular_v17",
+      "expected": "verified_unique",
+      "actual": "verified_unique_hidden_structure",
+      "verificationStrength": "verified",
+      "candidateCount": 1,
+      "elapsedMs": 1.9765
+    },
+    {
+      "id": "competition_ambiguous_arithmetic_v17",
+      "expected": "ambiguous",
+      "actual": "ambiguous_hidden_structure",
+      "verificationStrength": "unknown",
+      "candidateCount": 3,
+      "elapsedMs": 0.8299
+    },
+    {
+      "id": "competition_unknown_v17",
+      "expected": "unknown",
+      "actual": "uncertain_hidden_structure",
+      "verificationStrength": "unknown",
+      "candidateCount": 0,
+      "elapsedMs": 0.1139
+    }
+  ]
+}
